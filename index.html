@@ -3,249 +3,440 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wellness Value Matcher</title>
+  <title>SAYO Wellness Landing</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#EEF5EF;
-      --surface:#FFFFFF;
-      --ink:#14312A;
-      --primary:#14453A;
-      --primary2:#1F6E52;
-      --mint:#DCEEE4;
-      --sand:#F0D9AE;
-      --clay:#E0985A;
-      --muted:#5C7168;
-      --line:#DCE8E1;
+      --bg:#d9e7d2;
+      --green:#0c8f72;
+      --green-dark:#085f4d;
+      --text:#173f38;
+      --muted:#75847f;
+      --cream:#f5ebc6;
+      --white:#ffffff;
+      --mint:#e1eee5;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:"Prompt",sans-serif;background:var(--bg);color:var(--ink)}
-    button{font:inherit;cursor:pointer}
-    .container{max-width:1050px;margin:auto;padding:0 20px 64px}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 2px}
-    .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:19px}
-    .logo{width:38px;height:38px;border-radius:12px;background:var(--primary);display:grid;place-items:center;color:white;font-size:19px}
-    .nav-right{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:14px}
-    .hero{margin:8px 0 24px}
-    .hero small{color:var(--muted);font-size:14px}
-    .hero h1{margin:4px 0 0;font-size:32px;line-height:1.25}
-    .stack{display:flex;flex-direction:column;gap:20px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 8px 28px rgba(20,49,42,.04)}
-    .section-title{display:flex;align-items:center;gap:9px;color:var(--primary2)}
-    .section-title h2{margin:0;color:var(--ink);font-size:18px}
-    .sub{color:var(--muted);font-size:14px;line-height:1.6;margin:7px 0 0}
-    .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--mint);color:var(--primary2);font-weight:600;font-size:13px}
-    .pill.sand{background:var(--sand);color:#5A3E14}
-    .pill.light{background:#fff;color:var(--primary2)}
-    .banner{background:var(--primary);color:#F3F8F5;border-radius:22px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .banner h3{font-size:22px;line-height:1.45;margin:12px 0 4px}
-    .banner p{margin:0;color:#BFD8CD;font-size:14px}
-    .btn{border:0;border-radius:13px;padding:12px 18px;font-weight:700;transition:.2s}
-    .btn:hover{transform:translateY(-1px)}
-    .btn.white{background:#fff;color:var(--primary)}
-    .btn.primary{background:var(--primary);color:#fff}
-    .btn.connected{background:var(--primary2);color:white}
-    .top-row{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
-    .app-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
-    .app-btn{border:1px solid var(--line);background:#FAFCFB;border-radius:14px;padding:13px;text-align:left}
-    .app-btn.active{border-color:var(--primary2);background:var(--mint)}
-    .app-btn strong{display:block;font-size:14px;color:var(--ink)}
-    .app-btn span{font-size:12px;color:var(--muted)}
-    .notice{margin-top:15px;padding:10px 12px;border-radius:10px;background:var(--mint);color:var(--primary2);font-size:13px}
-    .days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:17px}
-    .day{border:0;background:var(--bg);border-radius:13px;padding:11px 4px;color:var(--ink);font-weight:600;font-size:12px;min-height:54px}
-    .day.active{background:var(--primary);color:white}
-    .dot{width:6px;height:6px;border-radius:50%;background:var(--sand);display:block;margin:6px auto 0}
-    .plan-list{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:8px}
-    .plan-list li{display:flex;justify-content:space-between;gap:10px;font-size:13px}
-    .plan-list small{color:var(--muted)}
-    .points{display:flex;align-items:baseline;gap:8px;margin-top:17px}
-    .points strong{font-size:36px}
-    .points span{font-size:13px;color:var(--muted)}
-    .progress{height:10px;border-radius:999px;background:var(--bg);overflow:hidden;margin-top:8px}
-    .progress > div{height:100%;width:50%;background:var(--clay);border-radius:999px}
-    .tiers{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
-    .footnote{color:var(--muted);font-size:12px;margin:13px 0 0}
-    .buddy{margin-top:17px;background:var(--bg);border-radius:14px;padding:13px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .buddy-info{display:flex;align-items:center;gap:12px}
-    .avatar{width:42px;height:42px;border-radius:50%;background:var(--mint);color:var(--primary2);display:grid;place-items:center;font-weight:700}
-    .buddy-info strong{display:block;font-size:14px}
-    .buddy-info span{font-size:12px;color:var(--muted)}
-    .tiny-btn{border:0;border-radius:10px;padding:9px 12px;background:var(--primary);color:white;font-size:12px;font-weight:700}
-    .wrap{position:relative;overflow:hidden;border-radius:22px;padding:30px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary2) 55%,var(--clay) 130%);color:white}
-    .blob{position:absolute;right:-45px;top:-45px;width:170px;height:170px;border-radius:50%;background:rgba(240,217,174,.25)}
-    .wrap-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .wrap-copy{max-width:500px}
-    .wrap-copy h3{font-size:27px;line-height:1.35;margin:13px 0 8px}
-    .wrap-copy p{color:#DCEAE3;font-size:14px;line-height:1.6;margin:0}
-    .story{width:235px;flex:0 0 auto;border-radius:18px;padding:18px;background:rgba(255,255,255,.12);backdrop-filter:blur(4px)}
-    .story small{color:#DCEAE3}
-    .story .big{font-size:40px;font-weight:800;margin:3px 0}
-    .share-btn{width:100%;margin-top:15px;border:0;border-radius:12px;padding:11px;background:white;color:var(--primary);font-weight:700}
-    .shared{margin-top:15px;color:var(--sand);font-size:13px;font-weight:600}
-    @media(max-width:760px){
-      .grid{grid-template-columns:1fr}
-      .banner,.wrap-inner{flex-direction:column;align-items:stretch}
-      .story{width:100%}
-      .hero h1{font-size:27px}
-      .nav-right{display:none}
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html,body{
+      margin:0;
+      padding:0;
+      min-height:100%;
+      font-family:"Noto Sans Thai","DM Sans",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    body{
+      display:flex;
+      justify-content:center;
+    }
+
+    .landing-shell{
+      width:min(100%,430px);
+      min-height:100vh;
+      background:var(--bg);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+
+    /* =========================
+       TOP INTERFACE
+    ========================= */
+
+    .landing-topbar{
+      position:relative;
+      padding:96px 20px 14px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .landing-topbar::before{
+      content:"";
+      position:absolute;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      width:184px;
+      height:42px;
+      border-radius:999px;
+      background:#000;
+      box-shadow:0 2px 4px rgba(0,0,0,.14);
+    }
+
+    .landing-brand-icon{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      background:linear-gradient(145deg,#15a483,#0b7b64);
+      color:white;
+      display:grid;
+      place-items:center;
+      font-size:24px;
+      box-shadow:0 10px 20px rgba(12,143,114,.16);
+      flex:0 0 auto;
+    }
+
+    .landing-topbar-title{
+      font-family:"DM Sans","Noto Sans Thai",sans-serif;
+      font-size:23px;
+      font-weight:800;
+      color:#143f39;
+      letter-spacing:-.3px;
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .landing-content{
+      padding:16px 18px 26px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .landing-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width:max-content;
+      max-width:100%;
+      padding:10px 14px;
+      border-radius:999px;
+      background:#e4f2eb;
+      color:#2b6b5f;
+      font-size:12px;
+      font-weight:700;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);
+    }
+
+    .landing-hero h1{
+      margin:4px 0 14px;
+      font-size:34px;
+      line-height:1.08;
+      letter-spacing:-1.5px;
+      color:#0b5b4b;
+    }
+
+    .landing-hero p{
+      margin:0 0 18px;
+      font-size:14px;
+      line-height:1.55;
+      color:rgba(18,63,55,.62);
+    }
+
+    /* =========================
+       CTA BUTTONS
+    ========================= */
+
+    .cta-stack{
+      display:grid;
+      gap:12px;
+    }
+
+    .cta-large{
+      width:100%;
+      border:0;
+      border-radius:20px;
+      min-height:60px;
+      padding:16px 18px;
+      font-family:inherit;
+      font-size:15px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 10px 22px rgba(18,63,55,.12);
+    }
+
+    .cta-large.primary{
+      background:var(--green-dark);
+      color:#fff;
+    }
+
+    .cta-large.secondary{
+      background:var(--cream);
+      color:#144d43;
+    }
+
+    .cta-large:active{
+      transform:scale(.99);
+    }
+
+    /* =========================
+       MINI STATS
+    ========================= */
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:4px;
+      margin-bottom:4px;
+    }
+
+    .feature-mini{
+      background:#fff;
+      border-radius:18px;
+      padding:16px 10px 14px;
+      text-align:center;
+      box-shadow:0 8px 18px rgba(18,63,55,.07);
+    }
+
+    .feature-mini .number{
+      font-size:17px;
+      font-weight:800;
+      color:#173f38;
+      line-height:1.15;
+    }
+
+    .feature-mini .caption{
+      margin-top:4px;
+      color:#7a8b85;
+      font-size:10px;
+      line-height:1.35;
+    }
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .howto-section{
+      text-align:center;
+      margin-top:30px;
+    }
+
+    .howto-section h2{
+      margin:4px 0 6px;
+      font-size:26px;
+      line-height:1.12;
+      letter-spacing:-.8px;
+      color:#173f38;
+    }
+
+    .howto-section p{
+      margin:0;
+      color:#7c8d86;
+      font-size:13px;
+    }
+
+    .info-stack{
+      display:grid;
+      gap:16px;
+      margin-top:8px;
+      padding:0 8px;
+    }
+
+    .info-card{
+      background:#fff;
+      border-radius:24px;
+      padding:20px 18px;
+      box-shadow:0 10px 24px rgba(18,63,55,.08);
+    }
+
+    .info-icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:var(--mint);
+      display:grid;
+      place-items:center;
+      font-size:22px;
+      margin-bottom:14px;
+    }
+
+    .info-card h3{
+      margin:0 0 8px;
+      font-size:17px;
+      line-height:1.25;
+      color:#193e36;
+    }
+
+    .info-card p{
+      margin:0;
+      font-size:13px;
+      line-height:1.6;
+      color:#6f837d;
+    }
+
+    /* =========================
+       FOOTER LOGO
+    ========================= */
+
+    .landing-footer-logo{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin:8px 0 6px;
+      padding-bottom:8px;
+    }
+
+    .landing-footer-logo img{
+      width:min(54vw,190px);
+      height:auto;
+      object-fit:contain;
+      display:block;
+    }
+
+    @media(max-width:390px){
+      .landing-topbar{
+        padding-top:90px;
+      }
+
+      .landing-topbar::before{
+        width:172px;
+        height:40px;
+      }
+
+      .landing-topbar-title{
+        font-size:21px;
+      }
+
+      .landing-hero h1{
+        font-size:31px;
+      }
+
+      .feature-mini{
+        padding:14px 8px 13px;
+      }
+
+      .feature-mini .number{
+        font-size:16px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <main class="container">
-    <nav class="nav">
-      <div class="brand"><div class="logo">♥</div>Wellness Value Matcher</div>
-      <div class="nav-right">แดชบอร์ดของฉัน <span>›</span></div>
-    </nav>
 
-    <section class="hero">
-      <small>สวัสดี 👋</small>
-      <h1>สรุปสถานะสมาชิกของคุณวันนี้</h1>
-    </section>
+  <div class="landing-shell">
 
-    <div class="stack">
-      <section class="banner">
-        <div>
-          <span class="pill light">✨ สมาชิกใหม่</span>
-          <h3>สมัครวันนี้ รับเครดิตทดลองฟรี 300 บาท</h3>
-          <p>ใช้จองคลาสหรือแลกสิทธิ์จอดรถได้ทันที ไม่มีผูกมัดบัตร</p>
-        </div>
-        <button class="btn white" id="claimBtn">รับเครดิตฟรี</button>
-      </section>
-
-      <div class="grid">
-        <section class="card">
-          <div class="top-row">
-            <div>
-              <div class="section-title"><span>🚗</span><h2>ที่จอดรถ ทดลองฟรี</h2></div>
-              <p class="sub">เชื่อมกับแอปเรียกรถที่ใช้อยู่แล้ว รับสิทธิ์จอดฟรี 2 ชม. ต่อการมาเยือน</p>
-            </div>
-            <span class="pill sand">ทดลอง 14 วัน</span>
-          </div>
-          <div class="app-grid">
-            <button class="app-btn" data-app="Grab"><strong>Grab</strong><span>จอง Grab ไป-กลับ</span></button>
-            <button class="app-btn" data-app="Lineman"><strong>Lineman</strong><span>จอง Lineman ไป-กลับ</span></button>
-          </div>
-          <div class="notice" id="parkingNotice" style="display:none"></div>
-        </section>
-
-        <section class="card">
-          <div class="section-title"><span>📅</span><h2>แผนสัปดาห์นี้</h2></div>
-          <p class="sub">แตะวันที่ต้องการวางแผนกิจกรรม</p>
-          <div class="days" id="days"></div>
-          <ul class="plan-list" id="planList"></ul>
-        </section>
-      </div>
-
-      <div class="grid">
-        <section class="card">
-          <div class="section-title"><span>🪙</span><h2>คะแนนสะสมรายเดือน</h2></div>
-          <p class="sub">จ่ายค่าสมาชิกรายเดือนครบ 1 รอบ = สะสม 1 แต้ม ใช้แลกส่วนลดหรืออัปเกรดแพ็กเกจ</p>
-          <div class="points"><strong>3</strong><span>/ 6 แต้ม ถึงระดับ Silver</span></div>
-          <div class="progress"><div></div></div>
-          <div class="tiers">
-            <span class="pill sand">🏆 Bronze</span><span class="pill">Silver</span><span class="pill">Gold</span>
-          </div>
-          <p class="footnote">ค่าสมาชิกเดือนนี้ ฿1,200 — ครบกำหนดตัดรอบถัดไป 1 แต้ม</p>
-        </section>
-
-        <section class="card">
-          <div class="section-title"><span>👥</span><h2>หาบัดดี้ออกกำลังกาย</h2></div>
-          <p class="sub">จับคู่กับสมาชิกที่มีตารางและความสนใจใกล้เคียงกัน ช่วยให้ไปสม่ำเสมอขึ้น</p>
-          <div class="buddy">
-            <div class="buddy-info">
-              <div class="avatar">น</div>
-              <div><strong>แนน</strong><span>Yoga · เช้าวันเสาร์</span></div>
-            </div>
-            <button class="tiny-btn" id="buddyBtn">ชวนเป็นบัดดี้</button>
-          </div>
-        </section>
-      </div>
-
-      <section class="wrap">
-        <div class="blob"></div>
-        <div class="wrap-inner">
-          <div class="wrap-copy">
-            <span class="pill light">🔥 Wellness Wrap</span>
-            <h3>ติดต่อกัน 3 วันแล้ว — ปลดล็อกการ์ดสรุปของคุณ</h3>
-            <p>เหมือน Spotify Wrapped แต่สรุปความสม่ำเสมอของคุณเอง แชร์ต่อ Story ได้เลย</p>
-          </div>
-          <div class="story">
-            <small>สัปดาห์นี้</small>
-            <div class="big">3 วัน</div>
-            <small>ติดต่อกัน · Fitness</small>
-            <button class="share-btn" id="shareBtn">↗ แชร์ไปที่ Story</button>
-            <div class="shared" id="sharedText" style="display:none">✓ แชร์ไปที่ Story แล้ว</div>
-          </div>
-        </div>
-      </section>
+    <!-- TOP -->
+    <div class="landing-topbar">
+      <div class="landing-brand-icon">♥</div>
+      <div class="landing-topbar-title">SAYO-Wellness</div>
     </div>
-  </main>
+
+    <div class="landing-content">
+
+      <div class="landing-pill">
+        ✦ Personalized Wellness Recommendation
+      </div>
+
+      <div class="landing-hero">
+        <h1>
+          เลือกแพ็กเกจที่ใช่<br>
+          ในแบบที่เป็นคุณ
+        </h1>
+
+        <p>
+          ตอบคำถามเกี่ยวกับเป้าหมาย ไลฟ์สไตล์ กิจกรรมที่สนใจ และงบประมาณ
+          แล้วให้ Wellness Value Tracker ช่วยค้นหาแพ็กเกจที่เหมาะกับคุณที่สุด
+        </p>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="cta-stack">
+        <button class="cta-large primary" onclick="startQuestionnaire()">
+          เริ่มค้นหาแพ็กเกจที่ใช่ →
+        </button>
+
+        <button class="cta-large secondary" onclick="comparePackages()">
+          ดูและเปรียบเทียบแพ็กเกจ
+        </button>
+      </div>
+
+      <!-- MINI CARDS -->
+      <div class="feature-grid">
+
+        <div class="feature-mini">
+          <div class="number">7 คำถาม</div>
+          <div class="caption">
+            ตอบตามไลฟ์สไตล์ของคุณ
+          </div>
+        </div>
+
+        <div class="feature-mini">
+          <div class="number">3 แพ็กเกจ</div>
+          <div class="caption">
+            Signature • Core • U-Rate
+          </div>
+        </div>
+
+        <div class="feature-mini">
+          <div class="number">For You</div>
+          <div class="caption">
+            พร้อมเหตุผลประกอบ
+          </div>
+        </div>
+
+      </div>
+
+      <!-- HOW TO -->
+      <div class="howto-section">
+        <h2>ง่ายขึ้น ตั้งแต่เริ่มเลือก</h2>
+        <p>
+          ออกแบบให้เข้าใจง่าย และเลือกตามไลฟ์สไตล์ของคุณ
+        </p>
+      </div>
+
+      <!-- INFO CARDS -->
+      <div class="info-stack">
+
+        <div class="info-card">
+          <div class="info-icon">📝</div>
+          <h3>ตอบตามตัวคุณ</h3>
+          <p>
+            เลือกเป้าหมายและกิจกรรมได้มากกว่าหนึ่งข้อ
+            พร้อมกำหนดงบประมาณของคุณเอง
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">✦</div>
+          <h3>ได้รับคำแนะนำ</h3>
+          <p>
+            ระบบช่วยวิเคราะห์ความต้องการ
+            และจับคู่กับแพ็กเกจที่เหมาะสม
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">⚖️</div>
+          <h3>ตัดสินใจได้ง่าย</h3>
+          <p>
+            ดูรายละเอียด เปรียบเทียบแพ็กเกจ
+            และเลือกแพ็กเกจที่ต้องการได้ทันที
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ใส่ไฟล์ logo.png ของเธอตรงนี้ -->
+      <div class="landing-footer-logo">
+        <img src="logo.png" alt="SAYO Logo">
+      </div>
+
+    </div>
+  </div>
 
   <script>
-    const claimBtn = document.getElementById('claimBtn');
-    claimBtn.addEventListener('click', () => {
-      claimBtn.textContent = '✓ รับเครดิตแล้ว — คงเหลือ 300 บาท';
-      claimBtn.classList.remove('white');
-      claimBtn.classList.add('connected');
-    });
-
-    const appButtons = [...document.querySelectorAll('.app-btn')];
-    const parkingNotice = document.getElementById('parkingNotice');
-    appButtons.forEach(btn => btn.addEventListener('click', () => {
-      appButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const app = btn.dataset.app;
-      parkingNotice.style.display = 'block';
-      parkingNotice.textContent = `📍 เชื่อมกับ ${app} แล้ว — สิทธิ์จอดฟรีพร้อมใช้ในทริปถัดไป`;
-    }));
-
-    const dayNames = ['จ','อ','พ','พฤ','ศ','ส','อา'];
-    const options = ['Fitness','Yoga','Muay Thai','Onsen'];
-    const planned = {0:'Fitness', 2:'Yoga', 4:'Muay Thai'};
-    const daysEl = document.getElementById('days');
-    const planList = document.getElementById('planList');
-
-    function renderPlanner(){
-      daysEl.innerHTML = '';
-      dayNames.forEach((d,i) => {
-        const btn = document.createElement('button');
-        btn.className = 'day' + (planned[i] ? ' active' : '');
-        btn.innerHTML = `${d}${planned[i] ? '<span class="dot"></span>' : ''}`;
-        btn.addEventListener('click', () => {
-          if(planned[i]) delete planned[i];
-          else planned[i] = options[i % options.length];
-          renderPlanner();
-        });
-        daysEl.appendChild(btn);
-      });
-
-      const entries = Object.entries(planned);
-      if(!entries.length){
-        planList.innerHTML = '<li><span style="color:var(--muted)">ยังไม่มีแผน แตะวันที่ด้านบนเพื่อเริ่ม</span></li>';
-      } else {
-        planList.innerHTML = entries.map(([i,label]) => `<li><span>${dayNames[i]} — ${label}</span><small>วางแผนแล้ว</small></li>`).join('');
-      }
+    function startQuestionnaire(){
+      alert("ไปหน้าคำถาม 7 ข้อ");
     }
-    renderPlanner();
 
-    const buddyBtn = document.getElementById('buddyBtn');
-    buddyBtn.addEventListener('click', () => {
-      buddyBtn.textContent = '✓ ส่งคำขอแล้ว';
-      buddyBtn.style.background = 'transparent';
-      buddyBtn.style.color = 'var(--primary2)';
-    });
-
-    const shareBtn = document.getElementById('shareBtn');
-    const sharedText = document.getElementById('sharedText');
-    shareBtn.addEventListener('click', () => {
-      shareBtn.style.display = 'none';
-      sharedText.style.display = 'block';
-    });
+    function comparePackages(){
+      alert("ไปหน้าเปรียบเทียบแพ็กเกจ");
+    }
   </script>
+
 </body>
 </html>
