@@ -1,57 +1,541 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Wellness Value Matcher</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Wellness Value Matcher · Mobile App Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--g:#0b765d;--gd:#075844;--deep:#0c3d33;--mint:#e7f6ef;--bg:#f5f8f6;--line:#dce9e4;--txt:#15352e;--mut:#758981;--white:#fff;--gold:#f4d36a;--shadow:0 16px 40px rgba(10,70,56,.10)}
-*{box-sizing:border-box}html,body{margin:0;background:#eaf1ee;color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Thai",Tahoma,sans-serif}button,input{font:inherit}button{cursor:pointer}.app{width:min(100%,430px);margin:auto;min-height:100vh;background:var(--bg);position:relative;overflow:hidden;box-shadow:0 0 60px rgba(0,0,0,.12)}.screen{display:none;min-height:100vh;padding-bottom:86px;background:linear-gradient(#fbfdfc,#f4f8f6)}.screen.active{display:block}.content{padding:0 22px 26px}.head{height:72px;display:grid;grid-template-columns:42px 1fr 42px;align-items:center;padding:14px 18px}.head h2{text-align:center;font-size:19px;margin:0}.back{border:0;background:none;font-size:31px;color:var(--txt)}h1,h2,h3,p{margin-top:0}h1{font-size:40px;line-height:1.04;letter-spacing:-1px}h2{font-size:27px}.muted{color:var(--mut);font-size:13px}.primary,.outline{width:100%;border-radius:13px;padding:14px 16px;font-weight:800}.primary{border:0;background:linear-gradient(#108268,#0b7059);color:#fff;box-shadow:0 8px 20px rgba(11,118,93,.18)}.outline{border:1px solid var(--g);background:#fff;color:var(--g)}.nav{position:absolute;bottom:0;left:0;right:0;height:76px;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:6px}.nav button{border:0;background:none;color:#879991;font-size:10px;border-radius:12px}.nav span{display:block;font-size:20px}.nav .active{color:var(--g);font-weight:900;background:#f0f7f4}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 7px 20px rgba(11,68,54,.04)}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:12px}.chip.on{background:var(--mint);border-color:#9ed3c1;color:var(--gd);font-weight:800}.seg{display:grid;grid-template-columns:repeat(2,1fr);background:#edf3f0;padding:4px;border-radius:14px;margin:16px 0}.seg button{border:0;background:transparent;padding:9px;border-radius:11px;color:var(--mut);font-weight:700}.seg .on{background:var(--g);color:#fff}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}.smallbtn{border:0;background:var(--g);color:#fff;border-radius:10px;padding:8px 10px;font-weight:800;font-size:11px}.toast{position:absolute;left:50%;bottom:92px;transform:translate(-50%,10px);background:var(--deep);color:#fff;padding:10px 14px;border-radius:999px;font-size:11px;opacity:0;transition:.2s;z-index:90;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
-/* welcome */
-#welcome{padding:0;background:linear-gradient(165deg,#fbfefd,#eef9f5 65%,#fff)}.brand{display:flex;align-items:center;gap:12px;padding:54px 28px}.logo{width:48px;height:48px;border-radius:15px;background:var(--g);color:white;display:grid;place-items:center;font-size:23px}.brand b{display:block;line-height:1.05;font-size:18px}.welcomeCopy{padding:35px 28px 0}.welcomeCopy small{font-weight:800;color:var(--g)}.welcomeCopy p{color:var(--mut);width:72%;line-height:1.6}.welcomeArt{height:360px;position:relative;overflow:hidden}.bubble{position:absolute;border-radius:50%;background:#d6f0e6}.b1{width:300px;height:300px;right:-80px;bottom:-30px}.b2{width:120px;height:120px;left:20px;top:30px;opacity:.7}.person{position:absolute;font-size:150px;right:40px;bottom:40px}.script{position:absolute;left:42px;bottom:120px;font-family:cursive;font-size:25px;color:#3a7d6c;transform:rotate(-5deg)}.welcomeBottom{padding:0 24px 28px;text-align:center}.textbtn{border:0;background:none;padding:12px;color:var(--txt)}
-/* signup/onboarding */
-.field{display:flex;gap:9px;align-items:center;border:1px solid var(--line);background:#fff;border-radius:12px;padding:0 12px;margin:10px 0}.field input{width:100%;border:0;outline:0;padding:13px 0;background:none}.check{font-size:11px;color:var(--mut);display:flex;gap:8px;margin:12px 0 16px}.gift{margin-top:17px;background:#fff8ef;border:1px solid #f0e3d5;border-radius:17px;padding:15px;display:flex;gap:12px}.gift span{font-size:34px}.gift p{font-size:11px;color:#7c6b5e;margin:3px 0}.q{margin:20px 0}.q b{display:block;margin-bottom:9px}.choices{display:flex;flex-wrap:wrap;gap:8px}.interests{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.interest{border:1px solid var(--line);background:#fff;border-radius:13px;padding:10px 4px;font-size:11px}.interest span{display:block;font-size:21px}
-/* home */
-.homeHead{padding:22px;display:flex;justify-content:space-between;align-items:center}.avatar{width:44px;height:44px;border-radius:50%;background:#cbe5db;display:grid;place-items:center;font-weight:900;border:2px solid #fff}.benefit{background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center}.trial{background:var(--g);color:#fff;border-radius:7px;padding:4px 7px;font-size:10px}.hero{margin-top:11px;height:210px;border-radius:21px;background:linear-gradient(140deg,#caebdf,#edf9f4 55%,#afdcca);position:relative;overflow:hidden;padding:18px}.hero .leaf{position:absolute;right:14px;top:9px;font-size:90px;opacity:.45}.quick{position:absolute;left:12px;right:12px;bottom:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.quick button{border:0;background:rgba(255,255,255,.92);border-radius:13px;padding:9px 3px;font-size:10px}.quick span{display:block;font-size:20px}.actGrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.actImg{height:94px;border-radius:12px;background:#e8f1ed;display:grid;place-items:center;font-size:43px;margin-bottom:8px}.act small{display:block;color:var(--mut);font-size:10px;margin-top:3px}.buddyBanner{margin-top:13px;background:linear-gradient(90deg,#dff3eb,#f4faf7);border:1px solid #cde7dc;border-radius:16px;padding:14px;display:flex;align-items:center;gap:10px}.arrow{width:30px;height:30px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;margin-left:auto}
-/* planner */
-.week{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.day{border:0;background:#fff;border-radius:11px;padding:8px 2px;color:var(--mut);font-size:10px}.day b{display:block;color:var(--txt);margin-top:4px}.day.on{background:var(--g);color:#fff}.day.on b{color:#fff}.timeline{display:flex;flex-direction:column;gap:10px;margin-top:16px}.item{display:grid;grid-template-columns:42px 36px 1fr 28px;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px}.item time,.item small{font-size:10px;color:var(--mut)}.item b,.item small{display:block}.plus{width:24px;height:24px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--g)}.dash{width:100%;margin-top:11px;border:1.5px dashed #b7cbc3;background:none;color:var(--g);padding:11px;border-radius:13px}.progress{height:7px;background:#e7efeb;border-radius:99px;overflow:hidden}.progress div{height:100%;background:var(--g)}
-/* parking */
-.park{display:grid;grid-template-columns:52px 1fr 70px;gap:11px;align-items:center}.P{width:48px;height:48px;border-radius:12px;background:var(--g);color:#fff;display:grid;place-items:center;font-size:28px;font-weight:900}.car{font-size:42px}.transport{display:grid;grid-template-columns:1fr 1fr;gap:10px}.transport button{border:0;border-radius:14px;padding:14px;color:#fff;font-size:12px;font-weight:800}.grab{background:#08765d}.line{background:#04b957}.map{height:165px;border-radius:17px;background:repeating-linear-gradient(35deg,#edf1f0 0 18px,#fff 18px 20px);margin-top:13px;position:relative}.pin{position:absolute;left:55%;top:42%;font-size:34px}.map button{position:absolute;right:10px;bottom:10px;border:0;background:#fff;border-radius:9px;padding:7px 10px}
-/* points rewards buddy */
-.points{background:linear-gradient(145deg,#0d6e58,#074737);color:#fff;border-radius:20px;padding:20px}.points strong{display:block;font-size:42px}.earn{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.earn div{text-align:center}.earn span{display:block;font-size:24px}.earn small{display:block;color:var(--g);font-weight:800}.list{display:flex;flex-direction:column;gap:10px}.listItem{display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:15px;padding:10px}.thumb{width:58px;height:58px;border-radius:12px;background:#eef3f1;display:grid;place-items:center;font-size:29px}.listItem b,.listItem small{display:block}.listItem small{font-size:10px;color:var(--mut);margin-top:3px}.buddyAvatar{width:48px;height:48px;border-radius:50%;background:#e0efe9;display:grid;place-items:center;font-size:25px}
-/* wrap/profile/package */
-.wrap{background:linear-gradient(145deg,#0d715b,#075041);color:#fff;border-radius:22px;padding:24px;text-align:center}.wrapKpi{display:grid;grid-template-columns:repeat(3,1fr);margin:18px 0}.wrapKpi b,.wrapKpi small{display:block}.wrapKpi b{font-size:28px}.wrapKpi small{font-size:10px}.miniGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.miniGrid div{background:#e7f5ef;border-radius:14px;padding:13px 6px;text-align:center}.miniGrid span,.miniGrid b,.miniGrid small{display:block}.miniGrid span{font-size:22px}.miniGrid small{font-size:9px;color:var(--mut)}.packageTop{display:flex;justify-content:space-between}.feature{list-style:none;padding:0;display:flex;flex-direction:column;gap:11px;font-size:13px}.profileHead{display:flex;gap:14px;align-items:center}.profileStats{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;margin:20px 0}.profileStats b,.profileStats small{display:block}.profileStats small{font-size:10px;color:var(--mut)}.menu{background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden}.menu button{width:100%;border:0;border-bottom:1px solid #edf2f0;background:#fff;padding:15px;display:grid;grid-template-columns:28px 1fr 20px;text-align:left}.menu button:last-child{border:0}
-@media(min-width:700px){body{padding:28px}.app{min-height:880px;border-radius:34px}.screen{min-height:880px}}
+:root{
+  --green:#176d5d;
+  --green-dark:#0f5146;
+  --mint:#e7f4ee;
+  --mint-2:#f4faf7;
+  --bg:#eef2ef;
+  --surface:#fff;
+  --ink:#15332d;
+  --muted:#71817b;
+  --line:#dfe9e4;
+  --pink:#ec6e9d;
+  --shadow:0 26px 70px rgba(20,55,46,.16);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans Thai","DM Sans",sans-serif;color:var(--ink);background:
+radial-gradient(circle at 20% 10%,rgba(164,218,196,.25),transparent 24%),
+radial-gradient(circle at 85% 85%,rgba(237,210,166,.2),transparent 24%),
+#eef2ef}
+button,input{font:inherit}
+button{cursor:pointer;border:0}
+body{display:flex;justify-content:center;padding:22px 12px 40px}
+.phone-shell{
+  width:min(100%,430px);
+  min-height:880px;
+  background:#fbfdfc;
+  border:1px solid rgba(23,109,93,.12);
+  border-radius:38px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  position:relative;
+}
+.statusbar{
+  height:30px;padding:9px 22px 0;display:flex;justify-content:space-between;
+  font-size:11px;font-family:"DM Sans";font-weight:700;background:#fbfdfc;
+}
+.appbar{
+  min-height:58px;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);backdrop-filter:blur(14px);
+  position:sticky;top:0;z-index:20;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:13px}
+.logo{
+  width:30px;height:30px;border-radius:10px;background:linear-gradient(145deg,#1c846f,#0b4c41);
+  color:#fff;display:grid;place-items:center;box-shadow:0 7px 18px rgba(23,109,93,.2)
+}
+.appbar-actions{display:flex;gap:7px}
+.icon-btn{width:34px;height:34px;border-radius:12px;background:var(--mint-2);color:var(--green);display:grid;place-items:center}
+section{display:none;min-height:792px;background:#fbfdfc}
+section.active{display:block}
+.screen-pad{padding:20px 18px 26px}
+.splash,.loading{
+  min-height:850px;display:flex!important;align-items:center;justify-content:center;flex-direction:column;
+  background:linear-gradient(180deg,#fbfdfc,#eef7f2)
+}
+.splash-mark{
+  width:134px;height:134px;border-radius:50%;display:grid;place-items:center;background:var(--surface);
+  border:1px solid #b9dbce;box-shadow:0 18px 45px rgba(23,109,93,.12);position:relative
+}
+.splash-mark:before{content:"♥";font-size:58px;color:var(--green)}
+.splash-title{margin-top:18px;font-family:"DM Sans";font-weight:800;font-size:20px}
+.loader{
+  width:54px;height:54px;border:4px solid #d8e9e1;border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite
+}
+.loading p{color:var(--muted);font-size:13px;margin-top:18px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.welcome-hero{
+  min-height:675px;padding:34px 22px 20px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;
+  background:
+  radial-gradient(circle at 18% 32%,#d9f0e7 0 8%,transparent 9%),
+  radial-gradient(circle at 78% 39%,#cfeadb 0 15%,transparent 16%),
+  linear-gradient(180deg,#f9fcfa,#e7f4ee)
+}
+.welcome-hero:after{
+  content:"";position:absolute;width:210px;height:210px;border-radius:48% 52% 50% 50%;background:#c9e7d9;
+  right:-45px;bottom:150px;transform:rotate(-12deg);opacity:.72
+}
+.kicker{font-size:11px;color:var(--green);font-weight:800;letter-spacing:.6px}
+.hero-copy{position:relative;z-index:2}
+.hero-copy h1{font-size:39px;line-height:1.13;margin:9px 0 12px;letter-spacing:-1.2px}
+.hero-copy h1 span{color:var(--green)}
+.hero-copy p{color:var(--muted);font-size:13px;line-height:1.75;max-width:330px}
+.hero-figure{height:265px;position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center}
+.person{
+  width:155px;height:155px;border-radius:50% 50% 45% 45%;background:linear-gradient(180deg,#f6c5a9 0 28%,#c98461 29% 38%,#8dcdb4 39% 100%);
+  position:relative;box-shadow:0 16px 28px rgba(30,85,70,.12)
+}
+.person:before,.person:after{content:"";position:absolute;width:84px;height:23px;border-radius:20px;background:#8dcdb4;top:70px}
+.person:before{left:-60px;transform:rotate(23deg)}
+.person:after{right:-60px;transform:rotate(-23deg)}
+.welcome-actions{padding:18px;background:#fff;border-top:1px solid var(--line)}
+.primary,.secondary,.ghost{
+  min-height:48px;border-radius:15px;padding:12px 16px;font-weight:700;transition:.18s
+}
+.primary{background:var(--green);color:#fff;box-shadow:0 10px 22px rgba(23,109,93,.16)}
+.primary:hover{background:var(--green-dark);transform:translateY(-1px)}
+.secondary{background:#fff;color:var(--green);border:1px solid #bad9ce}
+.ghost{background:transparent;color:var(--green)}
+.full{width:100%}
+.stack{display:grid;gap:9px}
+.mini-link{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+.mini-link button{background:none;color:var(--green);font-weight:800;padding:0}
+
+.auth-wrap{padding:34px 24px}
+.auth-heart{width:43px;height:43px;border-radius:14px;background:var(--green);color:#fff;display:grid;place-items:center;margin:2px auto 18px}
+.auth-title{text-align:center;margin-bottom:24px}
+.auth-title h2{font-size:25px;margin:0 0 4px}.auth-title p{margin:0;color:var(--muted);font-size:12px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:11px;font-weight:700;margin-bottom:6px;color:#52625d}
+.field input{width:100%;border:1px solid var(--line);border-radius:14px;padding:13px 14px;outline:none;background:#fff}
+.field input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(23,109,93,.07)}
+.divider{display:flex;align-items:center;gap:10px;color:#a1aca8;font-size:11px;margin:18px 0}
+.divider:before,.divider:after{content:"";height:1px;background:var(--line);flex:1}
+.social-btn{width:100%;height:44px;border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:9px;font-weight:600}
+.checkbox-row{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);margin:5px 0 15px}
+.checkbox-row label{display:flex;gap:6px;align-items:center}.checkbox-row a{color:var(--green);font-weight:700}
+
+.home-head{padding:20px 18px 8px}
+.home-head h1{font-size:30px;line-height:1.12;margin:6px 0}
+.home-head p{margin:0;color:var(--muted);font-size:12px;line-height:1.65}
+.recommend-card{
+  margin:15px 18px 12px;padding:18px;border-radius:22px;background:linear-gradient(135deg,#176d5d,#0d5145);color:#fff;box-shadow:0 18px 35px rgba(23,109,93,.18)
+}
+.recommend-card .tag{display:inline-block;padding:5px 9px;background:rgba(255,255,255,.13);border-radius:999px;font-size:9px}
+.recommend-card h3{margin:9px 0 5px;font-size:20px}.recommend-card p{font-size:11px;color:#d6e9e2;line-height:1.55;margin:0 0 13px}
+.recommend-card button{background:#fff;color:var(--green);width:100%;height:42px;border-radius:12px;font-weight:800}
+.quick-tabs{display:flex;gap:8px;padding:0 18px 12px;overflow:auto}
+.quick-tabs span{white-space:nowrap;background:#f1f5f3;border:1px solid var(--line);padding:7px 11px;border-radius:999px;font-size:10px;color:#687872}
+.quick-tabs span.active{background:var(--mint);color:var(--green);border-color:#c4e0d5}
+.info-block{padding:0 18px 15px}
+.info-block h3{font-size:15px;margin:8px 0 10px}
+.feature-list{display:grid;gap:9px}
+.feature-item{display:flex;gap:12px;padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.feature-icon{width:32px;height:32px;border-radius:10px;background:var(--mint);display:grid;place-items:center;flex:0 0 auto}
+.feature-item b{display:block;font-size:12px}.feature-item p{margin:2px 0 0;color:var(--muted);font-size:10px;line-height:1.45}
+
+.back{background:none;color:var(--green);font-size:12px;font-weight:800;padding:0 0 14px}
+.progress-head{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:7px}
+.progress{height:6px;border-radius:99px;background:#e5ece8;overflow:hidden}.progress div{height:100%;background:var(--green);transition:.25s}
+.quiz-card{margin-top:18px;padding:21px;border:1px solid var(--line);border-radius:23px;background:#fff;box-shadow:0 14px 35px rgba(24,65,54,.07)}
+.quiz-card h2{font-size:21px;line-height:1.35;margin:7px 0}.helper{font-size:11px;color:var(--muted);margin-bottom:15px}
+.options{display:grid;gap:8px}.option{width:100%;text-align:left;padding:13px 14px;border-radius:13px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.option.selected{border-color:var(--green);background:var(--mint-2);box-shadow:inset 0 0 0 1px var(--green)}
+.option.selected:after{content:"✓";float:right;color:var(--green);font-weight:800}
+.quiz-footer{display:flex;gap:8px;margin-top:16px}.quiz-footer button{flex:1}
+.budget-input{width:100%;padding:15px;border-radius:14px;border:1px solid var(--line);outline:none;font-size:18px}
+
+.compare-title{padding:18px 18px 8px}.compare-title h2{font-size:26px;margin:0 0 5px}.compare-title p{font-size:11px;color:var(--muted);margin:0}
+.plan-list{display:grid;gap:12px;padding:8px 18px 18px}
+.plan{border:1px solid var(--line);border-radius:20px;background:#fff;padding:17px;position:relative}
+.plan.selected{border:2px solid var(--green);box-shadow:0 13px 30px rgba(23,109,93,.10)}
+.ribbon{position:absolute;right:12px;top:12px;background:var(--green);color:white;font-size:9px;padding:5px 8px;border-radius:99px}
+.plan-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;margin-top:6px}
+.plan h3{font-size:19px;margin:2px 0}.price{font-family:"DM Sans";font-size:23px;font-weight:800;color:var(--green)}
+.plan ul{list-style:none;padding:0;margin:12px 0;font-size:11px;color:#66766f;line-height:1.9}.plan li:before{content:"✓ ";color:var(--green);font-weight:800}
+.plan-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.plan-actions button{min-height:40px;font-size:11px}
+.compare-table{margin:0 18px 20px;border:1px solid var(--line);border-radius:18px;overflow:auto;background:white}
+table{border-collapse:collapse;width:100%;min-width:500px}th,td{font-size:10px;padding:10px;border-bottom:1px solid var(--line);text-align:center}th:first-child,td:first-child{text-align:left}
+.selected-banner{margin:0 18px 18px;padding:15px;border-radius:18px;background:var(--mint);border:1px solid #cce4da;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.selected-banner b{font-size:12px}.selected-banner small{display:block;color:var(--muted);font-size:9px}.selected-banner button{font-size:10px;white-space:nowrap}
+
+.detail-card{margin:8px 18px 20px;padding:20px;border:1px solid var(--line);background:#fff;border-radius:22px}
+.detail-card h1{font-size:28px;line-height:1.15;margin:6px 0}.detail-card p{font-size:11px;color:var(--muted);line-height:1.7}
+.detail-price{font-family:"DM Sans";font-size:31px;font-weight:800;color:var(--green);margin:14px 0}
+.detail-box{padding:15px;border-radius:16px;background:var(--mint-2);margin-top:10px}.detail-box h3{font-size:13px;margin:0 0 7px}.detail-list{padding:0;list-style:none;font-size:11px;line-height:2}.detail-list li:before{content:"✓ ";color:var(--green);font-weight:800}
+
+.result-card{margin:10px 18px 14px;padding:21px;border-radius:23px;background:linear-gradient(145deg,#176d5d,#123d35);color:#fff}
+.result-card h2{font-size:26px;margin:8px 0}.result-card p{font-size:11px;color:#cee4dc;line-height:1.65}
+.score{width:82px;height:82px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--green);font-size:21px;font-weight:800;margin:14px 0}
+.reasons{margin:0 18px 18px;padding:16px;border:1px solid var(--line);border-radius:18px;background:#fff}.reason{font-size:10px;color:#5e6f68;padding:8px 0;border-bottom:1px solid var(--line)}.reason:last-child{border-bottom:0}
+
+.checkout-card{margin:8px 18px 20px;padding:18px;border:1px solid var(--line);border-radius:20px;background:#fff}
+.order-summary{padding:15px;border-radius:16px;background:var(--mint-2)}.order-summary h3{margin:5px 0}.summary-row{display:flex;justify-content:space-between;font-size:11px;padding:10px 0;border-bottom:1px solid var(--line)}.summary-row:last-child{border-bottom:0;font-weight:800}
+.payment-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:14px 0}.pay-tab{padding:9px 5px;border-radius:10px;background:#f3f6f4;border:1px solid var(--line);font-size:9px}.pay-tab.active{background:var(--mint);color:var(--green);border-color:#badacb;font-weight:800}
+.pay-form input{width:100%;padding:12px;border-radius:11px;border:1px solid var(--line);margin:5px 0}.success-box{text-align:center;padding:50px 24px}.success-icon{width:80px;height:80px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:42px;margin:0 auto 16px}
+.bottom-nav{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);background:#fff;padding:8px 6px 10px;position:sticky;bottom:0}
+.bottom-nav button{background:none;color:#87938f;font-size:9px;display:grid;gap:3px;place-items:center}.bottom-nav button span{font-size:18px}.bottom-nav button.active{color:var(--green);font-weight:800}
+@media(max-width:470px){body{padding:0}.phone-shell{border-radius:0;min-height:100vh;width:100%;border:0}.statusbar{display:none}section{min-height:calc(100vh - 58px)}.splash,.loading{min-height:100vh}}
 </style>
 </head>
 <body>
-<div class="app">
-<section class="screen active" id="welcome"><div class="brand"><div class="logo">♥</div><div><b>Wellness</b><b>Value Matcher</b></div></div><div class="welcomeCopy"><small>PERSONALIZED WELLNESS</small><h1>สุขภาพที่ใช่<br>ในแบบที่เป็นคุณ</h1><p>ค้นหา ดูแล และใช้ชีวิตที่ดีขึ้นได้ในทุกวันที่นี่</p></div><div class="welcomeArt"><div class="bubble b1"></div><div class="bubble b2"></div><div class="person">🧘🏻‍♀️</div><div class="script">A Healthier<br>Happier You</div></div><div class="welcomeBottom"><button class="primary go" data-go="signup">เริ่มใช้งาน →</button><button class="textbtn go" data-go="home">มีบัญชีแล้ว? <u>เข้าสู่ระบบ</u></button></div></section>
-<section class="screen" id="signup"><header class="head"><button class="back go" data-go="welcome">‹</button><div></div><div></div></header><div class="content"><h2>สมัครสมาชิก</h2><p class="muted">เริ่มต้นดูแลตัวเองได้เลย</p><div class="seg"><button class="on">สมัครใหม่</button><button>เข้าสู่ระบบ</button></div><label class="field">👤<input placeholder="ชื่อ-นามสกุล"></label><label class="field">✉️<input placeholder="อีเมล"></label><label class="field">📱<input placeholder="เบอร์โทรศัพท์"></label><label class="field">🔒<input type="password" placeholder="ตั้งรหัสผ่าน"></label><label class="check"><input type="checkbox" checked><span>ยอมรับข้อกำหนดและเงื่อนไข และนโยบายความเป็นส่วนตัว</span></label><button class="primary go" data-go="onboarding">เริ่มทดลองใช้ฟรี</button><div class="gift"><span>🎁</span><div><b>รับฟรีทันที!</b><p>ทดลองใช้ฟรี 7 วัน<br>และ <b>300 Wellness Credits</b></p></div></div></div></section>
-<section class="screen" id="onboarding"><header class="head"><button class="back go" data-go="signup">‹</button><div></div><div></div></header><div class="content"><h2>บอกเราเพิ่มเติม<br>เพื่อแพ็กเกจที่ใช่สำหรับคุณ</h2><div class="q"><b>เพศ</b><div class="choices"><button class="chip">หญิง</button><button class="chip">ชาย</button><button class="chip">อื่นๆ</button></div></div><div class="q"><b>อาชีพ</b><div class="choices"><button class="chip on">นักเรียน/นักศึกษา</button><button class="chip">พนักงานออฟฟิศ</button><button class="chip">เจ้าของธุรกิจ</button><button class="chip">ฟรีแลนซ์</button></div></div><div class="q"><b>ความถี่ในการออกกำลังกาย</b><div class="choices"><button class="chip">ไม่ค่อย</button><button class="chip on">1-2 ครั้ง/สัปดาห์</button><button class="chip">3-5 ครั้ง/สัปดาห์</button></div></div><div class="q"><b>สิ่งที่สนใจ</b><div class="interests"><button class="interest on"><span>🏋️</span>Fitness</button><button class="interest on"><span>🧘</span>Yoga</button><button class="interest"><span>🥊</span>Muay Thai</button><button class="interest"><span>♨️</span>Onsen</button><button class="interest"><span>🥗</span>Nutrition</button><button class="interest"><span>🫶</span>Mindfulness</button></div></div><button class="primary go" data-go="home">ถัดไป →</button></div></section>
-<section class="screen" id="home"><header class="homeHead"><div><div class="muted">สวัสดี</div><h2>Achiraya! 👋</h2></div><div class="avatar">A</div></header><div class="content"><div class="benefit"><div><span class="trial">Free Trial</span><small> เหลืออีก 7 วัน</small></div><b>🪙 300 Credits</b></div><div class="hero"><div style="font-family:cursive;color:#347b69">A healthier you,<br>brighter tomorrow ♥</div><div class="leaf">🌿</div><div class="quick"><button class="go" data-go="planner"><span>🗓️</span>จองคลาส</button><button class="go" data-go="parking"><span>🅿️</span>จอดรถ</button><button class="go" data-go="parking"><span>🚕</span>เรียกรถ</button><button class="go" data-go="package"><span>🧰</span>แพ็กเกจ</button></div></div><div class="row" style="margin:20px 0 10px"><h3 style="margin:0">กิจกรรมแนะนำสำหรับคุณ</h3><span style="color:var(--g);font-size:12px">ดูทั้งหมด ›</span></div><div class="actGrid"><div class="card act"><div class="actImg">🧘🏻‍♀️</div><b>Yoga Flow</b><small>10:00 - 11:00<br>Fitness Studio</small></div><div class="card act"><div class="actImg">🥊</div><b>Muay Thai Basics</b><small>18:00 - 19:00<br>Combat Zone</small></div></div><div class="buddyBanner go" data-go="buddy"><div><b>เพื่อนคู่สุขภาพ</b><p style="font-size:11px;margin:4px 0">Find your Buddy<br><span class="muted">ออกกำลังกายไปด้วยกัน สนุกกว่า!</span></p></div><div>👩🏻‍🦰👩🏻‍🦱👨🏻</div><div class="arrow">→</div></div></div><nav class="nav"><button class="active go" data-go="home"><span>⌂</span>หน้าหลัก</button><button class="go" data-go="planner"><span>▣</span>แพลน</button><button class="go" data-go="points"><span>◎</span>เครดิต</button><button class="go" data-go="buddy"><span>♧</span>ชุมชน</button><button class="go" data-go="profile"><span>♟</span>โปรไฟล์</button></nav></section>
-<section class="screen" id="planner"><header class="head"><button class="back go" data-go="home">‹</button><h2>My Weekly Planner</h2><div></div></header><div class="content"><div class="row" style="margin-bottom:12px"><button class="back">‹</button><b>1 - 7 Sep 2026</b><button class="back">›</button></div><div class="week"><button class="day on">Mon<b>1</b></button><button class="day">Tue<b>2</b></button><button class="day">Wed<b>3</b></button><button class="day">Thu<b>4</b></button><button class="day">Fri<b>5</b></button><button class="day">Sat<b>6</b></button><button class="day">Sun<b>7</b></button></div><div class="timeline"><div class="item"><time>08:00</time><div>🏋️</div><div><b>Gym - Upper Body</b><small>Fitness Studio</small></div><span>✓</span></div><div class="item"><time>10:00</time><div>🧘</div><div><b>Yoga Flow</b><small>Mind & Body Studio</small></div><button class="plus">+</button></div><div class="item"><time>18:00</time><div>🥊</div><div><b>Muay Thai</b><small>Combat Zone</small></div><button class="plus">+</button></div></div><button class="dash">＋ เพิ่มกิจกรรม</button><div class="card" style="margin-top:14px"><div class="row"><h3 style="margin:0">เป้าหมายสัปดาห์นี้</h3><span>🏆</span></div><h2 style="margin:12px 0 6px">3/5 <small class="muted">กิจกรรม</small></h2><div class="progress"><div style="width:60%"></div></div></div></div><nav class="nav"><button class="go" data-go="home"><span>⌂</span>หน้าหลัก</button><button class="active"><span>▣</span>แพลน</button><button class="go" data-go="points"><span>◎</span>เครดิต</button><button class="go" data-go="buddy"><span>♧</span>ชุมชน</button><button class="go" data-go="profile"><span>♟</span>โปรไฟล์</button></nav></section>
-<section class="screen" id="parking"><header class="head"><button class="back go" data-go="home">‹</button><h2>Parking & Transport</h2><div></div></header><div class="content"><div class="seg"><button class="on">ที่จอดรถ</button><button>การเดินทาง</button></div><div class="card park"><div class="P">P</div><div><h3 style="margin:0">สิทธิ์จอดฟรี<br>สำหรับสมาชิก</h3><p style="font-size:12px"><b>4 ชั่วโมง / วัน</b></p></div><div class="car">🚙</div></div><button class="primary" id="parkBtn" style="margin-top:12px">▣ เริ่มจอดรถ</button><h3 style="margin-top:23px">การเดินทางมายังสาขา</h3><p style="font-size:12px">📍 <b>Wellness Center (Siam)</b><br><span class="muted">สยามสแควร์, กรุงเทพฯ</span></p><div class="transport"><button class="grab">🚕<br>เรียก Grab</button><button class="line">Ⓜ<br>เรียก LINE MAN</button></div><div class="map"><div class="pin">📍</div><button>ดูเส้นทาง</button></div></div></section>
-<section class="screen" id="points"><header class="head"><button class="back go" data-go="home">‹</button><h2>Wellness Points</h2><div></div></header><div class="content"><div class="points"><small>Your Points</small><strong>1,250</strong><div>♛ Silver Member</div><div class="progress" style="margin-top:12px;background:rgba(255,255,255,.16)"><div style="width:62%;background:var(--gold)"></div></div><small>อีก 750 คะแนน เพื่อเป็น Gold</small></div><h3 style="margin-top:23px">รับคะแนนจากการใช้งาน</h3><div class="earn"><div class="card"><span>🗓️</span><b>จองคลาส</b><small>+50</small></div><div class="card"><span>📍</span><b>เช็คอิน</b><small>+10</small></div><div class="card"><span>🧰</span><b>ซื้อแพ็กเกจ</b><small>+100</small></div></div><button class="outline go" data-go="rewards" style="margin-top:14px">ดูรางวัลทั้งหมด</button></div><nav class="nav"><button class="go" data-go="home"><span>⌂</span>หน้าหลัก</button><button class="go" data-go="planner"><span>▣</span>แพลน</button><button class="active"><span>◎</span>เครดิต</button><button class="go" data-go="buddy"><span>♧</span>ชุมชน</button><button class="go" data-go="profile"><span>♟</span>โปรไฟล์</button></nav></section>
-<section class="screen" id="rewards"><header class="head"><button class="back go" data-go="points">‹</button><h2>แลกรางวัล</h2><div></div></header><div class="content"><div class="choices" style="margin-bottom:15px"><button class="chip on">รางวัลทั้งหมด</button><button class="chip">สิทธิพิเศษ</button><button class="chip">ประสบการณ์</button></div><div class="list"><div class="listItem"><div class="thumb">🧘🏻‍♀️</div><div><b>Free Class Pass</b><small>ใช้ 500 คะแนน</small></div><button class="smallbtn redeem">แลก</button></div><div class="listItem"><div class="thumb">🚙</div><div><b>Parking 2 ชั่วโมง</b><small>ใช้ 300 คะแนน</small></div><button class="smallbtn redeem">แลก</button></div><div class="listItem"><div class="thumb">♨️</div><div><b>Onsen Pass</b><small>ใช้ 800 คะแนน</small></div><button class="smallbtn redeem">แลก</button></div><div class="listItem"><div class="thumb">🎁</div><div><b>Wellness Gift Set</b><small>ใช้ 1,500 คะแนน</small></div><button class="smallbtn redeem">แลก</button></div></div></div></section>
-<section class="screen" id="buddy"><header class="head"><button class="back go" data-go="home">‹</button><h2>Find Your Buddy</h2><div></div></header><div class="content"><p class="muted">เพราะการมีเพื่อน ทำให้การดูแลตัวเองสนุกขึ้น</p><div class="seg"><button class="on">แนะนำให้คุณ</button><button>เพื่อนของฉัน</button></div><div class="list"><div class="listItem"><div class="buddyAvatar">👩🏻</div><div><b>Mint</b><small>ชอบ Yoga · ไป 3 ครั้ง/สัปดาห์</small></div><button class="smallbtn connect">+ เป็นเพื่อน</button></div><div class="listItem"><div class="buddyAvatar">👨🏻</div><div><b>Ter</b><small>ชอบ Gym · ไป 4 ครั้ง/สัปดาห์</small></div><button class="smallbtn connect">+ เป็นเพื่อน</button></div><div class="listItem"><div class="buddyAvatar">👩🏻‍🦰</div><div><b>Bam</b><small>ชอบวิ่ง · ไป 5 ครั้ง/สัปดาห์</small></div><button class="smallbtn connect">+ เป็นเพื่อน</button></div></div></div><nav class="nav"><button class="go" data-go="home"><span>⌂</span>หน้าหลัก</button><button class="go" data-go="planner"><span>▣</span>แพลน</button><button class="go" data-go="points"><span>◎</span>เครดิต</button><button class="active"><span>♧</span>ชุมชน</button><button class="go" data-go="profile"><span>♟</span>โปรไฟล์</button></nav></section>
-<section class="screen" id="wrap"><header class="head"><button class="back go" data-go="profile">‹</button><h2>Wellness Wrap</h2><div></div></header><div class="content"><div class="seg" style="grid-template-columns:repeat(3,1fr)"><button>สัปดาห์นี้</button><button>เดือนนี้</button><button class="on">ปี 2026</button></div><div class="wrap"><small>Your 2026</small><h2>Wellness Wrap</h2><div class="wrapKpi"><div><b>124</b><small>กิจกรรม</small></div><div><b>86</b><small>ชั่วโมง</small></div><div><b>12</b><small>สัปดาห์</small></div></div><p>คุณสม่ำเสมอกว่าปีที่แล้ว<br><b>ถึง 40% 🎉</b></p></div><div class="miniGrid"><div><span>🏋️</span><small>Top Activity</small><b>Gym</b></div><div><span>🌙</span><small>Favorite Time</small><b>Evening</b></div><div><span>🔥</span><small>Day Streak</small><b>12 days</b></div></div><button class="primary" id="shareBtn">↗ แชร์ลง Story</button></div></section>
-<section class="screen" id="package"><header class="head"><button class="back go" data-go="profile">‹</button><h2>แพ็กเกจของฉัน</h2><div></div></header><div class="content"><div class="card"><div class="packageTop"><div><small class="muted">Current Plan</small><h2 style="margin:3px 0">Signature</h2><b>฿1,290 / เดือน</b></div><button class="chip on">จัดการแพ็กเกจ</button></div><ul class="feature"><li>✓ เข้าใช้คลาสไม่จำกัด</li><li>✓ สิทธิ์จอดรถ 4 ชม./วัน</li><li>✓ รับคะแนน x2</li><li>✓ ส่วนลดบริการพิเศษ</li><li>✓ สิทธิ์ชวนเพื่อน</li><li>✓ On Demand Class</li></ul></div><button class="outline" style="margin-top:14px">เปลี่ยนแพ็กเกจ</button></div></section>
-<section class="screen" id="profile"><header class="head"><button class="back go" data-go="home">‹</button><h2>โปรไฟล์</h2><div></div></header><div class="content"><div class="profileHead"><div class="avatar" style="width:60px;height:60px">A</div><div><h2 style="margin:0">Achiraya</h2><small class="muted">♛ Silver Member</small></div></div><div class="profileStats"><div><b>1,250</b><small>คะแนน</small></div><div><b>24</b><small>กิจกรรม</small></div><div><b>12</b><small>สัปดาห์ต่อเนื่อง</small></div></div><div class="menu"><button>♙ <span>ข้อมูลส่วนตัว</span><b>›</b></button><button class="go" data-go="package">▣ <span>แพ็กเกจของฉัน</span><b>›</b></button><button>◷ <span>ประวัติการใช้งาน</span><b>›</b></button><button>⚙ <span>การตั้งค่า</span><b>›</b></button><button>？ <span>ช่วยเหลือ</span><b>›</b></button><button class="go" data-go="wrap">↗ <span>Wellness Wrap</span><b>›</b></button></div></div><nav class="nav"><button class="go" data-go="home"><span>⌂</span>หน้าหลัก</button><button class="go" data-go="planner"><span>▣</span>แพลน</button><button class="go" data-go="points"><span>◎</span>เครดิต</button><button class="go" data-go="buddy"><span>♧</span>ชุมชน</button><button class="active"><span>♟</span>โปรไฟล์</button></nav></section>
-<div class="toast" id="toast"></div>
+<div class="phone-shell">
+  <div class="statusbar"><span>9:41</span><span>◉ ◉ ▰</span></div>
+
+  <section id="splash" class="active splash">
+    <div class="splash-mark"></div>
+    <div class="splash-title">Wellness Value Matcher</div>
+  </section>
+
+  <section id="loading" class="loading">
+    <div class="loader"></div>
+    <p>กำลังเตรียมประสบการณ์ Wellness สำหรับคุณ...</p>
+  </section>
+
+  <section id="welcome">
+    <div class="welcome-hero">
+      <div class="hero-copy">
+        <div class="kicker">PERSONALIZED WELLNESS</div>
+        <h1>สุขภาพที่ใช่<br><span>ในแบบที่เป็นคุณ</span></h1>
+        <p>ค้นหา ดูแล และใช้ชีวิตที่ดีขึ้นได้ในทุกวัน กับ Wellness Value Matcher</p>
+      </div>
+      <div class="hero-figure"><div class="person"></div></div>
+    </div>
+    <div class="welcome-actions stack">
+      <button class="primary full" onclick="show('signup')">เริ่มใช้งาน · Sign up</button>
+      <button class="secondary full" onclick="show('login')">เข้าสู่ระบบ · Sign in</button>
+    </div>
+  </section>
+
+  <section id="signup">
+    <div class="auth-wrap">
+      <button class="back" onclick="goBack()">← ย้อนกลับ</button>
+      <div class="auth-heart">♥</div>
+      <div class="auth-title"><h2>ยินดีต้อนรับ 👋</h2><p>สร้างบัญชีเพื่อเริ่มต้น Wellness Match ของคุณ</p></div>
+      <div class="field"><label>ชื่อ - นามสกุล</label><input id="signupName" placeholder="Full name"></div>
+      <div class="field"><label>อีเมล</label><input id="signupEmail" type="email" placeholder="name@email.com"></div>
+      <div class="field"><label>รหัสผ่าน</label><input id="signupPass" type="password" placeholder="อย่างน้อย 6 ตัวอักษร"></div>
+      <button class="primary full" onclick="completeSignup()">Continue</button>
+      <div class="divider">หรือ</div>
+      <button class="social-btn" onclick="mockSocial()"> Continue with Apple</button>
+      <button class="social-btn" onclick="mockSocial()">G&nbsp;&nbsp; Continue with Google</button>
+      <div class="mini-link">มีบัญชีแล้ว? <button onclick="show('login')">Sign in</button></div>
+    </div>
+  </section>
+
+  <section id="login">
+    <div class="auth-wrap">
+      <button class="back" onclick="goBack()">← ย้อนกลับ</button>
+      <div class="auth-heart">♥</div>
+      <div class="auth-title"><h2>ยินดีต้อนรับ 👋</h2><p>เข้าสู่บัญชีของคุณเพื่อเริ่ม Wellness Match</p></div>
+      <div class="field"><label>อีเมล</label><input id="loginEmail" type="email" value="demo@wellness.app"></div>
+      <div class="field"><label>รหัสผ่าน</label><input id="loginPass" type="password" value="12345678"></div>
+      <div class="checkbox-row"><label><input type="checkbox" checked> จำฉันไว้</label><a>ลืมรหัสผ่าน?</a></div>
+      <button class="primary full" onclick="completeLogin()">เข้าสู่ระบบ →</button>
+      <div class="divider">หรือ</div>
+      <button class="social-btn" onclick="mockSocial()"> Continue with Apple</button>
+      <button class="social-btn" onclick="mockSocial()">G&nbsp;&nbsp; Continue with Google</button>
+      <div class="mini-link">ยังไม่มีบัญชี? <button onclick="show('signup')">Sign up</button></div>
+    </div>
+  </section>
+
+  <section id="home">
+    <div class="appbar">
+      <div class="brand"><div class="logo">♥</div><span>Wellness Value Matcher</span></div>
+      <div class="appbar-actions"><button class="icon-btn">⌁</button><button class="icon-btn">♡</button></div>
+    </div>
+    <div class="home-head">
+      <div class="kicker">PERSONALIZED WELLNESS RECOMMENDATION</div>
+      <h1>เลือกแพ็กเกจที่ใช่<br><span style="color:var(--green)">ในแบบที่เป็นคุณ</span></h1>
+      <p>ตอบคำถามเกี่ยวกับเป้าหมาย ไลฟ์สไตล์ กิจกรรมที่สนใจ และงบประมาณ แล้วให้ระบบช่วยค้นหาแพ็กเกจที่เหมาะกับคุณที่สุด</p>
+    </div>
+    <div class="recommend-card">
+      <span class="tag">✦ WELLNESS MATCH</span>
+      <h3>พร้อมค้นหาแพ็กเกจของคุณแล้วหรือยัง?</h3>
+      <p>ใช้เวลาเพียงไม่กี่นาที แล้วระบบจะสรุปแพ็กเกจพร้อมเหตุผลที่เหมาะกับคุณ</p>
+      <button onclick="startQuiz()">เริ่มทำแบบประเมิน →</button>
+    </div>
+    <div class="quick-tabs"><span class="active">7 คำถาม</span><span>3 แพ็กเกจ</span><span>For You</span></div>
+    <div class="info-block">
+      <h3>ง่ายขึ้น ตั้งแต่เริ่มเลือก</h3>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-icon">📝</div><div><b>ตอบตามตัวคุณ</b><p>เลือกเป้าหมาย กิจกรรม และงบประมาณของคุณได้อย่างยืดหยุ่น</p></div></div>
+        <div class="feature-item"><div class="feature-icon">✦</div><div><b>ได้รับคำแนะนำ</b><p>ระบบจับคู่ความต้องการกับแพ็กเกจที่เหมาะสม</p></div></div>
+        <div class="feature-item"><div class="feature-icon">⚖️</div><div><b>ตัดสินใจได้ง่าย</b><p>ดูรายละเอียดและเปรียบเทียบแพ็กเกจก่อนเลือกได้</p></div></div>
+      </div>
+    </div>
+    <div style="padding:0 18px 18px"><button class="secondary full" onclick="show('compare')">ดูและเปรียบเทียบแพ็กเกจ</button></div>
+    <div class="bottom-nav">
+      <button class="active" onclick="show('home')"><span>⌂</span>Home</button>
+      <button onclick="show('compare')"><span>▦</span>Packages</button>
+      <button onclick="startQuiz()"><span>✦</span>Match</button>
+      <button onclick="show('profile')"><span>☺</span>Profile</button>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <div class="appbar"><div class="brand"><div class="logo">♥</div><span>Wellness Match</span></div></div>
+    <div class="screen-pad">
+      <button class="back" onclick="goBack()">← ยกเลิกการประเมิน</button>
+      <div class="progress-head"><span id="qnum">คำถาม 1 จาก 7</span><span id="percent">14%</span></div>
+      <div class="progress"><div id="bar" style="width:14%"></div></div>
+      <div class="quiz-card">
+        <div class="kicker" id="qeyebrow">GOAL</div>
+        <h2 id="question"></h2>
+        <div class="helper" id="questionHelp"></div>
+        <div class="options" id="options"></div>
+        <div id="budgetArea"></div>
+        <div class="quiz-footer">
+          <button class="secondary" id="backBtn" onclick="prevQ()">← ย้อนกลับ</button>
+          <button class="primary" id="nextBtn" onclick="nextQ()">ถัดไป →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="result">
+    <div class="appbar"><div class="brand"><div class="logo">♥</div><span>Your Wellness Match</span></div></div>
+    <div class="screen-pad" style="padding-bottom:10px"><button class="back" onclick="goBack()">← ย้อนกลับ</button></div>
+    <div class="result-card">
+      <div class="kicker" style="color:#bfe5d7">✦ YOUR WELLNESS MATCH</div>
+      <h2 id="packageName">Signature Package</h2>
+      <div class="score" id="score">94%</div>
+      <p id="resultDescription"></p>
+      <button class="primary full" style="background:#fff;color:var(--green);margin-top:8px" onclick="goPayment()">เลือกแพ็กเกจนี้ →</button>
+      <button class="ghost full" style="color:#d6eee5" onclick="openPackageDetail(selectedPackage)">ดูรายละเอียดเพิ่มเติม</button>
+    </div>
+    <div class="reasons"><b style="font-size:12px">ทำไมแพ็กเกจนี้ถึงเหมาะกับคุณ?</b><div id="reasons"></div></div>
+    <div style="padding:0 18px 18px"><button class="secondary full" onclick="show('compare')">เปรียบเทียบกับแพ็กเกจอื่น</button></div>
+  </section>
+
+  <section id="compare">
+    <div class="appbar">
+      <div class="brand"><div class="logo">♥</div><span>Compare Packages</span></div>
+      <button class="icon-btn" onclick="goBack()">×</button>
+    </div>
+    <div class="compare-title"><h2>ดูและเปรียบเทียบแพ็กเกจ</h2><p>กด “ดูรายละเอียด” เพื่อเข้าหน้าแพ็กเกจแบบเดิมได้เลย</p></div>
+    <div class="plan-list" id="compareGrid"></div>
+    <div class="selected-banner">
+      <div><b id="compareSelectedName">Signature Package</b><small id="compareSelectedPrice">฿3,000 / เดือน</small></div>
+      <button class="primary" onclick="goPayment()">ดำเนินการต่อ →</button>
+    </div>
+    <div class="compare-table">
+      <table>
+        <thead><tr><th>บริการ</th><th>Signature</th><th>Core</th><th>U-Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Fitness</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Yoga</td><td>✓</td><td>✓</td><td>–</td></tr>
+          <tr><td>Pilates</td><td>✓</td><td>–</td><td>–</td></tr>
+          <tr><td>Muay Thai</td><td>✓</td><td>–</td><td>–</td></tr>
+          <tr><td>Onsen</td><td>✓</td><td>–</td><td>–</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="detail">
+    <div class="appbar"><div class="brand"><div class="logo">♥</div><span>Package Detail</span></div></div>
+    <div class="screen-pad" style="padding-bottom:0"><button class="back" onclick="goBack()">← ย้อนกลับ</button></div>
+    <div class="detail-card">
+      <div class="kicker" id="detailType">SIGNATURE</div>
+      <h1 id="detailName">Signature Package</h1>
+      <p id="detailDescription"></p>
+      <div class="detail-price" id="detailPrice">฿3,000</div>
+      <small style="color:var(--muted)">ต่อเดือน</small>
+      <div class="detail-box">
+        <h3>สิ่งที่รวมอยู่ในแพ็กเกจ</h3>
+        <ul class="detail-list" id="detailServices"></ul>
+      </div>
+      <div class="detail-box">
+        <h3>เหมาะสำหรับ</h3>
+        <p id="detailSuitable"></p>
+      </div>
+      <button class="primary full" style="margin-top:12px" onclick="selectDetailPackage()">เลือกแพ็กเกจนี้ →</button>
+    </div>
+  </section>
+
+  <section id="payment">
+    <div class="appbar"><div class="brand"><div class="logo">♥</div><span>Secure Checkout</span></div></div>
+    <div class="screen-pad" style="padding-bottom:0"><button class="back" onclick="goBack()">← ย้อนกลับ</button></div>
+    <div class="checkout-card">
+      <div class="order-summary">
+        <div class="kicker">YOUR SELECTED PACKAGE</div>
+        <h3 id="checkoutPackage">Signature Package</h3>
+        <div class="price" id="checkoutPrice">฿3,000</div>
+        <div class="summary-row"><span>ค่าบริการเดือนแรก</span><b id="subTotal">฿3,000</b></div>
+        <div class="summary-row"><span>VAT 7%</span><b id="vat">฿210</b></div>
+        <div class="summary-row"><span>ยอดชำระวันนี้</span><b id="grandTotal">฿3,210</b></div>
+      </div>
+      <div class="payment-tabs">
+        <button class="pay-tab active" onclick="setPayment('card',this)">💳 Card</button>
+        <button class="pay-tab" onclick="setPayment('qr',this)">▦ QR</button>
+        <button class="pay-tab" onclick="setPayment('mobile',this)">📱 Banking</button>
+      </div>
+      <div class="pay-form" id="cardForm">
+        <input id="cardNumber" placeholder="Card number">
+        <input id="cardName" placeholder="Name on card">
+        <input id="cardExpiry" placeholder="MM/YY">
+        <input id="cardCvv" placeholder="CVV">
+      </div>
+      <div id="qrForm" style="display:none;text-align:center;padding:22px;background:var(--mint-2);border-radius:16px">▦<br><b>QR Payment Prototype</b><br><small id="qrTotal"></small></div>
+      <div id="mobileForm" style="display:none;padding:16px;background:var(--mint-2);border-radius:16px"><b>Mobile Banking Prototype</b><p style="font-size:10px;color:var(--muted)">เลือกธนาคารในเวอร์ชันจริง ระบบจะเชื่อมต่อแอปธนาคาร</p></div>
+      <button class="primary full" style="margin-top:14px" onclick="processPayment()">ชำระเงิน <span id="payButtonAmount">฿3,210</span> →</button>
+    </div>
+  </section>
+
+  <section id="success">
+    <div class="success-box">
+      <div class="success-icon">✓</div>
+      <div class="kicker">PAYMENT SUCCESSFUL</div>
+      <h2>ชำระเงินสำเร็จ! 🎉</h2>
+      <p style="font-size:11px;color:var(--muted)">แพ็กเกจของคุณเปิดใช้งานแล้ว</p>
+      <div class="detail-box" style="text-align:left;margin:20px 0">
+        <div class="summary-row"><span>แพ็กเกจ</span><b id="successPackage"></b></div>
+        <div class="summary-row"><span>ยอดชำระ</span><b id="successAmount"></b></div>
+      </div>
+      <button class="primary full" onclick="show('home')">กลับหน้าหลัก →</button>
+    </div>
+  </section>
+
+  <section id="profile">
+    <div class="appbar"><div class="brand"><div class="logo">♥</div><span>My Profile</span></div></div>
+    <div class="screen-pad">
+      <div class="detail-card" style="margin:0">
+        <div class="auth-heart">☺</div>
+        <h2 style="text-align:center">My Wellness</h2>
+        <p style="text-align:center">หน้าโปรไฟล์ตัวอย่างสำหรับสมาชิก</p>
+        <button class="secondary full" onclick="show('home')">← กลับหน้าหลัก</button>
+      </div>
+    </div>
+  </section>
 </div>
+
 <script>
-const screens=[...document.querySelectorAll('.screen')],toast=document.getElementById('toast');
-function show(id){screens.forEach(s=>s.classList.remove('active'));document.getElementById(id)?.classList.add('active');window.scrollTo(0,0)}
-document.addEventListener('click',e=>{const x=e.target.closest('[data-go]');if(x)show(x.dataset.go)});
-document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{g.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on')}));
-document.querySelectorAll('.chip,.interest').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')));
-document.querySelectorAll('.day').forEach(b=>b.onclick=()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('on'));b.classList.add('on')});
-document.querySelectorAll('.plus').forEach(b=>b.onclick=()=>{b.textContent='✓';b.style.background='var(--g)';b.style.color='#fff';notify('เพิ่มกิจกรรมลง Planner แล้ว')});
-document.querySelectorAll('.redeem').forEach(b=>b.onclick=()=>{b.textContent='แลกแล้ว ✓';b.disabled=true;b.style.opacity=.55;notify('แลกรางวัลสำเร็จ')});
-document.querySelectorAll('.connect').forEach(b=>b.onclick=()=>{b.textContent='ส่งคำขอแล้ว';b.disabled=true;b.style.opacity=.65;notify('ส่งคำขอ Buddy แล้ว')});
-let parking=false;document.getElementById('parkBtn').onclick=function(){parking=!parking;this.textContent=parking?'✓ กำลังใช้ Parking · 00:00':'▣ เริ่มจอดรถ';notify(parking?'เริ่มใช้สิทธิ์ Parking แล้ว':'สิ้นสุด Parking แล้ว')};
-document.getElementById('shareBtn').onclick=()=>notify('พร้อมแชร์ Wellness Wrap ลง Story ✨');
-function notify(t){toast.textContent=t;toast.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>toast.classList.remove('show'),1800)}
+const packages={
+  signature:{type:"SIGNATURE",name:"Signature Package",price:3000,description:"แพ็กเกจแบบครบครันสำหรับคนที่ต้องการดูแลสุขภาพอย่างหลากหลาย",services:["Fitness","Yoga","Pilates","Muay Thai","Onsen"],suitable:"เหมาะสำหรับผู้ที่ต้องการกิจกรรมหลากหลายในแพ็กเกจเดียว และต้องการดูแลสุขภาพทั้งด้านร่างกายและการผ่อนคลาย"},
+  core:{type:"CORE",name:"Core Package",price:1800,description:"แพ็กเกจสำหรับการออกกำลังกายและดูแลสุขภาพในรูปแบบที่ใช้งานง่าย",services:["Fitness","Yoga","เลือกบริการหลัก","เหมาะกับการใช้งานทั่วไป"],suitable:"เหมาะสำหรับผู้ที่มีเป้าหมายหลักชัดเจน และต้องการใช้บริการออกกำลังกายเป็นประจำ"},
+  urate:{type:"U-RATE",name:"U-Rate Package",price:1200,description:"แพ็กเกจเริ่มต้นที่ยืดหยุ่นและเหมาะกับการใช้งานตามไลฟ์สไตล์",services:["Fitness","เหมาะสำหรับเริ่มต้น","ราคาประหยัด","ยืดหยุ่น"],suitable:"เหมาะสำหรับผู้เริ่มต้น หรือผู้ที่ต้องการควบคุมงบประมาณและเลือกใช้บริการแบบยืดหยุ่น"}
+};
+
+const questions=[
+{q:"เพศของคุณคืออะไร?",e:"GENDER",help:"ช่วยให้เราปรับแต่งคำแนะนำที่เหมาะสมกับคุณ",type:"single",o:["ชาย","หญิง","ไม่ระบุ"]},
+{q:"อาชีพของคุณคืออะไร?",e:"OCCUPATION",help:"ช่วยให้เราเข้าใจไลฟ์สไตล์และเวลาในการใช้บริการของคุณ",type:"single",o:["นักศึกษา","พนักงานเอกชน","ข้าราชการ/รัฐวิสาหกิจ","บุคลากรทางการแพทย์","อาจารย์/บุคลากรการศึกษา","ธุรกิจส่วนตัว/เจ้าของกิจการ"]},
+{q:"เป้าหมายหลักของคุณคืออะไร?",e:"GOAL",help:"เลือกได้มากกว่าหนึ่งข้อ",type:"multi",o:["ลดน้ำหนัก","เพิ่มกล้ามเนื้อ","ดูแลสุขภาพ","ผ่อนคลาย / Wellness"]},
+{q:"คุณออกกำลังกายบ่อยแค่ไหน?",e:"ACTIVITY",help:"เลือกคำตอบที่ใกล้เคียงกับคุณที่สุด",type:"single",o:["1–2 ครั้ง / สัปดาห์","3–4 ครั้ง / สัปดาห์","5 ครั้งขึ้นไป","เพิ่งเริ่มต้น"]},
+{q:"คุณสนใจกิจกรรมอะไรเป็นพิเศษ?",e:"INTEREST",help:"เลือกได้มากกว่าหนึ่งข้อ",type:"multi",o:["Performance Fitness","Personal Training","Group Training Classes","Muay Thai","Pilates & Yoga","Sports Massage & Recovery","Onsen","Café & Co-working","Pickleball"]},
+{q:"งบประมาณต่อเดือนของคุณคือเท่าไร?",e:"BUDGET",help:"กรอกจำนวนเงินที่คุณสะดวก",type:"budget"},
+{q:"คุณอยากใช้บริการแบบไหน?",e:"PREFERENCE",help:"เลือกได้มากกว่าหนึ่งข้อ",type:"multi",o:["หลากหลายกิจกรรมในแพ็กเดียว","เน้นกิจกรรมหลัก","เลือกใช้แบบยืดหยุ่น","อยากให้ระบบช่วยเลือก"]}
+];
+
+let current=0,answers=[null,null,[],null,[],null,[]],selectedPackage="signature",recommendedPackage="signature",detailPackage=null,paymentMethod="card";
+let historyStack=[];
+
+function show(id,isBack=false){
+  const active=document.querySelector("section.active");
+  if(!isBack && active && active.id!==id) historyStack.push(active.id);
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  const target=document.getElementById(id); if(target) target.classList.add("active");
+  if(id==="compare") renderCompare();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function goBack(){const prev=historyStack.pop()||"home";show(prev,true)}
+
+setTimeout(()=>show("loading"),900);
+setTimeout(()=>show("welcome"),1900);
+
+function completeSignup(){
+  const n=document.getElementById("signupName").value.trim();
+  const e=document.getElementById("signupEmail").value.trim();
+  const p=document.getElementById("signupPass").value;
+  if(!n||!e||p.length<6){alert("กรุณากรอกข้อมูลให้ครบ และตั้งรหัสผ่านอย่างน้อย 6 ตัวอักษร");return}
+  show("home");
+}
+function completeLogin(){
+  if(!document.getElementById("loginEmail").value.trim()||!document.getElementById("loginPass").value){alert("กรุณากรอกอีเมลและรหัสผ่าน");return}
+  show("home");
+}
+function mockSocial(){show("home")}
+
+function startQuiz(){current=0;answers=[null,null,[],null,[],null,[]];show("quiz");renderQ()}
+function renderQ(){
+  const x=questions[current], progress=((current+1)/questions.length)*100;
+  qnum.textContent=`คำถาม ${current+1} จาก ${questions.length}`;percent.textContent=`${Math.round(progress)}%`;bar.style.width=`${progress}%`;
+  qeyebrow.textContent=x.e;question.textContent=x.q;questionHelp.textContent=x.help;options.innerHTML="";budgetArea.innerHTML="";
+  if(x.type==="single")x.o.forEach((op,i)=>{const b=document.createElement("button");b.className="option"+(answers[current]===i?" selected":"");b.textContent=op;b.onclick=()=>{answers[current]=i;renderQ()};options.appendChild(b)});
+  if(x.type==="multi")x.o.forEach((op,i)=>{const b=document.createElement("button");b.className="option"+(answers[current].includes(i)?" selected":"");b.textContent=op;b.onclick=()=>{answers[current]=answers[current].includes(i)?answers[current].filter(v=>v!==i):[...answers[current],i];renderQ()};options.appendChild(b)});
+  if(x.type==="budget")budgetArea.innerHTML=`<input class="budget-input" type="number" min="0" placeholder="เช่น 2500" value="${answers[current]||""}" oninput="answers[current]=Number(this.value)">`;
+  backBtn.style.visibility=current===0?"hidden":"visible";nextBtn.textContent=current===questions.length-1?"ดูผลลัพธ์ ✦":"ถัดไป →"
+}
+function nextQ(){
+  const q=questions[current],a=answers[current];
+  const valid=q.type==="multi"?a.length>0:q.type==="single"?a!==null:a>0;
+  if(!valid){alert("กรุณาเลือกหรือกรอกข้อมูลก่อนนะ 😊");return}
+  if(current<questions.length-1){current++;renderQ()}else makeResult()
+}
+function prevQ(){if(current>0){current--;renderQ()}}
+
+function makeResult(){
+  const goals=answers[2],freq=answers[3],interests=answers[4],budget=answers[5],pref=answers[6],occ=answers[1];
+  let s=0,c=0,u=0;
+  if(occ===0){u+=2;c+=1}else if(occ===5)s+=2;
+  if(goals.includes(0)){s+=2;c+=3;u+=1} if(goals.includes(1)){s+=3;c+=3;u+=1} if(goals.includes(2)){s+=3;c+=2;u+=2} if(goals.includes(3)){s+=4;c+=1;u+=2}
+  if(freq===0){u+=2;c+=2} if(freq===1){c+=3;s+=2} if(freq===2){s+=4;c+=2} if(freq===3){u+=3;c+=1}
+  if(interests.includes(0)){s+=2;c+=3;u+=2} if(interests.includes(1)){s+=4;c+=2} if(interests.includes(2)){s+=3;c+=3;u+=1}
+  if(interests.includes(3))s+=4;if(interests.includes(4)){s+=4;c+=3}if(interests.includes(5))s+=4;if(interests.includes(6))s+=4;if(interests.includes(7)){s+=3;u+=2}if(interests.includes(8)){s+=3;c+=2}
+  if(budget>=3000)s+=5;else if(budget>=1800){c+=5;s+=2}else u+=5;
+  if(pref.includes(0))s+=5;if(pref.includes(1))c+=5;if(pref.includes(2))u+=5;if(pref.includes(3)){s+=3;c+=2;u+=2}
+  const scores={signature:s,core:c,urate:u};recommendedPackage=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);selectedPackage=recommendedPackage;
+  const pkg=packages[selectedPackage];packageName.textContent=pkg.name;resultDescription.textContent=pkg.description;score.textContent=selectedPackage==="signature"?"94%":selectedPackage==="core"?"91%":"89%";
+  reasons.innerHTML=[`✓ เป้าหมาย: ${goals.map(i=>questions[2].o[i]).join(" · ")}`,`✓ ความถี่: ${questions[3].o[freq]}`,`✓ สนใจ: ${interests.map(i=>questions[4].o[i]).join(" · ")}`,`✓ งบประมาณ: ฿${budget.toLocaleString()} / เดือน`].map(t=>`<div class="reason">${t}</div>`).join("");
+  show("result");
+}
+
+function renderCompare(){
+  compareGrid.innerHTML="";
+  Object.entries(packages).forEach(([key,pkg])=>{
+    const selected=selectedPackage===key,rec=recommendedPackage===key;
+    compareGrid.innerHTML+=`<div class="plan ${selected?"selected":""}">
+      ${rec?'<div class="ribbon">✦ Recommended</div>':""}
+      <div class="kicker">${pkg.type}</div>
+      <div class="plan-top"><div><h3>${pkg.name}</h3><small style="color:var(--muted)">ต่อเดือน</small></div><div class="price">฿${pkg.price.toLocaleString()}</div></div>
+      <ul>${pkg.services.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <div class="plan-actions">
+        <button class="${selected?"primary":"secondary"}" onclick="choosePackage('${key}')">${selected?"เลือกอยู่":"เลือกแพ็กเกจนี้"}</button>
+        <button class="secondary" onclick="openPackageDetail('${key}')">ดูรายละเอียด</button>
+      </div></div>`;
+  });
+  const pkg=packages[selectedPackage];compareSelectedName.textContent=pkg.name;compareSelectedPrice.textContent=`฿${pkg.price.toLocaleString()} / เดือน`;
+}
+function choosePackage(key){selectedPackage=key;renderCompare()}
+function openPackageDetail(key){
+  detailPackage=key;const pkg=packages[key];
+  detailType.textContent=pkg.type;detailName.textContent=pkg.name;detailDescription.textContent=pkg.description;detailPrice.textContent="฿"+pkg.price.toLocaleString();detailSuitable.textContent=pkg.suitable;detailServices.innerHTML=pkg.services.map(x=>`<li>${x}</li>`).join("");show("detail");
+}
+function selectDetailPackage(){selectedPackage=detailPackage;goPayment()}
+function goPayment(){
+  const pkg=packages[selectedPackage],v=Math.round(pkg.price*.07),t=pkg.price+v;
+  checkoutPackage.textContent=pkg.name;checkoutPrice.textContent="฿"+pkg.price.toLocaleString();subTotal.textContent="฿"+pkg.price.toLocaleString();vat.textContent="฿"+v.toLocaleString();grandTotal.textContent="฿"+t.toLocaleString();payButtonAmount.textContent="฿"+t.toLocaleString();qrTotal.textContent="ยอดชำระ ฿"+t.toLocaleString();show("payment")
+}
+function setPayment(type,el){
+  paymentMethod=type;document.querySelectorAll(".pay-tab").forEach(x=>x.classList.remove("active"));el.classList.add("active");
+  cardForm.style.display=type==="card"?"block":"none";qrForm.style.display=type==="qr"?"block":"none";mobileForm.style.display=type==="mobile"?"block":"none";
+}
+function processPayment(){
+  if(paymentMethod==="card"){
+    if(cardNumber.value.replace(/\s/g,"").length<12||!cardName.value.trim()||cardExpiry.value.length<4||cardCvv.value.length<3){alert("กรุณากรอกข้อมูลบัตรให้ครบก่อนนะ 💳");return}
+  }
+  const pkg=packages[selectedPackage],t=pkg.price+Math.round(pkg.price*.07);successPackage.textContent=pkg.name;successAmount.textContent="฿"+t.toLocaleString();show("success")
+}
 </script>
-</body></html>
+</body>
+</html>
