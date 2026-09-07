@@ -121,41 +121,22 @@ body {
 }
 
 .portal-hole {
-  position: absolute;
-  bottom: 21px;
-  width: 150px;
-  height: 42px;
-  background:
-    radial-gradient(circle, #e2f4ec 8%, #149475 58%, #0d4f43 100%);
-  border-radius: 50%;
-  box-shadow:
-    0 0 24px rgba(20,148,117,.8),
-    0 0 52px rgba(226,244,236,.95),
-    inset 0 0 22px rgba(0,0,0,.35);
-  transform: perspective(200px) rotateX(65deg);
-  animation: portalPulse 1.45s infinite alternate ease-in-out;
+  display:none;
 }
 
 .portal-ring {
-  position: absolute;
-  bottom: 5px;
-  width: 174px;
-  height: 174px;
-  border-radius: 50%;
-  border: 5px solid rgba(12,143,114,.15);
-  border-top-color: var(--green);
-  border-right-color: rgba(12,143,114,.55);
-  animation: spin 1.05s linear infinite;
+  display:none;
 }
 
 .portal-jumper {
-  position: absolute;
-  bottom: 31px;
-  font-size: 62px;
-  line-height: 1;
-  transform-origin: center;
-  animation: backflip 1.65s cubic-bezier(.25,1,.5,1) infinite;
-  filter: drop-shadow(0 8px 10px rgba(11,79,67,.18));
+  position:absolute;
+  left:50%;
+  top:50%;
+  font-size:68px;
+  line-height:1;
+  transform-origin:center;
+  animation:backflipSolo 1.55s cubic-bezier(.25,1,.5,1) infinite;
+  filter:drop-shadow(0 10px 12px rgba(11,79,67,.16));
 }
 
 .loading-text {
@@ -199,6 +180,14 @@ body {
   50%  { transform: translateY(-86px) scale(1.12) rotate(-180deg); opacity: 1; }
   78%  { transform: translateY(-8px) scale(.96) rotate(-315deg); opacity: 1; }
   100% { transform: translateY(36px) scale(.65) rotate(-360deg); opacity: .25; }
+}
+
+@keyframes backflipSolo {
+  0%   { transform:translate(-50%,-50%) translateY(36px) scale(.82) rotate(0deg); opacity:.65; }
+  25%  { opacity:1; }
+  50%  { transform:translate(-50%,-50%) translateY(-30px) scale(1.08) rotate(-180deg); opacity:1; }
+  75%  { opacity:1; }
+  100% { transform:translate(-50%,-50%) translateY(36px) scale(.82) rotate(-360deg); opacity:.65; }
 }
 
 @keyframes dots {
@@ -717,12 +706,38 @@ body {
   flex:0 0 auto;
 }
 
+.landing-brand-copy{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:1px;
+}
+
 .landing-topbar-title{
   font-family:"DM Sans","Noto Sans Thai",sans-serif;
-  font-size:23px;
+  font-size:22px;
   font-weight:800;
   color:#143f39;
   letter-spacing:-.3px;
+  line-height:1.15;
+}
+
+.landing-user-greeting{
+  font-family:"DM Sans","Noto Sans Thai",sans-serif;
+  font-size:15px;
+  font-weight:700;
+  color:#0c6b58;
+  line-height:1.25;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:260px;
+}
+
+.landing-user-greeting span{
+  color:#173f38;
+  font-weight:800;
 }
 
 .landing-content{
@@ -1125,6 +1140,30 @@ body {
   .quiz-option{font-size:12px}
 }
 
+
+.landing-hero-card{
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(255,255,255,.92);
+  border-radius:28px;
+  padding:14px 16px 18px;
+  box-shadow:0 12px 30px rgba(18,63,55,.08);
+}
+
+.landing-hero-card .landing-pill{
+  margin-bottom:14px;
+}
+
+.landing-hero-card .landing-hero h1{
+  margin-top:0;
+}
+
+@media(max-width:390px){
+  .landing-hero-card{
+    border-radius:24px;
+    padding:13px 14px 16px;
+  }
+}
+
 </style>
 </head>
 
@@ -1295,18 +1334,23 @@ body {
     <div class="landing-shell">
       <div class="landing-topbar">
         <div class="landing-brand-icon">♥</div>
-        <div class="landing-topbar-title">SAYO-Wellness</div>
+        <div class="landing-brand-copy">
+          <div class="landing-topbar-title">SAYO-Wellness</div>
+          <div class="landing-user-greeting">Hello, <span id="landingUserName">คุณ</span></div>
+        </div>
       </div>
 
       <div class="landing-content">
-        <div class="landing-pill">✦ Personalized Wellness Recommendation</div>
+        <div class="landing-hero-card">
+          <div class="landing-pill">✦ Personalized Wellness Recommendation</div>
 
-        <div class="landing-hero">
-          <h1>เลือกแพ็กเกจที่ใช่<br>ในแบบที่เป็นคุณ</h1>
-          <p>
-            ตอบคำถามเกี่ยวกับเป้าหมาย ไลฟ์สไตล์ กิจกรรมที่สนใจ และงบประมาณ
-            แล้วให้ Wellness Value Tracker ช่วยค้นหาแพ็กเกจที่เหมาะกับคุณที่สุด
-          </p>
+          <div class="landing-hero">
+            <h1>เลือกแพ็กเกจที่ใช่<br>ในแบบที่เป็นคุณ</h1>
+            <p>
+              ตอบคำถามเกี่ยวกับเป้าหมาย ไลฟ์สไตล์ กิจกรรมที่สนใจ และงบประมาณ
+              แล้วให้ Wellness Value Tracker ช่วยค้นหาแพ็กเกจที่เหมาะกับคุณที่สุด
+            </p>
+          </div>
         </div>
 
         <div class="cta-stack">
@@ -1401,6 +1445,11 @@ function showScreen(id) {
 }
 
 window.addEventListener("load", () => {
+  const rememberedName = localStorage.getItem("sayoUserName");
+  if (rememberedName) {
+    updateLandingGreeting(rememberedName);
+  }
+
   // หน้า 1: โลโก้
   setTimeout(() => {
     showScreen("screen2");
@@ -1450,6 +1499,12 @@ function submitRegister(event) {
   }
 
   error.textContent = "";
+
+  // เก็บข้อมูลชื่อไว้เพื่อใช้แสดงในหน้า Landing
+  localStorage.setItem("sayoUserName", name);
+  localStorage.setItem("sayoUserEmail", email);
+  updateLandingGreeting(name);
+
   showScreen("screen6");
 }
 
@@ -1465,7 +1520,29 @@ function submitLogin(event) {
   }
 
   error.textContent = "";
+
+  const savedEmail = localStorage.getItem("sayoUserEmail");
+  const savedName = localStorage.getItem("sayoUserName");
+
+  // ถ้าเป็นอีเมลเดียวกับบัญชีที่เคยลงทะเบียน จะแสดงชื่อที่ผู้ใช้ตั้งไว้
+  if (savedName && savedEmail && savedEmail.toLowerCase() === email.toLowerCase()) {
+    updateLandingGreeting(savedName);
+  } else if (savedName) {
+    // สำหรับ prototype หากมีชื่อที่บันทึกไว้แล้วให้คงชื่อเดิม
+    updateLandingGreeting(savedName);
+  } else {
+    updateLandingGreeting("คุณ");
+  }
+
   showScreen("screen6");
+}
+
+function updateLandingGreeting(name){
+  const target = document.getElementById("landingUserName");
+  if(!target) return;
+
+  const cleanName = (name || "").trim();
+  target.textContent = cleanName || "คุณ";
 }
 
 function forgotPassword() {
