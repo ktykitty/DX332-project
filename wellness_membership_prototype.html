@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Wellness Value Matcher — Member Experience</title>
+<style>
+  :root{
+    --green-900:#14362f;
+    --green-800:#165445;
+    --green-700:#17745f;
+    --green-600:#1d826c;
+    --green-500:#2d9a80;
+    --mint-100:#e6f7f0;
+    --mint-200:#d3f0e5;
+    --mint-300:#b9e4d6;
+    --cream:#f8faf7;
+    --yellow:#f5d996;
+    --yellow-soft:#fff6dc;
+    --text:#18362f;
+    --muted:#6f817b;
+    --line:#dce7e2;
+    --white:#ffffff;
+    --shadow:0 18px 45px rgba(22,84,69,.10);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:linear-gradient(180deg,#fbfdfb 0%,#f4f8f5 100%);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Thai","Tahoma",sans-serif;
+  }
+  button,input,select{font:inherit}
+  button{cursor:pointer}
+  a{text-decoration:none;color:inherit}
+
+  .topbar{
+    position:sticky;top:0;z-index:30;
+    height:82px;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 5vw;
+  }
+  .brand{display:flex;align-items:center;gap:13px;font-weight:800;font-size:22px}
+  .logo{
+    width:46px;height:46px;border-radius:15px;background:var(--green-700);
+    display:grid;place-items:center;color:white;font-size:22px;box-shadow:0 8px 22px rgba(23,116,95,.20)
+  }
+  .topnav{display:flex;gap:10px;align-items:center}
+  .topnav a{padding:10px 14px;border-radius:999px;color:#62766e;font-weight:650;font-size:14px}
+  .topnav a:hover{background:var(--mint-100);color:var(--green-800)}
+  .profile{display:flex;align-items:center;gap:12px}
+  .pill{padding:9px 13px;border-radius:999px;background:var(--mint-100);font-size:13px;font-weight:750;color:var(--green-800)}
+  .avatar{width:38px;height:38px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-weight:800}
+
+  .shell{width:min(1180px,92vw);margin:30px auto 100px}
+  .hero{
+    position:relative;overflow:hidden;
+    display:grid;grid-template-columns:1.25fr .75fr;gap:30px;
+    padding:36px;border:1px solid var(--line);border-radius:34px;
+    background:linear-gradient(135deg,#fff 0%,#f7fcf9 56%,#dff5ec 100%);
+    box-shadow:var(--shadow);
+  }
+  .hero:after{
+    content:"";position:absolute;right:-80px;top:-120px;width:360px;height:360px;border-radius:50%;
+    background:rgba(128,211,183,.25)
+  }
+  .hero-copy{position:relative;z-index:2}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;
+    background:var(--mint-100);font-size:13px;font-weight:800;color:var(--green-700)
+  }
+  h1{font-size:clamp(34px,4.8vw,64px);line-height:1.08;margin:18px 0 15px;letter-spacing:-1px}
+  .hero p{color:var(--muted);font-size:17px;line-height:1.65;margin:0 0 24px;max-width:690px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    border:0;border-radius:14px;padding:13px 18px;font-weight:800;
+    transition:.2s ease;display:inline-flex;align-items:center;gap:8px;justify-content:center
+  }
+  .btn-primary{background:var(--green-700);color:white;box-shadow:0 10px 25px rgba(23,116,95,.18)}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--green-800)}
+  .btn-soft{background:white;color:var(--green-800);border:1px solid var(--line)}
+  .btn-soft:hover{background:var(--mint-100)}
+  .btn-dark{background:var(--green-900);color:white}
+  .btn-small{padding:10px 13px;border-radius:12px;font-size:13px}
+  .hero-side{position:relative;z-index:2;display:flex;align-items:stretch}
+  .trial{
+    width:100%;border-radius:24px;padding:24px;background:var(--green-800);color:white;
+    display:flex;flex-direction:column;justify-content:space-between;min-height:250px
+  }
+  .trial .big{font-size:48px;font-weight:900;line-height:1}
+  .trial small{opacity:.72}
+  .trial .credit-badge{
+    display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.12);
+    padding:10px 12px;border-radius:14px;margin-top:16px;font-weight:700
+  }
+
+  .section-head{display:flex;align-items:end;justify-content:space-between;margin:38px 0 16px}
+  .section-head h2{font-size:27px;margin:0}
+  .section-head p{margin:5px 0 0;color:var(--muted);font-size:14px}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  .stat{background:white;border:1px solid var(--line);border-radius:20px;padding:18px}
+  .stat .icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--mint-100);margin-bottom:10px}
+  .stat strong{font-size:25px;display:block}
+  .stat span{color:var(--muted);font-size:13px}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .card{
+    background:white;border:1px solid var(--line);border-radius:24px;padding:22px;
+    box-shadow:0 10px 30px rgba(20,54,47,.04)
+  }
+  .card h3{margin:0 0 5px;font-size:20px}
+  .sub{color:var(--muted);font-size:13px;line-height:1.5}
+  .card-head{display:flex;align-items:start;justify-content:space-between;gap:16px;margin-bottom:18px}
+
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  .day{
+    min-height:115px;padding:11px 8px;border:1px solid var(--line);border-radius:16px;
+    background:#fbfdfc;text-align:center;transition:.2s
+  }
+  .day.active{border-color:var(--mint-300);background:var(--mint-100)}
+  .day.today{outline:2px solid var(--green-600)}
+  .day .d{font-size:12px;color:var(--muted)}
+  .day .n{font-weight:900;font-size:18px;margin:5px 0 9px}
+  .activity{
+    font-size:11px;font-weight:700;padding:6px;border-radius:10px;background:white;
+    border:1px solid var(--line);min-height:42px;display:grid;place-items:center
+  }
+  .planner-note{
+    margin-top:14px;padding:12px 14px;border-radius:14px;background:var(--yellow-soft);
+    color:#6e5b20;font-size:13px;display:flex;justify-content:space-between;gap:10px;align-items:center
+  }
+
+  .progress{height:11px;border-radius:999px;background:#e7efeb;overflow:hidden;margin:10px 0 7px}
+  .progress > div{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green-600),#69c7ac)}
+  .reward-row{display:flex;gap:12px;margin-top:15px}
+  .reward{
+    flex:1;border:1px solid var(--line);border-radius:17px;padding:13px;background:#fbfdfc
+  }
+  .reward b{display:block;margin-bottom:3px}
+  .reward small{color:var(--muted)}
+  .points-chip{padding:8px 11px;border-radius:999px;background:var(--yellow-soft);color:#7a641d;font-weight:900;font-size:12px}
+
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .service{
+    border:1px solid var(--line);border-radius:18px;padding:16px;background:#fbfdfc;
+    min-height:140px;display:flex;flex-direction:column;justify-content:space-between
+  }
+  .service .svc-icon{font-size:28px}
+  .service b{font-size:15px}
+  .service small{color:var(--muted)}
+  .service button{width:100%;margin-top:12px}
+
+  .streak-zone{
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:18px
+  }
+  .streak-card{
+    background:linear-gradient(145deg,var(--green-900),var(--green-700));
+    color:white;border-radius:26px;padding:24px;min-height:280px;position:relative;overflow:hidden
+  }
+  .streak-card:after{content:"🔥";position:absolute;right:-10px;bottom:-24px;font-size:150px;opacity:.14}
+  .flames{display:flex;gap:8px;margin:26px 0 12px}
+  .flame{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:25px;background:rgba(255,255,255,.13)}
+  .flame.on{background:#fff;color:#111}
+  .streak-card .count{font-size:46px;font-weight:900}
+  .streak-card p{margin:6px 0 18px;color:rgba(255,255,255,.72)}
+
+  .wrap-card{
+    background:linear-gradient(145deg,#e8faf2,#fff5d8);
+    border:1px solid var(--line);border-radius:26px;padding:24px;min-height:280px
+  }
+  .wrap-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+  .wrap-metrics div{background:rgba(255,255,255,.75);border-radius:15px;padding:14px}
+  .wrap-metrics b{display:block;font-size:21px}
+  .wrap-metrics small{color:var(--muted)}
+
+  .buddy-filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}
+  .filter{border:1px solid var(--line);background:white;padding:9px 12px;border-radius:999px;font-weight:700;font-size:13px}
+  .filter.on{background:var(--green-800);color:white;border-color:var(--green-800)}
+  .buddy-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .buddy{
+    border:1px solid var(--line);border-radius:18px;padding:15px;background:#fbfdfc
+  }
+  .buddy-top{display:flex;align-items:center;gap:10px}
+  .buddy-avatar{width:44px;height:44px;border-radius:50%;background:var(--mint-200);display:grid;place-items:center;font-size:21px}
+  .match{margin-left:auto;font-size:11px;font-weight:900;color:var(--green-700)}
+  .buddy p{font-size:12px;color:var(--muted);line-height:1.5;min-height:36px}
+
+  .bottom-note{
+    margin-top:36px;border-radius:26px;background:var(--green-900);color:white;
+    padding:26px;display:flex;align-items:center;justify-content:space-between;gap:20px
+  }
+  .bottom-note h3{margin:0 0 5px}
+  .bottom-note p{margin:0;color:rgba(255,255,255,.7);font-size:13px}
+
+  .modal{
+    position:fixed;inset:0;z-index:80;background:rgba(10,30,25,.55);
+    display:none;align-items:center;justify-content:center;padding:20px
+  }
+  .modal.show{display:flex}
+  .modal-panel{width:min(460px,95vw);background:white;border-radius:28px;padding:22px;box-shadow:var(--shadow)}
+  .story{
+    aspect-ratio:9/16;border-radius:24px;padding:26px;color:white;position:relative;overflow:hidden;
+    background:linear-gradient(165deg,#14362f 0%,#17745f 56%,#6bc7ad 100%);
+  }
+  .story:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-70px;top:-45px;background:rgba(255,255,255,.12)}
+  .story .story-brand{font-weight:850;letter-spacing:.2px}
+  .story .story-big{font-size:58px;font-weight:950;margin:34px 0 4px}
+  .story .story-sub{font-size:16px;opacity:.8}
+  .story .story-box{position:absolute;left:24px;right:24px;bottom:24px;background:rgba(255,255,255,.13);padding:16px;border-radius:18px}
+  .modal-actions{display:flex;gap:10px;margin-top:14px}
+  .modal-actions .btn{flex:1}
+
+  .toast{
+    position:fixed;right:24px;bottom:24px;z-index:100;
+    background:var(--green-900);color:white;padding:13px 16px;border-radius:14px;
+    box-shadow:var(--shadow);opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s
+  }
+  .toast.show{opacity:1;transform:translateY(0)}
+
+  .mobile-nav{display:none}
+
+  @media(max-width:900px){
+    .topnav{display:none}
+    .profile .pill{display:none}
+    .hero{grid-template-columns:1fr;padding:24px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid-2,.streak-zone{grid-template-columns:1fr}
+    .service-grid,.buddy-list{grid-template-columns:1fr 1fr}
+    .week{overflow-x:auto;grid-template-columns:repeat(7,92px);padding-bottom:4px}
+    .bottom-note{flex-direction:column;align-items:flex-start}
+    .mobile-nav{
+      display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:12px;right:12px;bottom:12px;z-index:40;
+      background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:20px;
+      box-shadow:var(--shadow);padding:8px
+    }
+    .mobile-nav a{text-align:center;font-size:11px;color:var(--muted);padding:7px 2px}
+    .mobile-nav span{display:block;font-size:20px;margin-bottom:2px}
+  }
+  @media(max-width:590px){
+    .shell{width:min(94vw,1180px);margin-top:18px}
+    .brand span{font-size:17px}
+    .topbar{height:70px;padding:0 3vw}
+    .hero h1{font-size:38px}
+    .stats{grid-template-columns:1fr 1fr}
+    .service-grid,.buddy-list{grid-template-columns:1fr}
+    .wrap-metrics{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">♥</div>
+    <span>Wellness Value Matcher</span>
+  </div>
+  <nav class="topnav">
+    <a href="#home">หน้าหลัก</a>
+    <a href="#planner">Weekly Planner</a>
+    <a href="#rewards">Rewards</a>
+    <a href="#wrap">Wellness Wrap</a>
+    <a href="#buddy">Buddy</a>
+  </nav>
+  <div class="profile">
+    <div class="pill">CORE MEMBER</div>
+    <div class="avatar">K</div>
+  </div>
+</header>
+
+<main class="shell">
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <div class="eyebrow">✦ MEMBER EXPERIENCE · PERSONALIZED FOR YOU</div>
+      <h1>สุขภาพดีขึ้น<br>ทุกครั้งที่คุณกลับมา</h1>
+      <p>สมาชิกใหม่เริ่มต้นด้วย <b>Free Trial 7 วัน + 300 Wellness Credits</b> ใช้จองกิจกรรม จอดรถ หรือแลกสิทธิพิเศษได้ พร้อมสะสมแต้มทุกเดือนแบบสมาชิก AIS Points</p>
+      <div class="cta-row">
+        <button class="btn btn-primary" onclick="scrollToId('planner')">จัดตารางสุขภาพสัปดาห์นี้ →</button>
+        <button class="btn btn-soft" onclick="openStory('welcome')">ดูตัวอย่าง Wellness Story</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="icon">🪙</div><strong id="creditStat">300</strong><span>Wellness Credits</span></div>
+        <div class="stat"><div class="icon">⭐</div><strong id="pointStat">1,250</strong><span>Reward Points</span></div>
+        <div class="stat"><div class="icon">🔥</div><strong id="streakStat">3 วัน</strong><span>Current Streak</span></div>
+        <div class="stat"><div class="icon">🎯</div><strong>82%</strong><span>Weekly Goal</span></div>
+      </div>
+    </div>
+
+    <aside class="hero-side">
+      <div class="trial">
+        <div>
+          <small>WELCOME BENEFIT</small>
+          <h2 style="font-size:28px;margin:8px 0 2px">ทดลองใช้ฟรี</h2>
+          <div class="big">7 วัน</div>
+          <div class="credit-badge">🎁 รับทันที 300 Credits</div>
+        </div>
+        <div>
+          <small>Core plan หลังหมดทดลอง</small><br>
+          <b>฿1,490 / เดือน</b> · ได้ 500 Points ทุกเดือน
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="planner">
+    <div class="section-head">
+      <div><h2>Weekly Planner</h2><p>ระบบจัดแพลนให้อัตโนมัติตามเป้าหมาย เวลา และกิจกรรมที่ชอบ</p></div>
+      <button class="btn btn-soft btn-small" onclick="shufflePlan()">✨ จัดแผนใหม่</button>
+    </div>
+    <div class="card">
+      <div class="week" id="weekGrid">
+        <div class="day active"><div class="d">จันทร์</div><div class="n">7</div><div class="activity">🏋️ Gym<br>18:30</div></div>
+        <div class="day active"><div class="d">อังคาร</div><div class="n">8</div><div class="activity">🧘 Yoga<br>19:00</div></div>
+        <div class="day active today"><div class="d">พุธ</div><div class="n">9</div><div class="activity">🏃 Run<br>6:30</div></div>
+        <div class="day"><div class="d">พฤหัส</div><div class="n">10</div><div class="activity">♨️ Onsen<br>20:00</div></div>
+        <div class="day"><div class="d">ศุกร์</div><div class="n">11</div><div class="activity">🥊 Muay Thai<br>18:00</div></div>
+        <div class="day"><div class="d">เสาร์</div><div class="n">12</div><div class="activity">🌿 Recovery<br>10:00</div></div>
+        <div class="day"><div class="d">อาทิตย์</div><div class="n">13</div><div class="activity">☕ Rest Day</div></div>
+      </div>
+      <div class="planner-note">
+        <span>💡 วันนี้คุณมีเวลาว่างช่วง 18:00–20:00 เราแนะนำ <b>Yoga Recovery</b> เพื่อรักษา streak โดยไม่หนักเกินไป</span>
+        <button class="btn btn-small btn-soft" onclick="toast('เพิ่ม Yoga Recovery ลง Planner แล้ว')">เพิ่มลงแผน</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="rewards">
+    <div class="section-head">
+      <div><h2>Rewards & Member Benefits</h2><p>จ่ายรายเดือน → รับแต้ม → ใช้แลกสิทธิ์ที่เกี่ยวกับสุขภาพและการเดินทาง</p></div>
+      <div class="points-chip">⭐ 1,250 Points</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-head">
+          <div><h3>Wellness Points</h3><div class="sub">ได้ 500 Points ทุกครั้งที่ต่ออายุแพ็กเกจรายเดือน</div></div>
+          <span class="points-chip">LEVEL 2</span>
+        </div>
+        <b style="font-size:28px">1,250 / 2,000</b>
+        <div class="progress"><div style="width:62.5%"></div></div>
+        <div class="sub">อีก 750 Points อัปเกรดเป็น Level 3 · Parking เพิ่ม +1 ชม./ครั้ง</div>
+        <div class="reward-row">
+          <div class="reward"><b>🎟️ 500 pts</b><small>ฟรีคลาส Yoga 1 ครั้ง</small></div>
+          <div class="reward"><b>🚗 350 pts</b><small>Parking +2 ชม.</small></div>
+          <div class="reward"><b>🚕 600 pts</b><small>ส่วนลด Ride 100 บาท</small></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div><h3>Parking & Ride</h3><div class="sub">ลด friction ก่อนและหลังทำกิจกรรม</div></div>
+        </div>
+        <div class="service-grid">
+          <div class="service">
+            <div><div class="svc-icon">🅿️</div><b>Smart Parking</b><br><small>สิทธิ์ฟรี 2 ชม. วันนี้</small></div>
+            <button class="btn btn-primary btn-small" onclick="startParking(this)">เริ่มจอดรถ</button>
+          </div>
+          <div class="service">
+            <div><div class="svc-icon">🚕</div><b>Grab</b><br><small>เปิดแอปเรียกรถไปสถานที่กิจกรรม</small></div>
+            <button class="btn btn-soft btn-small" onclick="ride('Grab')">เปิด Grab</button>
+          </div>
+          <div class="service">
+            <div><div class="svc-icon">🛵</div><b>LINE MAN</b><br><small>เชื่อมต่อการเดินทาง/บริการใกล้เคียง</small></div>
+            <button class="btn btn-soft btn-small" onclick="ride('LINE MAN')">เปิด LINE MAN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="wrap">
+    <div class="section-head">
+      <div><h2>Streak & Wellness Wrap</h2><p>ทำให้การดูแลตัวเอง “อยากแชร์” เหมือน Strava + TikTok Streak + Spotify Wrapped</p></div>
+    </div>
+
+    <div class="streak-zone">
+      <div class="streak-card">
+        <small style="opacity:.7">CURRENT STREAK</small>
+        <div class="count">3 Days 🔥</div>
+        <p>คุณเข้ากิจกรรมต่อเนื่องครบ 3 วันแล้ว</p>
+        <div class="flames">
+          <div class="flame on">🔥</div>
+          <div class="flame on">🔥</div>
+          <div class="flame on">🔥</div>
+          <div class="flame">4</div>
+          <div class="flame">5</div>
+        </div>
+        <button class="btn btn-soft" onclick="openStory('streak')">แชร์ Streak ลง Story</button>
+      </div>
+
+      <div class="wrap-card">
+        <div class="card-head">
+          <div><h3>September Wellness Wrap</h3><div class="sub">สรุปเดือนนี้ให้กลายเป็นคอนเทนต์ที่แชร์ได้</div></div>
+          <span class="points-chip">TOP 18%</span>
+        </div>
+        <div class="wrap-metrics">
+          <div><b>8</b><small>Sessions</small></div>
+          <div><b>11.6 km</b><small>Running</small></div>
+          <div><b>2,430</b><small>Active kcal</small></div>
+        </div>
+        <div class="sub">กิจกรรมอันดับ 1 ของคุณคือ <b>Gym</b> · เวลาโปรด 18:00–20:00 · ทำได้ดีกว่าสัปดาห์ก่อน +24%</div>
+        <div style="margin-top:16px">
+          <button class="btn btn-primary" onclick="openStory('wrap')">✨ สร้าง Wellness Wrap</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="buddy">
+    <div class="section-head">
+      <div><h2>Find Your Wellness Buddy</h2><p>จับคู่จากกิจกรรม ระดับความฟิต เวลา และสไตล์การออกกำลังกาย</p></div>
+      <button class="btn btn-primary btn-small" onclick="toast('กำลังค้นหาบัดดี้ที่ match มากที่สุด…')">ค้นหา Buddy</button>
+    </div>
+
+    <div class="card">
+      <div class="buddy-filters">
+        <button class="filter on" onclick="toggleFilter(this)">🏋️ Gym</button>
+        <button class="filter on" onclick="toggleFilter(this)">🏃 Running</button>
+        <button class="filter" onclick="toggleFilter(this)">🧘 Yoga</button>
+        <button class="filter on" onclick="toggleFilter(this)">หลัง 18:00</button>
+        <button class="filter" onclick="toggleFilter(this)">มือใหม่</button>
+      </div>
+
+      <div class="buddy-list">
+        <div class="buddy">
+          <div class="buddy-top"><div class="buddy-avatar">🐻</div><div><b>May</b><div class="sub">Gym · Run</div></div><div class="match">94% MATCH</div></div>
+          <p>ชอบออกกำลังกายหลังเลิกงาน และกำลังทำ 5-day streak เหมือนกัน</p>
+          <button class="btn btn-soft btn-small" style="width:100%" onclick="toast('ส่งคำขอ Buddy ให้ May แล้ว')">Connect</button>
+        </div>
+        <div class="buddy">
+          <div class="buddy-top"><div class="buddy-avatar">🐰</div><div><b>Prae</b><div class="sub">Yoga · Gym</div></div><div class="match">89% MATCH</div></div>
+          <p>เน้น balance ระหว่าง workout กับ recovery และสะดวกช่วงเย็น</p>
+          <button class="btn btn-soft btn-small" style="width:100%" onclick="toast('ส่งคำขอ Buddy ให้ Prae แล้ว')">Connect</button>
+        </div>
+        <div class="buddy">
+          <div class="buddy-top"><div class="buddy-avatar">🐯</div><div><b>Beam</b><div class="sub">Run · Muay Thai</div></div><div class="match">86% MATCH</div></div>
+          <p>กำลังหาเพื่อนวิ่งระยะ 5K และชอบเก็บ badge รายสัปดาห์</p>
+          <button class="btn btn-soft btn-small" style="width:100%" onclick="toast('ส่งคำขอ Buddy ให้ Beam แล้ว')">Connect</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bottom-note">
+    <div>
+      <h3>Why this feels different ✦</h3>
+      <p>ไม่ใช่แค่ “ซื้อแพ็กเกจแล้วจบ” แต่สร้าง loop: Subscribe → Earn → Plan → Do → Streak → Share → Come back</p>
+    </div>
+    <button class="btn btn-soft" onclick="toast('Prototype ready — ปุ่มและ interaction หลักใช้งานได้')">ดู Member Journey</button>
+  </div>
+</main>
+
+<nav class="mobile-nav">
+  <a href="#home"><span>🏠</span>Home</a>
+  <a href="#planner"><span>🗓️</span>Plan</a>
+  <a href="#rewards"><span>⭐</span>Rewards</a>
+  <a href="#wrap"><span>🔥</span>Wrap</a>
+  <a href="#buddy"><span>🤝</span>Buddy</a>
+</nav>
+
+<div class="modal" id="storyModal" onclick="modalBackdrop(event)">
+  <div class="modal-panel">
+    <div class="story" id="storyCanvas">
+      <div class="story-brand">♥ WELLNESS VALUE MATCHER</div>
+      <div class="story-big" id="storyBig">3 DAYS 🔥</div>
+      <div class="story-sub" id="storySub">My wellness streak is on.</div>
+      <div class="story-box" id="storyBox">🏋️ Gym · 🏃 Run · 🧘 Yoga<br><b>Keep the streak alive.</b></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-soft" onclick="closeStory()">ปิด</button>
+      <button class="btn btn-primary" onclick="shareStory()">แชร์ลง Story</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  let parking = false;
+
+  function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+
+  function toast(msg){
+    const t=document.getElementById('toast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(window.__toast);
+    window.__toast=setTimeout(()=>t.classList.remove('show'),2400);
+  }
+
+  function shufflePlan(){
+    const acts=[
+      ['🏋️ Gym','18:30'],['🧘 Yoga','19:00'],['🏃 Run','06:30'],
+      ['♨️ Onsen','20:00'],['🥊 Muay Thai','18:00'],['🌿 Recovery','10:00'],['☕ Rest Day','']
+    ];
+    const cards=[...document.querySelectorAll('.activity')];
+    acts.sort(()=>Math.random()-.5);
+    cards.forEach((el,i)=>el.innerHTML=acts[i][0]+(acts[i][1]?'<br>'+acts[i][1]:''));
+    toast('จัด Weekly Planner ใหม่ตามไลฟ์สไตล์แล้ว ✨');
+  }
+
+  function startParking(btn){
+    parking=!parking;
+    if(parking){
+      btn.textContent='กำลังจอด · 00:00';
+      btn.classList.remove('btn-primary');btn.classList.add('btn-dark');
+      toast('เริ่มสิทธิ์ Parking ฟรี 2 ชั่วโมงแล้ว');
+    }else{
+      btn.textContent='เริ่มจอดรถ';
+      btn.classList.add('btn-primary');btn.classList.remove('btn-dark');
+      toast('สิ้นสุดการใช้ Parking แล้ว');
+    }
+  }
+
+  function ride(app){
+    toast('Prototype: เชื่อมต่อไปยัง '+app+' ได้จากปุ่มนี้');
+  }
+
+  function toggleFilter(el){
+    el.classList.toggle('on');
+  }
+
+  function openStory(type){
+    const big=document.getElementById('storyBig');
+    const sub=document.getElementById('storySub');
+    const box=document.getElementById('storyBox');
+
+    if(type==='wrap'){
+      big.innerHTML='8 SESSIONS';
+      sub.textContent='SEPTEMBER WELLNESS WRAP';
+      box.innerHTML='🏃 11.6 KM &nbsp; · &nbsp; 🔥 2,430 KCAL<br><b>Top activity: Gym · Top 18%</b>';
+    }else if(type==='welcome'){
+      big.innerHTML='300<br>CREDITS';
+      sub.textContent='WELCOME TO YOUR FREE TRIAL';
+      box.innerHTML='🎁 7-day Free Trial<br><b>Your wellness journey starts now.</b>';
+    }else{
+      big.innerHTML='3 DAYS 🔥';
+      sub.textContent='MY WELLNESS STREAK';
+      box.innerHTML='🏋️ Gym · 🧘 Yoga · 🏃 Run<br><b>Keep the streak alive.</b>';
+    }
+    document.getElementById('storyModal').classList.add('show');
+  }
+
+  function closeStory(){document.getElementById('storyModal').classList.remove('show');}
+  function modalBackdrop(e){if(e.target.id==='storyModal')closeStory();}
+  function shareStory(){
+    closeStory();
+    toast('Prototype: พร้อมส่งภาพไป Instagram / TikTok Story ✨');
+  }
+</script>
+</body>
+</html>
