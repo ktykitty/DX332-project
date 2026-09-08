@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>SAYO Prototype — Home / Activity / Profile / Group / Reward</title>
   <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap');
     :root{
       --bg:#ECF5E8;
       --surface:#FFFFFF;
@@ -29,14 +30,19 @@
     body{
       margin:0;
       min-height:100vh;
-      font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:"DM Sans","Noto Sans Thai",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
       background:linear-gradient(180deg,#DDEFD8 0%,#F4FAF1 100%);
       color:var(--ink);
       display:flex;
       justify-content:center;
     }
-    button,input,textarea{font:inherit}
+    button,input,textarea,select{font:inherit;font-family:inherit}
     button{cursor:pointer}
+
+    .app, .app *{
+      font-family:"DM Sans","Noto Sans Thai",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    }
+
     .app{
       width:min(100%,430px);
       min-height:100vh;
@@ -60,7 +66,7 @@
       padding:26px 20px 12px;
       display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
     }
-    .eyebrow{font-size:13px;font-weight:800;color:var(--deep);margin-bottom:2px}
+    .eyebrow{font-size:13px;font-weight:600;color:var(--deep);margin-bottom:2px}
     h1{
       margin:0;
       font-size:29px;
@@ -97,7 +103,7 @@
     }
     .home-greeting{
       font-size:13px;
-      font-weight:800;
+      font-weight:600;
       color:var(--deep);
       margin-bottom:3px;
       line-height:1.2;
@@ -167,8 +173,8 @@
     }
     .ring-content{position:relative;z-index:1;text-align:center}
     .ring-icon{font-size:18px;margin-bottom:5px}
-    .ring-value{font-size:28px;font-weight:900;line-height:1}
-    .ring-label{margin-top:6px;font-size:8px;font-weight:800;letter-spacing:1.25px}
+    .ring-value{font-size:28px;font-weight:700;line-height:1}
+    .ring-label{margin-top:6px;font-size:8px;font-weight:600;letter-spacing:1.25px}
     .insight-row{
       margin-top:14px;padding:12px 13px;border-radius:18px;
       background:#F4FAF2;display:flex;gap:10px;align-items:flex-start;
@@ -189,14 +195,14 @@
       isolation:isolate;
       background:
         radial-gradient(circle at 82% 20%, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 24%),
-        linear-gradient(90deg, rgba(238,231,201,.96) 0%, rgba(217,230,215,.92) 50%, rgba(115,184,143,.80) 100%);
+        linear-gradient(90deg, rgba(241,235,207,.96) 0%, rgba(223,234,220,.92) 52%, rgba(146,199,166,.66) 100%);
     }
     .recommend::before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,0) 30%),
+        linear-gradient(180deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,0) 32%),
         radial-gradient(ellipse at top right, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 36%),
         radial-gradient(ellipse at bottom left, rgba(255,255,255,.14) 0%, rgba(255,255,255,0) 30%);
       z-index:-1;
@@ -206,10 +212,10 @@
       gap:6px;
       align-items:center;
       font-size:11px;
-      font-weight:900;
+      font-weight:700;
       letter-spacing:.2px;
       color:#F9FFFB;
-      background:rgba(93,151,112,.34);
+      background:rgba(125,175,139,.24);
       padding:8px 12px;
       border-radius:999px;
       backdrop-filter:blur(4px);
@@ -242,7 +248,7 @@
       border:0;
       border-radius:16px;
       padding:13px 18px;
-      font-weight:900;
+      font-weight:700;
       font-size:13px;
       transition:transform .15s ease;
     }
@@ -250,9 +256,9 @@
       transform:translateY(-1px);
     }
     .btn-light{
-      background:#1F5D4B;
+      background:#2A6C58;
       color:#fff;
-      box-shadow:0 8px 16px rgba(31,93,75,.18);
+      box-shadow:0 8px 16px rgba(42,108,88,.14);
     }
     .btn-ghost{
       background:rgba(255,255,255,.16);
@@ -267,10 +273,10 @@
     .streak h3{margin:0 0 3px;font-size:18px}
     .streak p{margin:0;font-size:12px;color:var(--muted)}
     .credit{
-      background:#FFF3CA;color:#835F00;font-size:11px;font-weight:900;padding:8px 10px;border-radius:999px;white-space:nowrap;
+      background:#FFF3CA;color:#835F00;font-size:11px;font-weight:700;padding:8px 10px;border-radius:999px;white-space:nowrap;
     }
     .day-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px}
-    .day{text-align:center;font-size:9px;font-weight:800;color:#80918D}
+    .day{text-align:center;font-size:9px;font-weight:600;color:#80918D}
     .flame{
       height:47px;margin-bottom:5px;border-radius:15px;background:#EEF5EC;display:grid;place-items:center;font-size:22px;
     }
@@ -296,7 +302,7 @@
         linear-gradient(145deg,#F7F6D8 0%,#DFF0D8 55%,#BEE2C4 100%);
     }
     .wrap-kicker{font-size:11px;letter-spacing:1.2px;font-weight:900}
-    .wrap-big{font-size:34px;font-weight:950;line-height:1.02;margin-top:8px}
+    .wrap-big{font-size:34px;font-weight:700;line-height:1.02;margin-top:8px}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
     .stat{padding:9px 8px;background:rgba(255,255,255,.68);border-radius:14px}
     .stat strong{display:block;font-size:16px}
@@ -306,7 +312,7 @@
     }
     .wrap-bottom p{margin:0;color:var(--muted);font-size:11px;line-height:1.35}
     .share{
-      border:0;border-radius:14px;padding:11px 15px;background:var(--deep);color:white;font-weight:900;
+      border:0;border-radius:14px;padding:11px 15px;background:var(--deep);color:white;font-weight:700;
       white-space:nowrap;
     }
 
@@ -322,7 +328,7 @@
     .news-card:nth-child(2){background:linear-gradient(135deg,#F7C86C,#E79149)}
     .news-card:nth-child(3){background:linear-gradient(135deg,#99C7E8,#6687C2)}
     .news-tag{
-      font-size:10px;font-weight:900;background:rgba(255,255,255,.18);display:inline-block;padding:6px 9px;border-radius:999px;
+      font-size:10px;font-weight:700;background:rgba(255,255,255,.18);display:inline-block;padding:6px 9px;border-radius:999px;
     }
     .news-card h3{margin:17px 0 6px;font-size:21px}
     .news-card p{margin:0;font-size:11.5px;color:rgba(255,255,255,.88);line-height:1.4}
@@ -373,7 +379,7 @@
     }
     .media-news-card .news-tag{
       font-size:10px;
-      font-weight:900;
+      font-weight:700;
       letter-spacing:.4px;
       background:#E3F0DF;
       color:#3D735C;
@@ -415,6 +421,222 @@
     .dots{display:flex;justify-content:center;gap:6px;padding-top:2px}
     .dot{width:6px;height:6px;border-radius:50%;background:#B8CBB7}
     .dot.active{width:18px;border-radius:99px;background:var(--green)}
+
+
+    #activityScreen,
+    #profileScreen,
+    #groupScreen,
+    #rewardScreen{
+      width:100%;
+      max-width:430px;
+      margin:0 auto;
+      overflow-x:hidden;
+    }
+    #activityScreen *,
+    #profileScreen *,
+    #groupScreen *,
+    #rewardScreen *{
+      max-width:100%;
+    }
+
+
+    /* HOME — youthful / approachable refresh */
+    #homeScreen{
+      background:
+        radial-gradient(circle at 92% 3%, rgba(255,223,151,.22), transparent 22%),
+        radial-gradient(circle at 8% 14%, rgba(172,224,183,.24), transparent 22%),
+        linear-gradient(180deg,#F1F8EE 0%,#EDF6E9 100%);
+    }
+
+    .home-header{
+      padding:22px 18px 10px;
+      align-items:center;
+    }
+    .home-greeting{
+      display:inline-flex;
+      align-items:center;
+      padding:7px 11px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      color:#557068;
+      font-size:12px;
+      font-weight:500;
+      box-shadow:0 5px 14px rgba(48,83,67,.05);
+      margin-bottom:8px;
+    }
+    .home-title{
+      font-size:28px;
+      line-height:1.05;
+      font-weight:600;
+      letter-spacing:-1px;
+      color:#173F38;
+    }
+    .home-profile-btn{
+      width:48px;
+      height:48px;
+      background:linear-gradient(145deg,#FFF1C9,#BFE4C4);
+      border:3px solid rgba(255,255,255,.9);
+      box-shadow:0 8px 18px rgba(48,83,67,.08);
+    }
+
+    #homeScreen .section-title h2{
+      font-size:17px;
+      font-weight:600;
+      letter-spacing:-.3px;
+      color:#244A40;
+    }
+    #homeScreen .mini{
+      font-weight:500;
+      color:#83948E;
+      background:rgba(255,255,255,.62);
+      padding:5px 9px;
+      border-radius:999px;
+    }
+
+    #homeScreen .score-card{
+      border-radius:26px;
+      padding:16px 14px 14px;
+      background:rgba(255,255,255,.88);
+      box-shadow:0 10px 24px rgba(45,84,67,.07);
+      border:1px solid rgba(255,255,255,.82);
+    }
+    #homeScreen .ring{
+      width:138px;
+      height:138px;
+      filter:none;
+    }
+    #homeScreen .ring::before{
+      width:112px;
+      height:112px;
+    }
+    #homeScreen .ring-value{
+      font-size:27px;
+      font-weight:700;
+    }
+    #homeScreen .ring-label{
+      font-size:7.5px;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+    #homeScreen .ring-icon{
+      font-size:17px;
+      margin-bottom:4px;
+    }
+
+    #homeScreen .insight-row{
+      background:linear-gradient(135deg,#F8F3D9,#EFF7E9);
+      border-radius:17px;
+      padding:12px 13px;
+      margin-top:13px;
+    }
+    #homeScreen .insight-badge{
+      background:#FFF0B9;
+      font-size:16px;
+    }
+    #homeScreen .insight-row strong{
+      font-size:12.5px;
+      font-weight:600;
+      color:#3D554D;
+    }
+    #homeScreen .insight-row p{
+      font-size:11.5px;
+      color:#6F817A;
+    }
+
+    #homeScreen .recommend{
+      border-radius:26px;
+      box-shadow:0 10px 22px rgba(55,88,69,.07);
+    }
+    #homeScreen .recommend .kicker{
+      color:#41685A;
+      background:rgba(255,255,255,.44);
+      font-size:10px;
+      font-weight:600;
+      box-shadow:none;
+    }
+    #homeScreen .recommend h3{
+      font-size:20px;
+      font-weight:600;
+      color:#234B40;
+    }
+    #homeScreen .recommend p{
+      font-size:12.5px;
+      color:#4E6960;
+    }
+    #homeScreen .btn-light{
+      background:#2E755D;
+      color:#fff;
+      box-shadow:none;
+      border-radius:999px;
+      padding:11px 17px;
+      font-weight:600;
+    }
+
+    #homeScreen .streak{
+      border-radius:26px;
+      box-shadow:0 10px 22px rgba(45,84,67,.06);
+      border:1px solid rgba(255,255,255,.8);
+    }
+    #homeScreen .streak h3{
+      font-size:17px;
+      font-weight:600;
+    }
+    #homeScreen .credit{
+      background:#FFF0B8;
+      color:#846418;
+      font-weight:600;
+    }
+    #homeScreen .flame{
+      border-radius:16px;
+    }
+    #homeScreen .day.done .flame{
+      background:#FFF2C8;
+    }
+    #homeScreen .day.today .flame{
+      background:#FFE5A5;
+      outline:2px solid #F5BE55;
+    }
+
+    #homeScreen .wrap-card{
+      border-radius:26px;
+      box-shadow:0 10px 22px rgba(45,84,67,.06);
+      border:1px solid rgba(255,255,255,.8);
+    }
+    #homeScreen .wrap-visual{
+      background:linear-gradient(145deg,#FFF1C8 0%,#E8F2D8 50%,#CDE7D4 100%);
+    }
+    #homeScreen .wrap-kicker{
+      color:#587066;
+      font-size:10px;
+      font-weight:600;
+    }
+    #homeScreen .wrap-big{
+      font-size:32px;
+      font-weight:600;
+      color:#214A3F;
+    }
+    #homeScreen .stat{
+      background:rgba(255,255,255,.74);
+      border:1px solid rgba(255,255,255,.85);
+    }
+    #homeScreen .share{
+      background:#2E755D;
+      border-radius:999px;
+      font-weight:600;
+    }
+
+    #homeScreen .media-news-card{
+      border-radius:24px;
+      box-shadow:0 9px 20px rgba(45,84,67,.06);
+      border:1px solid rgba(255,255,255,.9);
+    }
+    #homeScreen .news-image{
+      border-radius:17px;
+    }
+    #homeScreen .media-news-card h3{
+      font-size:17px;
+      font-weight:600;
+    }
 
     /* ACTIVITY */
     .activity-top{
@@ -491,17 +713,17 @@
     }
     .date-card .dow{
       font-size:11px;
-      font-weight:800;
+      font-weight:600;
     }
     .date-card .num{
       font-size:24px;
       line-height:1;
-      font-weight:900;
+      font-weight:700;
       color:#5C706A;
     }
     .date-card .month{
       font-size:9px;
-      font-weight:800;
+      font-weight:600;
       text-transform:uppercase;
       letter-spacing:.5px;
       opacity:.75;
@@ -534,7 +756,7 @@
     .chips::-webkit-scrollbar{display:none}
     .chip{
       border:1px solid #E2EADF;background:#F3F7F0;color:#6D7F79;padding:11px 18px;border-radius:999px;
-      white-space:nowrap;font-size:12px;font-weight:800;
+      white-space:nowrap;font-size:12px;font-weight:600;
     }
     .chip.active{background:var(--deep);border-color:var(--deep);color:#fff}
 
@@ -583,8 +805,81 @@
       margin:8px 0 0;color:#687B74;font-size:13px;line-height:1.45;
     }
     .browse-btn{
-      margin-top:18px;border:0;border-radius:999px;background:#457357;color:#fff;font-weight:900;
+      margin-top:18px;border:0;border-radius:999px;background:#457357;color:#fff;font-weight:700;
       padding:14px 24px;display:inline-flex;align-items:center;gap:10px;
+    }
+
+    
+    #activityScreen .search-row{
+      margin-bottom:8px;
+    }
+    #activityScreen .activity-grid{
+      padding-top:8px;
+    }
+    #activityScreen .activity-card-featured{
+      grid-column:1 / -1;
+      display:grid;
+      grid-template-columns:72px 1fr auto;
+      align-items:center;
+      gap:16px;
+      min-height:auto;
+      padding:18px;
+    }
+    #activityScreen .activity-featured-icon{
+      width:72px;
+      height:72px;
+      border-radius:20px;
+      background:linear-gradient(145deg,#EEF5EC,#DDEBDD);
+      display:grid;
+      place-items:center;
+      font-size:36px;
+      line-height:1;
+    }
+    #activityScreen .activity-featured-copy{
+      min-width:0;
+    }
+    #activityScreen .featured-badge{
+      display:inline-flex;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#EEF5EC;
+      color:#6C8178;
+      font-size:10px;
+      font-weight:600;
+      margin-bottom:6px;
+    }
+    #activityScreen .activity-card-featured h4{
+      min-height:auto;
+      margin:0 0 8px;
+      font-size:22px;
+      line-height:1.05;
+    }
+    #activityScreen .activity-card-featured small{
+      display:block;
+      margin:0;
+      font-size:12px;
+      line-height:1.5;
+      max-width:none;
+    }
+    #activityScreen .book-row-featured{
+      margin-top:0;
+      min-width:140px;
+    }
+    @media (max-width: 480px){
+      #activityScreen .activity-card-featured{
+        grid-template-columns:60px 1fr;
+      }
+      #activityScreen .activity-featured-icon{
+        width:60px;
+        height:60px;
+        border-radius:18px;
+        font-size:30px;
+      }
+      #activityScreen .book-row-featured{
+        grid-column:1 / -1;
+        min-width:0;
+      }
     }
 
     .activity-grid{
@@ -608,7 +903,7 @@
     .book-row{margin-top:auto;padding-top:12px}
     .book-btn{
       width:100%;border:0;border-radius:16px;padding:12px 14px;
-      background:#EEF4EB;color:var(--deep);font-weight:900;display:flex;justify-content:space-between;align-items:center;
+      background:#EEF4EB;color:var(--deep);font-weight:700;display:flex;justify-content:space-between;align-items:center;
     }
     .activity-banner{
       margin:0 18px 14px;background:linear-gradient(135deg,#E4F0DF,#D4E7D0);border-radius:24px;padding:20px;box-shadow:var(--shadow);
@@ -638,7 +933,7 @@
       align-items:center;
       gap:9px;
       font-size:18px;
-      font-weight:950;
+      font-weight:700;
     }
     .booking-state-title .cal{
       width:38px;height:38px;border-radius:13px;
@@ -648,7 +943,7 @@
     }
     .booking-view-all{
       border:0;background:none;color:var(--deep);
-      font-size:11px;font-weight:900;
+      font-size:11px;font-weight:700;
     }
     .upcoming-booking-card{
       background:#fff;
@@ -688,7 +983,7 @@
       background:#E2F2DE;
       color:#347150;
       font-size:9px;
-      font-weight:900;
+      font-weight:700;
       margin-bottom:5px;
     }
     .upcoming-booking-copy h3{
@@ -720,7 +1015,7 @@
       border:0;
       border-radius:14px;
       padding:11px 12px;
-      font-weight:900;
+      font-weight:700;
       font-size:11px;
     }
     .booking-actions-inline .details{
@@ -740,7 +1035,7 @@
     }
     .booking-actions-secondary button{
       border:0;background:none;color:#879891;
-      font-size:10px;font-weight:800;padding:5px 2px;
+      font-size:10px;font-weight:600;padding:5px 2px;
     }
     .booking-confirmed-note{
       margin-top:9px;
@@ -762,7 +1057,7 @@
     .member-copy strong{display:block;font-size:18px}
     .member-copy span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
     .member-btn{
-      margin-top:11px;border:0;border-radius:14px;background:var(--gold);color:white;font-weight:900;padding:11px 14px;display:inline-flex;align-items:center;gap:8px;
+      margin-top:11px;border:0;border-radius:14px;background:var(--gold);color:white;font-weight:700;padding:11px 14px;display:inline-flex;align-items:center;gap:8px;
     }
     .quick-grid{
       display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 18px 0;
@@ -770,7 +1065,7 @@
     .quick-card{
       background:#fff;border:0;border-radius:22px;padding:16px 14px;box-shadow:var(--shadow);text-align:left;
     }
-    .quick-card small{display:block;color:#49A06A;font-size:11px;font-weight:900;letter-spacing:.4px}
+    .quick-card small{display:block;color:#49A06A;font-size:11px;font-weight:700;letter-spacing:.4px}
     .quick-card .big-icon{font-size:36px;line-height:1;margin-top:8px}
     .quick-card p{margin:7px 0 0;color:var(--muted);font-size:11px;line-height:1.35}
     .profile-card{
@@ -782,15 +1077,15 @@
       display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin-top:14px;
     }
     .plan-day{background:#F6FBF4;border-radius:16px;padding:10px 6px;text-align:center}
-    .plan-day .name{font-size:9px;font-weight:900;color:#6E857E}
+    .plan-day .name{font-size:9px;font-weight:700;color:#6E857E}
     .plan-day .emoji{font-size:22px;line-height:1;margin:7px 0 6px}
     .plan-day .task{font-size:8px;color:#58706A;line-height:1.25}
     .planner-action{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-    .soft-btn{border:0;border-radius:14px;background:#DFF1DF;color:#245C40;font-weight:900;padding:10px 12px}
+    .soft-btn{border:0;border-radius:14px;background:#DFF1DF;color:#245C40;font-weight:700;padding:10px 12px}
     .plan-note{font-size:11px;color:var(--muted)}
     .package-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
     .package-badge{background:#FFF3CA;color:#8A6700;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:900}
-    .package-name{font-size:21px;font-weight:900;margin-top:10px}
+    .package-name{font-size:21px;font-weight:700;margin-top:10px}
     .package-price{font-size:12px;color:var(--muted);margin-top:4px}
     .benefits{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
     .benefit{background:#F6FBF4;border-radius:16px;padding:11px 12px;font-size:11px;color:#4F6660;line-height:1.35}
@@ -799,7 +1094,7 @@
     .upgrade-box strong{display:block;font-size:13px}
     .upgrade-box p{margin:4px 0 0;font-size:11.5px;color:#5E746E;line-height:1.4}
     .upgrade-row{margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-    .upgrade-btn{border:0;border-radius:14px;background:var(--deep);color:white;font-weight:900;padding:10px 13px}
+    .upgrade-btn{border:0;border-radius:14px;background:var(--deep);color:white;font-weight:700;padding:10px 13px}
     .settings-list{margin:12px 18px 0;background:#fff;border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
     .setting-row{
       width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px;border:0;background:#fff;text-align:left;color:var(--ink);
@@ -817,7 +1112,7 @@
       background:radial-gradient(circle at 90% 10%,rgba(255,255,255,.2),transparent 26%),linear-gradient(135deg,#2E8C61,#74C886);
       box-shadow:var(--shadow);
     }
-    .create-card .small{font-size:11px;font-weight:800;letter-spacing:.5px}
+    .create-card .small{font-size:11px;font-weight:600;letter-spacing:.5px}
     .create-card h2{margin:8px 0 5px;font-size:20px}
     .create-card p{margin:0;font-size:12px;line-height:1.4}
     .create-btn{margin-top:14px;border:0;border-radius:14px;padding:11px 14px;background:#fff;color:var(--deep);font-weight:900}
@@ -832,7 +1127,7 @@
     .userline{min-width:0;flex:1}
     .userline strong{font-size:13px}
     .userline p{margin:3px 0 0;font-size:10.5px;color:var(--muted)}
-    .group-badge{font-size:9px;font-weight:900;padding:6px 8px;border-radius:999px;background:#FFF0BF;color:#8A6700}
+    .group-badge{font-size:9px;font-weight:700;padding:6px 8px;border-radius:999px;background:#FFF0BF;color:#8A6700}
     .post h2{margin:14px 0 4px;font-size:19px}
     .desc{color:#697D76;font-size:11.5px;line-height:1.45;margin:0 0 13px}
     .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
@@ -855,7 +1150,7 @@
     }
     .post-actions{display:grid;grid-template-columns:1fr 1.25fr;gap:9px;margin-top:13px}
     .secondary,.primary{
-      border-radius:14px;padding:11px 10px;font-weight:900;font-size:12px;
+      border-radius:14px;padding:11px 10px;font-weight:700;font-size:12px;
     }
     .secondary{border:1px solid #DDE8DE;background:#fff;color:var(--deep)}
     .primary{border:0;background:var(--deep);color:#fff}
@@ -898,7 +1193,7 @@
     }
     .reward-summary-copy{min-width:0;flex:1}
     .reward-summary-copy small{
-      display:block;color:#70847D;font-size:11px;font-weight:900;letter-spacing:1px;
+      display:block;color:#70847D;font-size:11px;font-weight:700;letter-spacing:1px;
     }
     .reward-summary-copy strong{
       display:block;font-size:22px;line-height:1.08;margin-top:4px;
@@ -916,10 +1211,10 @@
       color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px;
     }
     .credit-hero small{
-      display:block;font-size:11px;font-weight:900;letter-spacing:.8px;opacity:.93;
+      display:block;font-size:11px;font-weight:700;letter-spacing:.8px;opacity:.93;
     }
     .credit-hero .value{
-      font-size:44px;font-weight:950;line-height:1;margin-top:8px;
+      font-size:44px;font-weight:700;line-height:1;margin-top:8px;
     }
     .credit-hero .sub{
       margin-top:8px;font-size:11px;opacity:.9;line-height:1.4;
@@ -941,7 +1236,7 @@
     .tier-row::-webkit-scrollbar{display:none}
     .tier-pill{
       flex:0 0 auto;border:1px solid #DDE7DC;background:#F5F9F3;color:#69807A;
-      border-radius:999px;padding:10px 14px;font-size:11px;font-weight:900;
+      border-radius:999px;padding:10px 14px;font-size:11px;font-weight:700;
       text-transform:uppercase;letter-spacing:.4px;
     }
     .tier-pill.active{
@@ -959,7 +1254,7 @@
       display:flex;justify-content:space-between;align-items:flex-start;gap:10px;position:relative;z-index:1;
     }
     .level-progress-top small{
-      display:block;color:#6B7D77;font-size:10px;font-weight:900;letter-spacing:.7px;
+      display:block;color:#6B7D77;font-size:10px;font-weight:700;letter-spacing:.7px;
     }
     .level-progress-top strong{
       display:block;font-size:24px;line-height:1;margin-top:5px;
@@ -969,7 +1264,7 @@
     }
     .next-tier-badge{
       background:#fff;color:#476459;padding:8px 10px;border-radius:999px;
-      font-size:10px;font-weight:900;box-shadow:0 6px 18px rgba(60,90,72,.07);
+      font-size:10px;font-weight:700;box-shadow:0 6px 18px rgba(60,90,72,.07);
       white-space:nowrap;
     }
     .level-grid{
@@ -979,7 +1274,7 @@
       background:rgba(255,255,255,.72);border-radius:18px;padding:13px 12px;
     }
     .level-box small{
-      display:block;color:#6D817A;font-size:10px;font-weight:800;
+      display:block;color:#6D817A;font-size:10px;font-weight:600;
     }
     .level-box strong{
       display:block;font-size:17px;margin-top:6px;
@@ -1014,7 +1309,7 @@
     }
     .reward-section-head h2{margin:0;font-size:18px}
     .reward-section-head button{
-      border:0;background:none;color:#5E7E6D;font-weight:900;font-size:11px;
+      border:0;background:none;color:#5E7E6D;font-weight:700;font-size:11px;
     }
 
     .activity-scroll{
@@ -1031,7 +1326,7 @@
     }
     .reward-activity-square .emoji{font-size:30px;line-height:1}
     .reward-activity-square .label{
-      font-size:12px;font-weight:900;line-height:1.2;color:#24493D;
+      font-size:12px;font-weight:700;line-height:1.2;color:#24493D;
     }
 
     .campaign-banner{
@@ -1044,7 +1339,7 @@
     }
     .campaign-banner small{
       display:inline-block;background:rgba(255,255,255,.8);color:#865F1B;border-radius:999px;padding:6px 9px;
-      font-size:9px;font-weight:900;letter-spacing:.5px;
+      font-size:9px;font-weight:700;letter-spacing:.5px;
     }
     .campaign-banner h3{
       margin:12px 0 5px;font-size:22px;max-width:240px;line-height:1.08;letter-spacing:-.5px;color:#3E3320;
@@ -1053,7 +1348,7 @@
       margin:0;max-width:250px;font-size:11.5px;line-height:1.45;color:#5F573E;
     }
     .campaign-banner button{
-      margin-top:14px;border:0;background:#fff;color:#614E2C;border-radius:14px;padding:10px 13px;font-weight:900;font-size:11px;
+      margin-top:14px;border:0;background:#fff;color:#614E2C;border-radius:14px;padding:10px 13px;font-weight:700;font-size:11px;
       position:relative;z-index:2;
     }
 
@@ -1080,13 +1375,13 @@
     }
     .coupon-left .tier-tag{
       position:absolute;left:0;top:10px;background:rgba(33,48,43,.42);padding:5px 9px;border-radius:0 8px 8px 0;
-      font-size:10px;font-weight:900;
+      font-size:10px;font-weight:700;
     }
     .coupon-left .icon{
       margin-top:18px;font-size:28px;line-height:1;
     }
     .coupon-left .brand{
-      letter-spacing:0;font-size:13px;font-weight:900;margin-top:4px;color:#fff;
+      letter-spacing:0;font-size:13px;font-weight:700;margin-top:4px;color:#fff;
     }
     .coupon-body{
       padding:14px 14px 14px 16px;display:flex;flex-direction:column;justify-content:space-between;
@@ -1095,7 +1390,7 @@
       margin:0;font-size:15px;line-height:1.25;
     }
     .coupon-body .merchant{
-      margin-top:4px;font-size:12px;font-weight:800;color:#36584A;
+      margin-top:4px;font-size:12px;font-weight:600;color:#36584A;
     }
     .coupon-body .desc{
       margin:6px 0 0;font-size:11px;line-height:1.4;color:#6E827B;
@@ -1104,7 +1399,7 @@
       margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;
     }
     .coupon-meta span{
-      display:inline-flex;align-items:center;background:#F2F6F1;color:#5D766E;border-radius:999px;padding:6px 8px;font-size:9px;font-weight:900;
+      display:inline-flex;align-items:center;background:#F2F6F1;color:#5D766E;border-radius:999px;padding:6px 8px;font-size:9px;font-weight:700;
     }
     .coupon-bottom{
       margin-top:12px;display:flex;justify-content:space-between;align-items:end;gap:10px;
@@ -1113,7 +1408,7 @@
       font-size:10px;color:#90A29C;
     }
     .collect-btn{
-      border:0;background:#F08C3F;color:#fff;border-radius:13px;padding:11px 14px;font-weight:900;font-size:11px;
+      border:0;background:#F08C3F;color:#fff;border-radius:13px;padding:11px 14px;font-weight:700;font-size:11px;
       white-space:nowrap;
     }
 
@@ -1177,7 +1472,7 @@
       flex:0 0 auto;
       padding:5px 7px;border-radius:999px;
       background:#E0F1DD;color:#347150;
-      font-size:8px;font-weight:900;letter-spacing:.4px;
+      font-size:8px;font-weight:700;letter-spacing:.4px;
     }
     .all-booking-meta{
       margin-top:7px;display:grid;gap:4px;
@@ -1192,7 +1487,7 @@
     }
     .all-booking-actions button{
       border:0;border-radius:12px;padding:10px 9px;
-      font-size:10px;font-weight:900;
+      font-size:10px;font-weight:700;
     }
     .all-booking-actions .view{
       background:var(--deep);color:#fff;
@@ -1229,7 +1524,7 @@
     .sheet-head h2{margin:0;font-size:20px}
     .close{border:0;background:#F1F5F0;border-radius:50%;width:36px;height:36px;font-size:20px}
     .form-group{margin-top:13px}
-    .form-group label{font-size:11px;font-weight:800;display:block;margin-bottom:6px}
+    .form-group label{font-size:11px;font-weight:600;display:block;margin-bottom:6px}
     .field{
       width:100%;border:1px solid #DDE7DC;border-radius:14px;padding:12px;background:#FAFCF9;color:var(--ink);outline:none;
     }
@@ -1237,7 +1532,7 @@
     .row2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
     .save{width:100%;margin-top:16px;border:0;border-radius:15px;padding:13px;background:var(--deep);color:#fff;font-weight:900}
     .chat-meta{padding:9px 0 12px;border-bottom:1px solid var(--line)}
-    .chat-title{font-weight:900;font-size:15px}
+    .chat-title{font-weight:700;font-size:15px}
     .chat-sub{font-size:10.5px;color:var(--muted);margin-top:3px}
     .messages{flex:1;overflow:auto;padding:12px 0 16px}
     .msg{display:flex;gap:8px;align-items:flex-start;margin:13px 0}
@@ -1246,7 +1541,7 @@
       max-width:78%;padding:10px 12px;border-radius:15px;background:#F1F4F1;font-size:12px;line-height:1.4;color:#304A44;
     }
     .msg.me .bubble{background:#DFF1DF;color:#245C40}
-    .chat-name{font-size:9px;font-weight:900;color:#789087;margin-bottom:3px}
+    .chat-name{font-size:9px;font-weight:700;color:#789087;margin-bottom:3px}
     .system{
       text-align:center;font-size:9.5px;color:#7F918B;background:#F5F6F5;border-radius:999px;padding:5px 9px;width:max-content;max-width:90%;margin:9px auto;
     }
@@ -1286,12 +1581,12 @@
     .booking-head{
       padding:14px;border-radius:20px;background:linear-gradient(135deg,#EDF6EA,#D8EED8);margin-top:10px;
     }
-    .booking-head small{display:block;color:#5D786F;font-weight:800;letter-spacing:.5px}
+    .booking-head small{display:block;color:#5D786F;font-weight:600;letter-spacing:.5px}
     .booking-head strong{display:block;margin-top:6px;font-size:20px}
     .booking-head p{margin:6px 0 0;color:#617670;font-size:12px;line-height:1.4}
     .slot-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
     .slot{
-      border:1px solid #DBE8DA;background:#F7FBF5;color:#466259;border-radius:15px;padding:12px;text-align:center;font-size:12px;font-weight:800;
+      border:1px solid #DBE8DA;background:#F7FBF5;color:#466259;border-radius:15px;padding:12px;text-align:center;font-size:12px;font-weight:600;
     }
     .slot.active{background:#DFF1DF;border-color:#BFE0C4}
     .booking-summary{
@@ -1309,7 +1604,1287 @@
       .feature-card{grid-template-columns:1fr}
       .feature-art{min-height:140px}
     }
+  
+
+
+    .reward-title-row h1{ margin-bottom:0; }
+
+    .reward-progress-card{
+      margin-top:14px;
+      background:#F7FBF6;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:16px 16px 14px;
+    }
+    .reward-progress-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+      margin-bottom:12px;
+    }
+    .reward-progress-meta small{
+      display:block;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.05em;
+      color:#7A8B84;
+      margin-bottom:6px;
+    }
+    .reward-progress-meta strong{
+      display:block;
+      font-size:34px;
+      line-height:1;
+      letter-spacing:-1px;
+      color:var(--ink);
+    }
+    .reward-progress-meta strong span{
+      font-size:18px;
+      letter-spacing:-.3px;
+      color:#2A3D37;
+      font-weight:700;
+      margin-left:3px;
+    }
+    .reward-progress-note{
+      flex:0 0 auto;
+      background:#FFF6DA;
+      color:#9B7417;
+      border:1px solid rgba(233,184,79,.3);
+      border-radius:999px;
+      padding:9px 12px;
+      font-size:12px;
+      font-weight:800;
+      line-height:1.25;
+      max-width:138px;
+      text-align:center;
+    }
+    .reward-progress-track{
+      height:14px;
+      background:#D9E2DC;
+      border-radius:999px;
+      overflow:hidden;
+      position:relative;
+    }
+    .reward-progress-track span{
+      display:block;
+      height:100%;
+      width:0;
+      border-radius:999px;
+      background:linear-gradient(90deg,#F43A2D 0%, #FF6E1F 58%, #E0B85B 100%);
+      box-shadow:0 4px 12px rgba(244,58,45,.16);
+    }
+    .reward-progress-footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:10px;
+      font-size:12px;
+      color:#7D8D86;
+      font-weight:700;
+    }
+    .reward-progress-footer span:nth-child(2){
+      color:#B06C20;
+      font-weight:800;
+    }
+
+
+    #rewardScreen{ padding-top:12px; }
+    #rewardScreen .reward-status-card{ margin-top:0; }
+    .reward-progress-meta{ align-items:center; }
+
+    /* REWARD REFINED */
+    .reward-status-card{
+      background:var(--surface);
+      margin:6px 18px 14px;
+      padding:18px;
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(47,138,96,.08);
+    }
+    .reward-status-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:14px;
+    }
+    .reward-status-kicker{
+      font-size:11px;
+      font-weight:800;
+      color:#6A867C;
+      letter-spacing:.12em;
+      margin-bottom:6px;
+    }
+    .reward-status-top h3{
+      margin:0;
+      font-size:24px;
+      letter-spacing:-.4px;
+    }
+    .reward-status-top p{
+      margin:7px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      max-width:260px;
+    }
+    .reward-current-badge{
+      min-width:74px;
+      padding:12px 14px;
+      border-radius:18px;
+      background:linear-gradient(135deg,#F3D675,#E4B84E);
+      color:#5F4300;
+      font-size:13px;
+      font-weight:800;
+      text-align:center;
+      letter-spacing:.06em;
+      box-shadow:0 8px 18px rgba(228,184,78,.22);
+    }
+    .compact-levels{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+    .reward-level-pill{
+      border:1px solid #DCE7DC;
+      background:#F8FCF7;
+      color:#788B84;
+      border-radius:999px;
+      padding:9px 14px;
+      font-size:12px;
+      font-weight:700;
+    }
+    .reward-level-pill.active{
+      background:var(--deep);
+      color:#fff;
+      border-color:var(--deep);
+    }
+    .refined-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .reward-mini-card{
+      background:#F7FBF6;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:14px 15px;
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+    }
+    .reward-mini-card small{
+      font-size:11px;
+      font-weight:800;
+      color:#7A8B84;
+      letter-spacing:.05em;
+    }
+    .reward-mini-card strong{
+      font-size:30px;
+      line-height:1;
+      letter-spacing:-.8px;
+      color:var(--ink);
+    }
+    .reward-mini-card span{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .reward-expire-box{
+      margin-top:12px;
+      background:linear-gradient(90deg,#FFF6DA 0%, #FFFDF4 100%);
+      border:1px solid rgba(233,184,79,.32);
+      border-radius:22px;
+      padding:14px 15px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+    }
+    .reward-expire-box small{
+      display:block;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.08em;
+      color:#8B7A49;
+      margin-bottom:4px;
+    }
+    .reward-expire-box strong{
+      display:block;
+      font-size:25px;
+      line-height:1.05;
+      color:var(--ink);
+      margin-bottom:4px;
+    }
+    .reward-expire-box span{
+      font-size:12px;
+      color:#7E857E;
+    }
+    .expire-tag{
+      padding:10px 12px;
+      border-radius:999px;
+      background:#FFF;
+      border:1px solid rgba(233,184,79,.25);
+      color:#9B7A10;
+      font-size:12px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .reward-shortcut-row{
+      padding:0 18px;
+      margin-bottom:4px;
+    }
+    .reward-shortcut{
+      background:#fff;
+      border:1px solid var(--line);
+      min-height:76px;
+      align-items:center;
+    }
+    .reward-shortcut .left strong{
+      font-size:16px;
+    }
+    .shortcut-badge{
+      padding:7px 10px;
+      border-radius:999px;
+      background:#EDF6EA;
+      color:#426B59;
+      font-size:11px;
+      font-weight:800;
+    }
+    .reward-head-compact{
+      padding:12px 18px 2px;
+      margin:0;
+    }
+    .reward-activity-scroll-clean{
+      padding-top:8px;
+      padding-bottom:2px;
+    }
+
+    .reward-sheet{
+      max-height:88vh;
+      overflow:auto;
+      background:#FBFDFB;
+    }
+    .coupons-sheet,
+    .history-sheet-wrap{
+      padding-bottom:26px;
+    }
+    .saved-coupon-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:8px;
+    }
+    .saved-coupon-card{
+      position:relative;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:18px 16px 16px;
+      box-shadow:0 10px 24px rgba(27,61,53,.06);
+    }
+    .days-left{
+      position:absolute;
+      top:12px;
+      right:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#FFF2CB;
+      color:#8A6612;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+    .saved-coupon-icon{
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      font-size:25px;
+      flex:0 0 auto;
+    }
+    .saved-coupon-icon.cafe{ background:#E7F3E6; }
+    .saved-coupon-icon.snack{ background:#FFF3DA; }
+    .saved-coupon-icon.recovery{ background:#F1F7EF; }
+    .saved-coupon-body{
+      min-width:0;
+      padding-top:2px;
+    }
+    .saved-coupon-body strong{
+      display:block;
+      font-size:17px;
+      line-height:1.25;
+      padding-right:92px;
+    }
+    .saved-coupon-body p{
+      margin:6px 0 10px;
+      font-size:13px;
+      line-height:1.42;
+      color:var(--muted);
+    }
+    .saved-coupon-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .saved-coupon-meta span{
+      background:#F4F8F3;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:11px;
+      font-weight:700;
+      color:#5F756D;
+    }
+
+    .history-summary-card{
+      margin-top:8px;
+      padding:16px;
+      border-radius:24px;
+      background:linear-gradient(135deg,#FFF8E2 0%, #F9FBF7 100%);
+      border:1px solid rgba(233,184,79,.24);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .history-summary-card small{
+      display:block;
+      font-size:11px;
+      color:#7C887E;
+      font-weight:800;
+      letter-spacing:.08em;
+      margin-bottom:4px;
+    }
+    .history-summary-card strong{
+      display:block;
+      font-size:34px;
+      line-height:1;
+      letter-spacing:-1px;
+      margin-bottom:6px;
+    }
+    .history-summary-card span{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .history-cta{
+      border:none;
+      background:var(--gold);
+      color:#fff;
+      border-radius:16px;
+      padding:12px 14px;
+      font-size:13px;
+      font-weight:800;
+      box-shadow:0 10px 18px rgba(233,184,79,.2);
+      white-space:nowrap;
+    }
+    .history-tabs{
+      display:flex;
+      gap:8px;
+      margin:14px 0 12px;
+      overflow:auto;
+      padding-bottom:2px;
+    }
+    .history-tab{
+      border:1px solid var(--line);
+      background:#fff;
+      color:#70827B;
+      border-radius:999px;
+      padding:10px 13px;
+      font-size:12px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .history-tab.active{
+      background:var(--deep);
+      color:#fff;
+      border-color:var(--deep);
+    }
+    .history-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .history-item{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:14px 14px;
+    }
+    .history-icon{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      background:#FFF5DB;
+      color:#B98417;
+      display:grid;
+      place-items:center;
+      font-size:21px;
+      font-weight:800;
+      flex:0 0 auto;
+    }
+    .history-copy{
+      min-width:0;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
+    .history-copy strong{
+      font-size:16px;
+      line-height:1.25;
+    }
+    .history-copy span{
+      font-size:12px;
+      line-height:1.35;
+      color:var(--muted);
+    }
+    .history-copy small{
+      font-size:12px;
+      color:#97A7A0;
+    }
+    .history-value{
+      font-size:25px;
+      font-weight:800;
+      line-height:1;
+      padding-top:4px;
+      white-space:nowrap;
+    }
+    .history-value.plus{ color:#E0A221; }
+    .history-value.minus{ color:#D66855; }
+
+    @media (max-width:390px){
+      .refined-grid{ grid-template-columns:1fr; }
+      .reward-status-top{ flex-direction:column; }
+      .reward-current-badge{ align-self:flex-start; }
+      .reward-progress-meta{ flex-direction:column; }
+      .reward-progress-note{ max-width:none; text-align:left; }
+      .reward-expire-box{ flex-direction:column; align-items:flex-start; }
+      .history-summary-card{ flex-direction:column; }
+      .saved-coupon-body strong{ padding-right:0; }
+    }
+
   </style>
+<style id="pt-illustrated-reference">
+#profileScreen .pt-illustrated-grid{
+  display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;
+}
+#profileScreen .pt-card{
+  height:160px;display:grid;grid-template-columns:56% 44%;padding:0;border:1px solid #dfe8e2;
+  border-radius:24px;overflow:hidden;background:#fff;text-align:left;
+  box-shadow:0 6px 16px rgba(31,70,55,.055);cursor:pointer;
+}
+#profileScreen .pt-copy{padding:17px 10px 13px 15px;display:flex;flex-direction:column;min-width:0}
+#profileScreen .pt-copy h3{
+  margin:0;color:#103d36;font-size:16px;font-weight:900;line-height:1.15;letter-spacing:-.4px
+}
+#profileScreen .pt-copy p{
+  margin:12px 0 0;color:#74867f;font-size:10.5px;font-weight:400;line-height:1.48
+}
+#profileScreen .pt-cta{
+  margin-top:auto;height:34px;border-radius:999px;padding:0 5px 0 10px;
+  display:flex;align-items:center;justify-content:space-between;color:#285e49;
+  font-size:9.5px;font-weight:800
+}
+#profileScreen .parking .pt-cta{background:#edf7ec}
+#profileScreen .transport .pt-cta{background:#fff3d0}
+#profileScreen .pt-cta b{
+  width:27px;height:27px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-size:16px;font-weight:700
+}
+#profileScreen .parking .pt-cta b{background:#2f805c}
+#profileScreen .transport .pt-cta b{background:#eeaa18}
+#profileScreen .pt-art{position:relative;overflow:hidden;height:100%}
+#profileScreen .parking-art{background:linear-gradient(#dceee2 0 38%,#f3f1e7 38% 100%)}
+#profileScreen .transport-art{background:linear-gradient(#fff3c8 0 38%,#f1f0e6 38% 72%,#aab1a5 72%)}
+#profileScreen .pt-note{
+ position:absolute;right:9px;top:13px;z-index:5;color:#fff;font-family:"Segoe Print","Bradley Hand",cursive;
+ font-size:9px;line-height:1.05;transform:rotate(-4deg);font-weight:400
+}
+#profileScreen .p-sign{
+ position:absolute;left:16%;top:24%;width:52px;height:58px;border-radius:11px;background:#176650;
+ border:5px solid #9bbdb0;display:grid;place-items:center;z-index:3;box-shadow:0 5px 10px #476d5c22
+}
+#profileScreen .p-sign span{color:#fff;font-size:36px;font-weight:900}
+#profileScreen .p-sign i{position:absolute;top:53px;width:7px;height:70px;background:#dce5dc;z-index:-1}
+#profileScreen .bush{position:absolute;bottom:-5px;border-radius:50%;background:#7fa779}
+#profileScreen .b1{width:44px;height:44px;left:11%}.pt-art .b2{width:48px;height:48px;left:38%;bottom:4px;background:#82a77a}
+#profileScreen .pt-art .b3{width:43px;height:43px;right:9%;background:#668f6b}
+#profileScreen .campus-block{
+ position:absolute;right:-12px;top:38%;width:70%;height:38%;background:#f6f4e9;border-radius:20px 0 0 0
+}
+#profileScreen .taxi-car{
+ position:absolute;left:7%;right:4%;bottom:15%;height:39px;background:#fbfaf3;border-radius:18px 22px 9px 9px;
+ z-index:3;box-shadow:0 5px 10px #344b4320
+}
+#profileScreen .taxi-car em{
+ position:absolute;left:39%;top:-14px;background:#fffdf3;color:#294c43;font-style:normal;font-size:7px;font-weight:900;
+ padding:3px 7px;border-radius:6px 6px 2px 2px
+}
+#profileScreen .taxi-car .window{
+ position:absolute;left:22%;right:20%;top:8px;height:13px;background:#294c49;
+ clip-path:polygon(14% 0,78% 0,100% 100%,0 100%)
+}
+#profileScreen .taxi-car .wheel{
+ position:absolute;bottom:-7px;width:15px;height:15px;border-radius:50%;background:#294743;border:4px solid #75847f
+}
+#profileScreen .taxi-car .left{left:18%}#profileScreen .taxi-car .right{right:14%}
+@media(max-width:370px){
+ #profileScreen .pt-card{height:154px;grid-template-columns:57% 43%}
+ #profileScreen .pt-copy{padding:15px 8px 11px 12px}
+ #profileScreen .pt-copy h3{font-size:15px}
+ #profileScreen .pt-copy p{font-size:9.4px;margin-top:10px}
+ #profileScreen .pt-cta{height:31px;font-size:8.8px}
+ #profileScreen .pt-cta b{width:24px;height:24px}
+}
+</style>
+<style id="pt-text-layout-fix">
+#profileScreen .pt-card{
+  grid-template-columns:62% 38% !important;
+  height:160px !important;
+}
+#profileScreen .pt-copy{
+  padding:16px 12px 13px 15px !important;
+  min-width:0 !important;
+}
+#profileScreen .pt-copy h3{
+  margin:0 !important;
+  color:#103D36 !important;
+  font-size:15px !important;
+  font-weight:900 !important;
+  line-height:1.15 !important;
+  letter-spacing:-.35px !important;
+  white-space:nowrap !important;
+}
+#profileScreen .pt-copy p{
+  margin:11px 0 0 !important;
+  color:#74867F !important;
+  font-size:9.8px !important;
+  font-weight:400 !important;
+  line-height:1.55 !important;
+  letter-spacing:0 !important;
+  word-break:normal !important;
+  overflow-wrap:normal !important;
+}
+#profileScreen .pt-cta{
+  width:100% !important;
+  height:32px !important;
+  padding:0 4px 0 10px !important;
+  font-size:9px !important;
+  white-space:nowrap !important;
+}
+#profileScreen .pt-cta b{
+  width:25px !important;
+  height:25px !important;
+  font-size:15px !important;
+  flex:0 0 auto !important;
+}
+#profileScreen .pt-note{
+  right:7px !important;
+  top:11px !important;
+  font-size:8px !important;
+}
+#profileScreen .p-sign{
+  left:13% !important;
+  width:47px !important;
+  height:53px !important;
+}
+#profileScreen .p-sign span{font-size:33px !important}
+@media(max-width:370px){
+  #profileScreen .pt-card{grid-template-columns:64% 36% !important;height:156px !important}
+  #profileScreen .pt-copy{padding:14px 9px 11px 11px !important}
+  #profileScreen .pt-copy h3{font-size:13px !important;letter-spacing:-.25px !important}
+  #profileScreen .pt-copy p{font-size:8.8px !important;line-height:1.5 !important;margin-top:9px !important}
+  #profileScreen .pt-cta{height:29px !important;font-size:8.2px !important;padding-left:8px !important}
+  #profileScreen .pt-cta b{width:23px !important;height:23px !important;font-size:14px !important}
+}
+</style>
+<style id="fuel-cafe-style">
+.cafe-fuel-card{
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 95% 0%,rgba(255,225,150,.38),transparent 24%),
+    linear-gradient(145deg,#fff 0%,#FBFDF8 62%,#F0F7EB 100%);
+}
+.cafe-fuel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cafe-fuel-kicker{font-size:8px;font-weight:950;letter-spacing:1.05px;color:#57956F;margin-bottom:5px}
+.cafe-fuel-head h3{font-size:21px!important;letter-spacing:-.5px}
+.cafe-cup-art{
+  width:55px;height:55px;border-radius:19px;background:#E6F1D8;display:grid;place-items:center;
+  flex:0 0 auto;position:relative;box-shadow:inset 0 0 0 1px rgba(52,99,72,.05)
+}
+.cafe-cup-art span{font-size:27px;position:relative;z-index:2}
+.cafe-cup-art i{position:absolute;width:25px;height:8px;border-radius:50%;background:#D3E4C5;bottom:8px}
+.activity-context{
+  margin-top:14px;padding:10px 11px;border-radius:16px;background:#F3F8EF;
+  display:flex;align-items:center;gap:9px;border:1px solid #E7EFE3
+}
+.context-icon{width:34px;height:34px;border-radius:12px;background:#fff;display:grid;place-items:center;font-size:18px}
+.activity-context div{min-width:0;flex:1}
+.activity-context small{display:block;font-size:7px;font-weight:950;letter-spacing:.7px;color:#899A93}
+.activity-context b{display:block;font-size:11px;margin-top:3px}
+.context-match{font-size:7px;font-weight:950;color:#367455;background:#DFF0DA;padding:6px 7px;border-radius:999px;white-space:nowrap}
+.fuel-menu-scroll{
+  display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;
+  margin:14px -2px 0;padding:2px 2px 7px
+}
+.fuel-menu-scroll::-webkit-scrollbar{display:none}
+.fuel-menu{
+  flex:0 0 118px;border:1px solid #E4ECE2;background:#fff;border-radius:19px;padding:8px;text-align:left;
+  color:#294B41;scroll-snap-align:start;transition:.16s ease
+}
+.fuel-menu.selected{border-color:#7FB28F;box-shadow:0 7px 16px rgba(54,105,77,.11);transform:translateY(-1px)}
+.fuel-drink{
+  height:80px;border-radius:14px;display:grid;place-items:center;position:relative;margin-bottom:9px;overflow:hidden
+}
+.fuel-drink span{font-size:36px;filter:drop-shadow(0 6px 7px rgba(45,70,55,.08))}
+.fuel-drink em{
+  position:absolute;left:6px;top:6px;font-style:normal;font-size:6px;font-weight:950;letter-spacing:.5px;
+  background:rgba(255,255,255,.84);padding:4px 5px;border-radius:999px
+}
+.fuel-drink.berry{background:linear-gradient(145deg,#F6E0E7,#F1C9D8)}
+.fuel-drink.matcha{background:linear-gradient(145deg,#E8F1D8,#D4E6C0)}
+.fuel-drink.bowl{background:linear-gradient(145deg,#FFF0D6,#F5DEB9)}
+.fuel-menu>b{display:block;font-size:10px;line-height:1.25}
+.fuel-menu>span{display:block;margin-top:5px;font-size:8px;line-height:1.3;color:#7B8C86}
+.fuel-selected{
+  margin-top:7px;border-radius:17px;padding:10px;background:#fff;border:1px solid #E7EDE5;
+  display:flex;align-items:center;gap:9px
+}
+.fuel-selected-icon{width:39px;height:39px;border-radius:13px;background:#F3E4E9;display:grid;place-items:center;font-size:20px;flex:0 0 auto}
+.fuel-selected-copy{min-width:0;flex:1}
+.fuel-selected-copy small{display:block;color:#58936D;font-size:7px;font-weight:950;letter-spacing:.55px}
+.fuel-selected-copy b{display:block;font-size:10.5px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fuel-selected-copy span{display:block;font-size:8px;color:#80918B;margin-top:2px}
+.fuel-heart{border:0;background:#F3F7F1;width:31px;height:31px;border-radius:50%;font-size:18px;color:#46705F}
+.fuel-heart.liked{background:#FFE8E8;color:#B75A62}
+.fuel-order-btn{
+  width:100%;height:43px;margin-top:10px;border:0;border-radius:15px;background:#285F50;color:#fff;
+  padding:0 7px 0 14px;display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:950
+}
+.fuel-order-btn b{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.15);font-size:17px}
+
+/* Café order bottom sheet */
+.cafe-order-sheet .cafe-hero{
+  margin-top:10px;border-radius:22px;padding:15px;background:linear-gradient(135deg,#EAF4E2,#FFF2D5);
+  display:flex;align-items:center;gap:13px
+}
+.cafe-order-emoji{width:64px;height:64px;border-radius:20px;background:rgba(255,255,255,.72);display:grid;place-items:center;font-size:32px}
+.cafe-order-copy small{font-size:8px;font-weight:950;letter-spacing:.8px;color:#648876}
+.cafe-order-copy h3{margin:4px 0 3px;font-size:17px}
+.cafe-order-copy p{margin:0;color:#71847D;font-size:10px}
+.cafe-custom-title{margin:16px 0 8px;font-size:12px;font-weight:950}
+.cafe-choice-row{display:flex;gap:7px;overflow:auto;scrollbar-width:none}
+.cafe-choice{
+  border:1px solid #E0E9DE;background:#F7FAF5;border-radius:999px;padding:9px 11px;
+  color:#61776E;font-size:9px;font-weight:850;white-space:nowrap
+}
+.cafe-choice.active{background:#DFF0DA;border-color:#B8D7B9;color:#285F50}
+.cafe-pickup{
+  margin-top:14px;padding:12px;border-radius:17px;background:#F5F8F3;display:flex;justify-content:space-between;align-items:center;gap:10px
+}
+.cafe-pickup small{display:block;font-size:8px;color:#8A9A94;font-weight:900}.cafe-pickup b{display:block;font-size:11px;margin-top:3px}
+.cafe-ready{font-size:9px;font-weight:900;color:#347150;background:#E1F1DD;padding:7px 8px;border-radius:999px}
+</style>
+<style id="fuel-cafe-full-flow-style">
+.cafe-flow-sheet{max-height:92vh!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch}
+.cafe-view{display:none}.cafe-view.active{display:block}
+.cafe-view-sub{font-size:10px;color:var(--muted);margin-top:3px}
+.grow-head{flex:1}.back-circle,.mini-cart{
+  border:0;background:#F2F6F1;border-radius:50%;width:38px;height:38px;font-weight:900;color:#214E43
+}
+.mini-cart{width:auto;border-radius:999px;padding:0 12px}
+.nutrition-line{font-size:9px;font-weight:800;color:#5E8172;margin-top:5px}
+.timing-card{
+  display:flex;gap:9px;align-items:flex-start;margin-top:11px;padding:10px 11px;border-radius:15px;
+  background:#FFF8E8;border:1px solid #F3E6BF
+}
+.timing-spark{font-size:17px}.timing-card b{display:block;font-size:10px}.timing-card span{display:block;font-size:8.5px;line-height:1.45;color:#7B8179;margin-top:2px}
+.extra-row{margin-top:7px}
+.fulfilment-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fulfilment-card{
+  position:relative;text-align:left;border:1px solid #DFE9DE;background:#FAFCF9;border-radius:17px;padding:11px 10px;color:#31584D
+}
+.fulfilment-card.active{border-color:#7EB18B;background:#EDF7E9;box-shadow:0 5px 12px rgba(49,99,72,.07)}
+.fulfilment-icon{display:block;font-size:21px;margin-bottom:7px}.fulfilment-card b{display:block;font-size:9.5px}.fulfilment-card small{display:block;font-size:7.5px;color:#7B8D86;margin-top:3px;line-height:1.3}
+.fulfilment-card em{display:inline-block;font-style:normal;font-size:6.5px;font-weight:900;color:#4F8066;background:#fff;padding:4px 5px;border-radius:999px;margin-top:7px}
+.table-selector,.pickup-time-row{
+  display:none;margin-top:8px;padding:10px 11px;border-radius:14px;background:#F4F8F2;align-items:center;justify-content:space-between;gap:8px
+}
+.pickup-time-row{display:flex}.table-selector.show{display:flex}
+.table-selector small,.pickup-time-row small{display:block;font-size:7px;font-weight:900;color:#8A9B94;letter-spacing:.5px}
+.table-selector b,.pickup-time-row b{display:block;font-size:9.5px;margin-top:2px}
+.table-selector button,.pickup-time-row button{border:0;background:#E1EFE0;color:#31644E;border-radius:999px;padding:7px 9px;font-size:8px;font-weight:900}
+.cafe-primary{margin-top:12px!important}
+.browse-menu-btn{width:100%;border:0;background:transparent;color:#39705B;font-weight:900;font-size:9.5px;padding:11px 5px 3px}
+.menu-tabs{display:flex;gap:6px;overflow:auto;scrollbar-width:none;margin:13px 0 12px}.menu-tabs::-webkit-scrollbar{display:none}
+.menu-tab{border:1px solid #DFE8DC;background:#F8FAF7;border-radius:999px;padding:8px 10px;white-space:nowrap;font-size:8px;font-weight:900;color:#6A7D75}
+.menu-tab.active{background:#285F50;color:#fff;border-color:#285F50}
+.full-menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.full-menu-item{border:1px solid #E2EAE0;background:#fff;border-radius:18px;padding:8px;text-align:left;color:#294E43}
+.menu-pic{height:88px;border-radius:13px;display:grid;place-items:center;font-size:34px;position:relative}
+.menu-pic span{position:absolute;top:6px;left:6px;background:rgba(255,255,255,.88);padding:4px 5px;border-radius:999px;font-size:6px;font-weight:950;letter-spacing:.4px}
+.berry-bg{background:#F4D8E1}.matcha-bg{background:#DCEBCB}.bowl-bg{background:#F8E4C1}.yuzu-bg{background:#FFF2B8}.wrap-bg{background:#E8E0CA}.meal-bg{background:#E6EEDC}
+.full-menu-item>b{display:block;font-size:9.5px;margin-top:7px;line-height:1.25}.full-menu-item>small{display:block;font-size:7.5px;color:#84938E;margin-top:4px}.full-menu-item>strong{display:block;font-size:10px;margin-top:6px}
+.cart-items{margin-top:12px}.cart-item{display:grid;grid-template-columns:44px 1fr auto;gap:9px;align-items:center;padding:10px 0;border-bottom:1px solid #EDF1EB}
+.cart-item-emoji{width:44px;height:44px;border-radius:14px;background:#F2F6EE;display:grid;place-items:center;font-size:22px}
+.cart-item b{display:block;font-size:10px}.cart-item small{display:block;font-size:7.5px;color:#84928D;margin-top:3px}.cart-item strong{font-size:10px}
+.cart-remove{border:0;background:none;color:#9A6A6A;font-size:7px;padding:3px 0;margin-top:3px}
+.add-more-row{width:100%;display:flex;align-items:center;gap:9px;border:0;background:#F5F8F3;border-radius:15px;padding:10px;margin-top:10px;text-align:left;color:#31584D}
+.add-more-row>span{width:34px;height:34px;border-radius:12px;background:#E4F0DF;display:grid;place-items:center;font-size:17px}.add-more-row div{flex:1}.add-more-row b{display:block;font-size:9px}.add-more-row small{display:block;font-size:7px;color:#81918B;margin-top:2px}
+.cart-section-label{font-size:7px;font-weight:950;letter-spacing:.8px;color:#8A9A94;margin:15px 0 7px}
+.cart-method,.payment-method{width:100%;display:grid;grid-template-columns:36px 1fr 24px;gap:9px;align-items:center;border:1px solid #E2EAE0;background:#fff;border-radius:15px;padding:9px;text-align:left;color:#31584D;margin-top:7px}
+.cart-method.active,.payment-method.active{border-color:#83B28D;background:#F0F8ED}.cart-method>span,.pay-icon{width:36px;height:36px;border-radius:12px;background:#F1F5EF;display:grid;place-items:center}
+.cart-method b,.payment-method b{display:block;font-size:9px}.cart-method small,.payment-method small{display:block;font-size:7.5px;color:#82918C;margin-top:2px}.cart-method i,.payment-method i{font-style:normal;color:#4D8A66;opacity:0}.cart-method.active i,.payment-method.active i{opacity:1}
+.order-summary{margin-top:12px;padding:12px;border-radius:15px;background:#F7F9F6}.order-summary>div{display:flex;justify-content:space-between;font-size:8.5px;margin-top:5px}.order-summary>div:first-child{margin-top:0}.total-line{border-top:1px solid #E3E9E1;padding-top:8px!important;margin-top:8px!important;font-size:11px!important}
+.points-preview{margin-top:9px;padding:9px 10px;border-radius:13px;background:#EEF7E9;color:#46705D;font-size:8px}
+.payment-total-card{text-align:center;margin-top:15px;padding:18px;border-radius:20px;background:linear-gradient(135deg,#EEF6E8,#FFF4D8)}.payment-total-card small{display:block;font-size:7px;font-weight:950;color:#80928A}.payment-total-card strong{display:block;font-size:28px;margin-top:4px}.payment-total-card span{display:block;font-size:8px;color:#71837C;margin-top:4px}
+.payment-label{margin-top:17px}.payment-points{margin-top:13px}
+.tracking-top{text-align:center;padding-top:5px}.success-check{width:55px;height:55px;border-radius:50%;background:#DFF0D9;color:#347054;display:grid;place-items:center;font-size:25px;font-weight:950;margin:0 auto 9px}.tracking-top>small{font-size:7px;font-weight:950;letter-spacing:1px;color:#5D9270}.tracking-top h2{margin:4px 0 3px}.tracking-top p{font-size:9px;color:#7C8C86;margin:0}.order-number{display:inline-block;margin-top:8px;padding:5px 8px;border-radius:999px;background:#F2F5F1;font-size:7px;font-weight:900}
+.tracking-progress{margin:18px 10px}.track-step{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;color:#8A9792}.track-step i{width:34px;height:34px;border-radius:50%;background:#EDF1EC;display:grid;place-items:center;font-style:normal;font-size:9px;font-weight:950}.track-step b{display:block;font-size:9px}.track-step small{display:block;font-size:7.5px;margin-top:2px}.track-step.done,.track-step.current{color:#315D4F}.track-step.done i{background:#DCEFD8}.track-step.current i{background:#285F50;color:#fff}.track-line{height:16px;border-left:2px solid #E1E8DF;margin-left:16px}.track-line.active{border-color:#A8CBAA}
+.tracking-eta{text-align:center;padding:14px;border-radius:18px;background:#F4F8F1}.tracking-eta small{display:block;font-size:7px;font-weight:950;color:#83958D}.tracking-eta strong{display:block;font-size:25px;margin-top:3px}.tracking-eta span{display:block;font-size:8px;color:#778981;margin-top:2px}
+.earned-card{display:flex;gap:9px;align-items:center;margin-top:10px;padding:11px;border-radius:15px;background:#FFF7DF}.earned-card>div small{display:block;font-size:7px;color:#9A8C61;font-weight:950}.earned-card>div b{display:block;font-size:9px;margin-top:2px}
+@media(max-width:370px){.fulfilment-grid{grid-template-columns:1fr}.full-menu-grid{grid-template-columns:1fr 1fr}}
+</style>
+
+<style id="profile-current-sayo-theme">
+#profileScreen{
+  background:
+    radial-gradient(circle at 92% 3%, rgba(255,223,151,.16), transparent 22%),
+    radial-gradient(circle at 8% 14%, rgba(172,224,183,.18), transparent 22%),
+    linear-gradient(180deg,#F1F8EE 0%,#EDF6E9 100%) !important;
+  min-height:100vh;
+}
+#profileScreen,
+#profileScreen *{
+  font-family:"DM Sans","Noto Sans Thai",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif !important;
+}
+#profileScreen .top{
+  padding:24px 20px 12px;
+}
+#profileScreen .eyebrow{
+  font-weight:600;
+  font-size:12px;
+  color:#557068;
+}
+#profileScreen h1{
+  font-weight:600;
+  letter-spacing:-1px;
+}
+#profileScreen .subtitle{
+  color:#74867F;
+  font-weight:400;
+}
+#profileScreen .member-card,
+#profileScreen .profile-card,
+#profileScreen .settings-list,
+#profileScreen .pt-card{
+  box-shadow:0 10px 22px rgba(45,84,67,.06) !important;
+}
+#profileScreen .member-card,
+#profileScreen .profile-card,
+#profileScreen .settings-list{
+  border:1px solid rgba(255,255,255,.82);
+}
+#profileScreen .member-copy strong,
+#profileScreen .profile-card h3,
+#profileScreen .package-name,
+#profileScreen .setting-row strong{
+  font-weight:600 !important;
+}
+#profileScreen .member-btn,
+#profileScreen .upgrade-btn,
+#profileScreen .fuel-order-btn{
+  font-weight:600 !important;
+}
+#profileScreen .member-btn{
+  background:#F2C96D !important;
+}
+#profileScreen .upgrade-btn,
+#profileScreen .fuel-order-btn{
+  background:#2E755D !important;
+}
+#profileScreen .cafe-fuel-card{
+  background:
+    radial-gradient(circle at 95% 0%,rgba(255,225,150,.24),transparent 24%),
+    linear-gradient(145deg,#FFFFFF 0%,#FBFDF8 62%,#F0F7EB 100%) !important;
+}
+#profileScreen .pt-copy h3{
+  font-family:"DM Sans","Noto Sans Thai",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif !important;
+  font-weight:600 !important;
+}
+#profileScreen .pt-copy p,
+#profileScreen .pt-cta{
+  font-family:"DM Sans","Noto Sans Thai",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif !important;
+}
+#profileScreen .cafe-fuel-kicker,
+#profileScreen .featured-badge{
+  font-weight:600 !important;
+}
+#cafeFuelOverlay,
+#cafeFuelOverlay *{
+  font-family:"DM Sans","Noto Sans Thai",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif !important;
+}
+</style>
+
+
+<style id="profile-header-tighten">
+#profileScreen .top{
+  padding-bottom:4px !important;
+}
+#profileScreen .top > div{
+  margin-bottom:0 !important;
+}
+#profileScreen .member-card{
+  margin-top:2px !important;
+}
+</style>
+
+
+<style id="profile-remove-title-spacing">
+#profileScreen .member-card{
+  margin-top:18px !important;
+}
+</style>
+
+
+<style id="profile-parking-system-v2">
+#profileScreen .pt-compact-grid{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:10px!important;
+  padding:12px 18px 0!important;
+}
+#profileScreen .pt-compact-card{
+  height:100px;
+  border:0;
+  border-radius:24px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:58% 42%;
+  padding:0;
+  background:#fff;
+  box-shadow:0 8px 20px rgba(45,84,67,.06);
+  text-align:left;
+  color:#163F39;
+}
+#profileScreen .pt-compact-title{
+  display:flex;
+  align-items:center;
+  padding-left:16px;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:-.2px;
+}
+#profileScreen .pt-compact-art{position:relative;overflow:hidden}
+#profileScreen .parking-mini-art{
+  background:linear-gradient(180deg,#DDEFE3 0 48%,#F3F1E8 48% 100%);
+}
+#profileScreen .transport-mini-art{
+  background:linear-gradient(180deg,#FFF1C7 0 46%,#F3F1E7 46% 72%,#AAB1A5 72%);
+}
+#profileScreen .p-sign-mini{
+  position:absolute;left:18%;top:18%;
+  width:42px;height:46px;border-radius:10px;
+  background:#176650;border:5px solid #9EBFB3;
+  color:#fff;display:grid;place-items:center;
+  font-size:28px;font-weight:700;
+}
+#profileScreen .p-sign-mini:after{
+  content:"";position:absolute;top:41px;width:6px;height:52px;background:#DCE5DC;z-index:-1
+}
+#profileScreen .bush-mini{position:absolute;bottom:-9px;border-radius:50%}
+#profileScreen .bush-a{width:42px;height:42px;left:5%;background:#82A77A}
+#profileScreen .bush-b{width:48px;height:48px;right:-4px;background:#668F6B}
+#profileScreen .taxi-mini{
+  position:absolute;left:8%;right:6%;bottom:15%;
+  height:38px;background:#FBFAF3;border-radius:18px 20px 9px 9px;
+}
+#profileScreen .taxi-label{
+  position:absolute;left:34%;top:-14px;background:#FFFDF3;color:#294C43;
+  font-size:7px;font-weight:700;padding:3px 7px;border-radius:6px 6px 2px 2px
+}
+#profileScreen .taxi-window{
+  position:absolute;left:22%;right:20%;top:8px;height:13px;background:#294C49;
+  clip-path:polygon(14% 0,78% 0,100% 100%,0 100%)
+}
+#profileScreen .taxi-wheel{
+  position:absolute;bottom:-7px;width:14px;height:14px;border-radius:50%;
+  background:#294743;border:4px solid #75847F
+}
+#profileScreen .wheel-l{left:18%}
+#profileScreen .wheel-r{right:14%}
+
+.parking-sheet{
+  background:linear-gradient(180deg,#FCFDFB 0%,#F4F8F1 100%);
+}
+.parking-kicker{
+  display:block;font-size:8px;font-weight:700;letter-spacing:1px;color:#6E8A7D;margin-bottom:2px
+}
+.parking-recommend{
+  margin-top:12px;padding:16px;border-radius:22px;
+  background:linear-gradient(135deg,#E8F3E6,#D7EDDC);
+  display:flex;align-items:center;justify-content:space-between;gap:12px
+}
+.parking-recommend small{display:block;font-size:8px;font-weight:700;letter-spacing:.8px;color:#6C8379}
+.parking-recommend strong{display:block;font-size:22px;margin-top:4px}
+.parking-recommend span{display:block;font-size:9px;color:#6F817A;margin-top:4px}
+.parking-recommend-icon{
+  width:58px;height:58px;border-radius:18px;background:#fff;display:grid;place-items:center;font-size:28px
+}
+.parking-section-title{
+  display:flex;justify-content:space-between;align-items:center;margin:16px 2px 9px
+}
+.parking-section-title strong{font-size:12px}
+.parking-section-title span{font-size:8px;color:#86968F}
+
+.floor-list{display:grid;gap:8px}
+.floor-row{
+  display:grid;grid-template-columns:1fr auto;gap:7px;
+  padding:11px;border-radius:17px;background:#fff;border:1px solid #E6EDE4
+}
+.floor-row>div:first-child b{display:block;font-size:11px}
+.floor-row>div:first-child span{display:block;font-size:8px;color:#87968F;margin-top:2px}
+.floor-spaces{text-align:right}
+.floor-spaces strong{display:block;font-size:15px}
+.floor-spaces span{display:block;font-size:7px;color:#87968F}
+.floor-progress{grid-column:1/-1;height:6px;background:#EDF2EB;border-radius:99px;overflow:hidden}
+.floor-progress i{display:block;height:100%;background:#7BB98B;border-radius:99px}
+.floor-tag{
+  grid-column:1/-1;justify-self:start;font-style:normal;
+  font-size:7px;font-weight:700;padding:5px 7px;border-radius:999px
+}
+.floor-tag.full{background:#FFE2D8;color:#A85C42}
+.floor-tag.busy{background:#FFF1D3;color:#976E20}
+.floor-tag.good{background:#DFF0DA;color:#347150}
+.floor-tag.open{background:#EAF3E7;color:#517763}
+.floor-row.recommended{border-color:#AFD1B7;background:#F7FBF5}
+
+.parking-time-card{
+  margin-top:12px;padding:15px;border-radius:22px;background:#FFF8E6;
+  display:flex;justify-content:space-between;align-items:center;gap:10px
+}
+.parking-time-card small{display:block;font-size:8px;font-weight:700;letter-spacing:.8px;color:#9A8251}
+.parking-time-card strong{display:block;font-size:27px;margin-top:4px;color:#2E5449}
+.parking-time-card span{display:block;font-size:9px;color:#8B8371;margin-top:3px}
+.parking-clock{width:52px;height:52px;border-radius:17px;background:#fff;display:grid;place-items:center;font-size:24px}
+
+.parking-reward-card{margin-top:12px;padding:15px;border-radius:22px;background:#fff;border:1px solid #E7ECE5}
+.reward-card-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.reward-card-head small{display:block;font-size:8px;font-weight:700;letter-spacing:.8px;color:#80938A}
+.reward-card-head h3{margin:4px 0 0;font-size:17px}
+.reward-card-head>span{font-size:8px;font-weight:700;color:#47705E;background:#EDF6EA;padding:7px 9px;border-radius:999px;white-space:nowrap}
+.parking-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px}
+.parking-tier{text-align:center;padding:10px 4px;border-radius:16px;background:#F6F8F4}
+.parking-tier i{
+  width:26px;height:26px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;
+  background:#E9EEE6;color:#789087;font-size:11px;font-style:normal
+}
+.parking-tier b{display:block;font-size:9px}
+.parking-tier strong{display:block;margin-top:4px;font-size:11px;color:#6F817A}
+.parking-tier.done{background:#EEF7E9}
+.parking-tier.done i{background:#D7ECD6;color:#347150}
+.parking-tier.active{background:#FFF3D4}
+.parking-tier.active i{background:#FFE19C;color:#9A6E10}
+.parking-next{
+  margin-top:13px;padding:11px;border-radius:16px;background:#F7FAF5;
+  display:flex;justify-content:space-between;align-items:center;gap:10px
+}
+.parking-next small{display:block;font-size:7px;font-weight:700;color:#85968F;letter-spacing:.7px}
+.parking-next b{display:block;font-size:10.5px;margin-top:2px}
+.parking-next span{display:block;font-size:8px;color:#84948E;margin-top:2px}
+.parking-next button{
+  border:0;border-radius:12px;background:#2E755D;color:#fff;padding:9px 10px;font-size:8px;font-weight:700;white-space:nowrap
+}
+</style>
+
+
+<style id="parking-flow-compact-v3">
+.parking-sheet{
+  background:linear-gradient(180deg,#FCFDFB 0%,#F4F8F1 100%);
+}
+.parking-kicker{
+  display:block;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:#6E8A7D;
+  margin-bottom:2px;
+}
+.parking-availability-card,
+.parking-empty-card,
+.parking-ticket-card,
+.parking-benefit-card{
+  background:#fff;
+  border:1px solid #E6EEE6;
+  border-radius:22px;
+  box-shadow:0 8px 18px rgba(34,70,58,.05);
+}
+.parking-availability-card{
+  margin-top:12px;
+  padding:14px;
+  background:linear-gradient(135deg,#EEF6EA 0%,#E5F0E3 100%);
+}
+.parking-availability-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.parking-availability-head small,
+.parking-ticket-top small,
+.parking-benefit-head small,
+.parking-next-unlock small{
+  display:block;
+  font-size:7px;
+  font-weight:700;
+  letter-spacing:.9px;
+  color:#7B8F82;
+}
+.parking-availability-head strong{
+  display:block;
+  margin-top:4px;
+  font-size:22px;
+  color:#1C463E;
+}
+.parking-availability-head span{
+  display:block;
+  margin-top:4px;
+  font-size:9px;
+  color:#73867D;
+}
+.parking-mini-badge{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  font-size:24px;
+}
+.parking-floor-compact-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+.parking-floor-compact{
+  background:rgba(255,255,255,.82);
+  border-radius:16px;
+  padding:10px 11px;
+  border:1px solid rgba(214,228,215,.95);
+}
+.parking-floor-compact b{
+  display:block;
+  font-size:11px;
+  color:#21493F;
+}
+.parking-floor-compact span{
+  display:block;
+  margin-top:3px;
+  font-size:8px;
+  color:#70827B;
+}
+.parking-floor-compact.full{background:#FFF3EE;}
+.parking-floor-compact.busy{background:#FFF8EA;}
+.parking-floor-compact.recommended{background:#ECF7EC; border-color:#B8DABF;}
+.parking-floor-compact.open{background:#F7FBF4;}
+
+.parking-flow-state{margin-top:12px;}
+.hidden{display:none !important;}
+.parking-empty-card{
+  padding:18px 16px;
+  text-align:center;
+}
+.parking-empty-icon{
+  width:58px;
+  height:58px;
+  margin:0 auto 12px;
+  border-radius:18px;
+  background:#F6F8F2;
+  display:grid;
+  place-items:center;
+  font-size:28px;
+}
+.parking-empty-card h3{
+  margin:0;
+  font-size:20px;
+  color:#1E463D;
+}
+.parking-empty-card p{
+  margin:8px 0 0;
+  font-size:10.5px;
+  line-height:1.55;
+  color:#71827C;
+}
+.parking-empty-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:16px;
+}
+.parking-btn,
+.parking-upload-btn{
+  border:0;
+  border-radius:15px;
+  padding:12px 12px;
+  font-size:10px;
+  font-weight:700;
+  font-family:inherit;
+}
+.parking-btn.primary,
+.parking-upload-btn{
+  background:#2C725C;
+  color:#fff;
+}
+.parking-btn.secondary{
+  background:#F4F7F3;
+  color:#31574B;
+  border:1px solid #DDE8DD;
+}
+
+.parking-ticket-card{
+  padding:14px;
+  background:linear-gradient(135deg,#FFF8E9 0%,#F8F2DF 100%);
+}
+.parking-ticket-top{
+  display:flex;
+  gap:12px;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+.parking-ticket-top strong{
+  display:block;
+  margin-top:4px;
+  font-size:20px;
+  color:#20473F;
+}
+.parking-ticket-top span{
+  display:block;
+  margin-top:4px;
+  font-size:9px;
+  color:#7D847A;
+}
+.parking-time-left{
+  min-width:118px;
+  padding:10px 12px;
+  border-radius:16px;
+  background:#fff;
+  text-align:left;
+}
+.parking-time-left strong{
+  font-size:17px;
+  color:#1E463D;
+}
+
+.parking-benefit-card{
+  margin-top:12px;
+  padding:14px;
+}
+.parking-benefit-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+.parking-benefit-head strong{
+  display:block;
+  margin-top:4px;
+  font-size:16px;
+  color:#1C463E;
+}
+.parking-benefit-head span{
+  display:block;
+  margin-top:3px;
+  font-size:8.5px;
+  color:#7B8B84;
+}
+.parking-spend-pill{
+  white-space:nowrap;
+  padding:8px 10px;
+  border-radius:999px;
+  background:#EDF5EA;
+  color:#3F725D;
+  font-size:8px;
+  font-weight:700;
+}
+.parking-tier-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-top:14px;
+}
+.parking-tier-card{
+  text-align:center;
+  padding:12px 6px;
+  border-radius:16px;
+  background:#F5F7F3;
+}
+.parking-tier-card small{
+  display:block;
+  font-size:8px;
+  font-weight:700;
+  color:#73847D;
+}
+.parking-tier-card strong{
+  display:block;
+  margin-top:5px;
+  font-size:13px;
+  color:#23493F;
+}
+.parking-tier-card.done{
+  background:#EEF6E9;
+}
+.parking-tier-card.current{
+  background:#FFF2D5;
+  box-shadow:inset 0 0 0 1px #F1D18A;
+}
+.parking-next-unlock{
+  margin-top:14px;
+  padding:12px;
+  border-radius:16px;
+  background:#F7FAF5;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.parking-next-unlock strong{
+  display:block;
+  margin-top:3px;
+  font-size:15px;
+  color:#1D453C;
+}
+.parking-next-unlock span{
+  display:block;
+  margin-top:3px;
+  font-size:8.5px;
+  color:#7A8A83;
+}
+@media (max-width: 390px){
+  .parking-empty-actions,
+  .parking-tier-row{
+    grid-template-columns:1fr;
+  }
+  .parking-ticket-top,
+  .parking-benefit-head,
+  .parking-next-unlock{
+    flex-direction:column;
+  }
+  .parking-time-left,
+  .parking-spend-pill,
+  .parking-upload-btn{
+    width:100%;
+  }
+}
+</style>
+
 </head>
 <body>
   <div class="app">
@@ -1318,16 +2893,16 @@
     <section class="screen active" id="homeScreen">
       <header class="home-header">
         <div class="home-header-copy">
-          <div class="home-greeting">Good afternoon, <span id="homeUserName">Kitty</span> 👋</div>
-          <h1 class="home-title">Your Wellness Home</h1>
+          <div class="home-greeting">Hey, <span id="homeUserName">Kitty</span> 👋</div>
+          <h1 class="home-title">Your Wellness Home ✨</h1>
         </div>
         <button class="home-profile-btn" type="button" aria-label="Open profile" onclick="showScreen('profileScreen')">☺</button>
       </header>
 
       <section class="section">
         <div class="section-title">
-          <h2>Today’s Wellness Insight</h2>
-          <span class="mini">Last 7 days</span>
+          <h2>Your wellness vibe today</h2>
+          <span class="mini">7-day vibe</span>
         </div>
 
         <div class="score-card">
@@ -1355,16 +2930,16 @@
           <div class="insight-row">
             <div class="insight-badge">↗</div>
             <div>
-              <strong>You’re training hard — recovery is falling behind.</strong>
-              <p>ช่วงนี้คุณเน้นการออกกำลังกายค่อนข้างมาก ลองเพิ่มกิจกรรม Recovery เพื่อช่วยให้ร่างกายฟื้นตัวและสมดุลมากขึ้น</p>
+              <strong>วันนี้สาย Performance มาแรงเลย 💪</strong>
+              <p>ช่วงนี้ออกกำลังกายจัดเต็มมาก ลองเติม Recovery สักนิด ให้ร่างกายได้รีชาร์จแล้วไปต่อแบบสดกว่าเดิม ✨</p>
             </div>
           </div>
         </div>
 
         <div class="recommend">
-          <div class="kicker">✨ FOR YOU · BALANCE YOUR WELLNESS JOURNEY</div>
-          <h3>Try Onsen or Sports Massage</h3>
-          <p>หลังออกกำลังกายครบ 3 ครั้ง ลองเติม Recovery 1 session เพื่อช่วยให้ Performance กับ Recovery สมดุลขึ้น</p>
+          <div class="kicker">✨ PICKED FOR YOU</div>
+          <h3>เติมโหมดพักให้ตัวเองหน่อย</h3>
+          <p>ลอง Onsen หรือ Sports Massage หลัง workout ช่วยบาลานซ์ทั้ง Performance และ Recovery แบบไม่ฝืนตัวเอง</p>
           <div class="rec-actions">
             <button class="btn btn-light" onclick="showScreen('activityScreen')">Book recovery</button>
           </div>
@@ -1373,14 +2948,14 @@
 
       <section class="section home-separated-section">
         <div class="section-title single-title">
-          <h2>Keep Your Streak Alive 🔥</h2>
+          <h2>Keep the streak going 🔥</h2>
         </div>
 
         <div class="streak">
           <div class="streak-top">
             <div>
-              <h3>3-day Wellness Streak</h3>
-              <p>อีก 2 วัน รับโบนัส Wellness Credit</p>
+              <h3>3 days in a row — nice! 🔥</h3>
+              <p>อีก 2 วัน รับ Wellness Credit เพิ่ม</p>
             </div>
             <div class="credit">+50 credits</div>
           </div>
@@ -1403,7 +2978,7 @@
 
       <section class="section home-separated-section">
         <div class="section-title single-title">
-          <h2>Your Wellness Wrap</h2>
+          <h2>Your Wellness Wrap ✨</h2>
         </div>
 
         <div class="wrap-card">
@@ -1417,7 +2992,7 @@
             </div>
           </div>
           <div class="wrap-bottom">
-            <p>Turn your progress into a story.<br>Designed for 9:16 sharing.</p>
+            <p>สรุปสัปดาห์นี้แล้วแชร์ลง Story ได้เลย ✨</p>
             <button class="share" onclick="shareWrap()">⇧ Share Story</button>
           </div>
         </div>
@@ -1425,7 +3000,7 @@
 
       <section class="section home-separated-section news-section" style="padding-bottom:10px">
         <div class="section-title">
-          <h2>Campus News & Offers</h2>
+          <h2>What’s happening at SAYO</h2>
           <span class="mini">Swipe →</span>
         </div>
 
@@ -1462,7 +3037,7 @@
         </div>
         <div class="dots">
           <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
-        </div>        </div>
+        </div>
       </section>
     </section>
 
@@ -1487,14 +3062,6 @@
           </div>
           <button class="filter-btn" onclick="showToast('Filter options coming soon')">☷</button>
         </div>
-
-        <div class="chips">
-          <button class="chip active">All</button>
-          <button class="chip">Fitness</button>
-          <button class="chip">Recovery</button>
-          <button class="chip">Classes</button>
-          <button class="chip">Social</button>
-        </div>
       </section>
 
       <div id="activityHeroState">
@@ -1514,77 +3081,77 @@
         </section>
       </div>
 
+      
       <section class="activity-grid" id="activityGrid">
+        <article class="activity-card activity-card-featured">
+          <div class="activity-featured-icon">💻</div>
+          <div class="activity-featured-copy">
+            <span class="featured-badge">Lifestyle</span>
+            <h4>Co-working Space</h4>
+            <small>Quiet, comfy and flexible space for work, study or chill breaks between activities</small>
+          </div>
+          <div class="book-row book-row-featured">
+            <button class="book-btn" onclick="showToast('Booking: Co-working Space')"><span>📅 Book</span><span>›</span></button>
+          </div>
+        </article>
+
         <article class="activity-card">
           <div class="activity-icon">🏋️</div>
           <h4>Performance Fitness</h4>
           <small>Strength, cardio and high-performance training</small>
-          <div class="book-row"><button class="book-btn" onclick="openBooking('Performance Fitness','Fitness')"><span>📅 Book</span><span>›</span></button></div>
+          <div class="book-row"><button class="book-btn" onclick="showToast('Booking: Performance Fitness')"><span>📅 Book</span><span>›</span></button></div>
         </article>
 
         <article class="activity-card">
           <div class="activity-icon">🧑‍🏫</div>
           <h4>Personal Training</h4>
           <small>1-on-1 guidance for goals and proper form</small>
-          <div class="book-row"><button class="book-btn" onclick="openBooking('Personal Training','Fitness')"><span>📅 Book</span><span>›</span></button></div>
+          <div class="book-row"><button class="book-btn" onclick="showToast('Booking: Personal Training')"><span>📅 Book</span><span>›</span></button></div>
         </article>
 
         <article class="activity-card">
           <div class="activity-icon">👥</div>
           <h4>Group Training Classes</h4>
-          <small>Join energizing classes with the SAYO community</small>
-          <div class="book-row"><button class="book-btn" onclick="openBooking('Group Training Classes','Classes')"><span>📅 Book</span><span>›</span></button></div>
+          <small>Move better together with energetic small-group sessions</small>
+          <div class="book-row"><button class="book-btn" onclick="showToast('Booking: Group Training Classes')"><span>📅 Book</span><span>›</span></button></div>
         </article>
 
         <article class="activity-card">
           <div class="activity-icon">🥊</div>
           <h4>Muay Thai</h4>
           <small>Skill-based training with fun, high-energy movement</small>
-          <div class="book-row"><button class="book-btn" onclick="openBooking('Muay Thai','Fitness')"><span>📅 Book</span><span>›</span></button></div>
+          <div class="book-row"><button class="book-btn" onclick="showToast('Booking: Muay Thai')"><span>📅 Book</span><span>›</span></button></div>
         </article>
 
         <article class="activity-card">
           <div class="activity-icon">🧘</div>
           <h4>Pilates & Yoga</h4>
           <small>Improve balance, flexibility and mind-body focus</small>
-          <div class="book-row"><button class="book-btn" onclick="openBooking('Pilates & Yoga','Classes')"><span>📅 Book</span><span>›</span></button></div>
+          <div class="book-row"><button class="book-btn" onclick="showToast('Booking: Pilates & Yoga')"><span>📅 Book</span><span>›</span></button></div>
         </article>
 
         <article class="activity-card">
           <div class="activity-icon">💆</div>
           <h4>Sports Massage & Recovery</h4>
           <small>Release muscle tension and recover after workouts</small>
-          <div class="book-row"><button class="book-btn" onclick="openBooking('Sports Massage & Recovery','Recovery')"><span>📅 Book</span><span>›</span></button></div>
+          <div class="book-row"><button class="book-btn" onclick="showToast('Booking: Sports Massage & Recovery')"><span>📅 Book</span><span>›</span></button></div>
         </article>
 
         <article class="activity-card">
           <div class="activity-icon">♨️</div>
           <h4>Onsen</h4>
           <small>Relax and recharge with soothing heat therapy</small>
-          <div class="book-row"><button class="book-btn" onclick="openBooking('Onsen','Recovery')"><span>📅 Book</span><span>›</span></button></div>
-        </article>
-
-        <article class="activity-card">
-          <div class="activity-icon">☕</div>
-          <h4>Café & Co-working</h4>
-          <small>Work, chill and connect in a flexible social space</small>
-          <div class="book-row"><button class="book-btn" onclick="openBooking('Café & Co-working','Lifestyle')"><span>📅 Book</span><span>›</span></button></div>
+          <div class="book-row"><button class="book-btn" onclick="showToast('Booking: Onsen')"><span>📅 Book</span><span>›</span></button></div>
         </article>
 
         <article class="activity-card">
           <div class="activity-icon">🏓</div>
           <h4>Pickleball</h4>
           <small>Casual, social and beginner-friendly racket activity</small>
-          <div class="book-row"><button class="book-btn" onclick="openBooking('Pickleball','Social')"><span>📅 Book</span><span>›</span></button></div>
-        </article>
-
-        <article class="activity-card">
-          <div class="activity-icon">✨</div>
-          <h4>More coming soon</h4>
-          <small>Discover new movement and recovery experiences soon</small>
-          <div class="book-row"><button class="book-btn" onclick="showToast('More activities coming soon')"><span>Explore</span><span>›</span></button></div>
+          <div class="book-row"><button class="book-btn" onclick="showToast('Booking: Pickleball')"><span>📅 Book</span><span>›</span></button></div>
         </article>
       </section>
+
 
       <section class="activity-banner">
         <strong>Smart booking suggestion</strong>
@@ -1594,14 +3161,6 @@
 
     <!-- PROFILE -->
     <section class="screen" id="profileScreen">
-      <header class="top">
-        <div>
-          <div class="eyebrow">HI, WELCOME</div>
-          <h1>Your Profile</h1>
-          <p class="subtitle">จัดการการเข้า campus, การเดินทาง, แพ็กเกจ และ weekly planner ได้ที่นี่</p>
-        </div>
-      </header>
-
       <section class="member-card">
         <div class="member-avatar">👤</div>
         <div class="member-copy">
@@ -1611,38 +3170,86 @@
         </div>
       </section>
 
-      <div class="quick-grid">
-        <button class="quick-card" onclick="openSheet('parkingOverlay')">
-          <small>PARKING</small>
-          <div class="big-icon">🅿️</div>
-          <p>ดูสิทธิ์จอดรถ โซนที่ว่าง และคำแนะนำการเข้าออก campus</p>
-        </button>
-        <button class="quick-card" onclick="openSheet('transportOverlay')">
-          <small>TRANSPORT</small>
-          <div class="big-icon">🚕</div>
-          <p>เชื่อมการเดินทางด้วยรถสาธารณะ เช่น Grab หรือ LINE MAN</p>
-        </button>
-      </div>
+      
 
-      <section class="profile-card">
-        <h3>Weekly Planner</h3>
-        <p class="sub">แผนกิจกรรมส่วนตัวของสัปดาห์นี้</p>
-        <div class="planner-days">
-          <div class="plan-day"><div class="name">MON</div><div class="emoji">🏃</div><div class="task">Cardio<br>18:00</div></div>
-          <div class="plan-day"><div class="name">TUE</div><div class="emoji">♨️</div><div class="task">Onsen<br>After work</div></div>
-          <div class="plan-day"><div class="name">WED</div><div class="emoji">💪</div><div class="task">Strength<br>19:00</div></div>
-          <div class="plan-day"><div class="name">THU</div><div class="emoji">🧘</div><div class="task">Yoga<br>18:00</div></div>
-          <div class="plan-day"><div class="name">FRI</div><div class="emoji">👥</div><div class="task">Group run<br>17:30</div></div>
-          <div class="plan-day"><div class="name">SAT</div><div class="emoji">💆</div><div class="task">Massage<br>16:00</div></div>
-          <div class="plan-day"><div class="name">SUN</div><div class="emoji">🌿</div><div class="task">Recovery<br>Rest day</div></div>
-        </div>
-        <div class="planner-action">
-          <span class="plan-note">AI จัดสมดุลระหว่าง Performance และ Recovery ให้แล้ว</span>
-          <button class="soft-btn" onclick="showToast('Planner editor coming soon')">Edit planner</button>
-        </div>
-      </section>
 
-      <section class="profile-card">
+<div class="quick-grid pt-compact-grid">
+  <button class="pt-compact-card parking-compact" onclick="openParkingSystem()">
+    <span class="pt-compact-title">PARKING</span>
+    <span class="pt-compact-art parking-mini-art">
+      <span class="p-sign-mini">P</span>
+      <span class="bush-mini bush-a"></span>
+      <span class="bush-mini bush-b"></span>
+    </span>
+  </button>
+
+  <button class="pt-compact-card transport-compact" onclick="openSheet('transportOverlay')">
+    <span class="pt-compact-title">TRANSPORT</span>
+    <span class="pt-compact-art transport-mini-art">
+      <span class="taxi-mini">
+        <span class="taxi-label">TAXI</span>
+        <span class="taxi-window"></span>
+        <span class="taxi-wheel wheel-l"></span>
+        <span class="taxi-wheel wheel-r"></span>
+      </span>
+    </span>
+  </button>
+</div>
+
+
+<section class="profile-card cafe-fuel-card" id="fuelYourDay">
+  <div class="cafe-fuel-head">
+    <div>
+      <div class="cafe-fuel-kicker">SAYO CAFÉ · PERSONALIZED FOR YOU</div>
+      <h3>Fuel Your Day</h3>
+      <p class="sub">เมนูแนะนำที่เข้ากับกิจกรรมและจังหวะของคุณวันนี้</p>
+    </div>
+    <div class="cafe-cup-art"><span>🍵</span><i></i></div>
+  </div>
+
+  <div class="activity-context">
+    <span class="context-icon">🏃</span>
+    <div><small>TODAY'S ACTIVITY</small><b>Cardio · 18:00</b></div>
+    <span class="context-match">POST-WORKOUT</span>
+  </div>
+
+  <div class="fuel-menu-scroll fuel-menu-scroll-updated">
+    <div class="fuel-menu fuel-menu-updated" role="button" tabindex="0"
+      data-name="Berry Protein Smoothie" data-desc="สดชื่น โปรตีนแน่น เหมาะหลังคาร์ดิโอ" data-kcal="180" data-price="145" data-category="drinks"
+      data-ingredients="สตรอว์เบอร์รี, กล้วย, Greek yogurt, เวย์โปรตีน, นมอัลมอนด์"
+      onclick="openCafeDetailByName('Berry Protein Smoothie','recommended')">
+      <button class="fuel-card-heart" type="button" aria-label="favorite" onclick="toggleMenuFavorite(event, this)">♡</button>
+      <div class="fuel-drink berry"><span>🥤</span><em>TOP MATCH</em></div>
+      <b>Berry Protein<br>Smoothie</b>
+      <span>โปรตีน 20g · 180 kcal</span>
+    </div>
+
+    <div class="fuel-menu fuel-menu-updated" role="button" tabindex="0"
+      data-name="Iced Matcha Oat" data-desc="พลังงานเบา ๆ ดื่มง่าย ไม่หนักท้อง" data-kcal="120" data-price="125" data-category="drinks"
+      data-ingredients="มัทฉะ, นมโอ๊ต, น้ำผึ้งเล็กน้อย, เมล็ดเจีย"
+      onclick="openCafeDetailByName('Iced Matcha Oat','recommended')">
+      <button class="fuel-card-heart" type="button" aria-label="favorite" onclick="toggleMenuFavorite(event, this)">♡</button>
+      <div class="fuel-drink matcha"><span>🍵</span><em>LIGHT</em></div>
+      <b>Iced Matcha<br>Oat</b>
+      <span>Gentle energy · 120 kcal</span>
+    </div>
+
+    <div class="fuel-menu fuel-menu-updated" role="button" tabindex="0"
+      data-name="Yogurt Granola Bowl" data-desc="ของว่างเบา ๆ ช่วยรีคัฟเวอรีระหว่างวัน" data-kcal="240" data-price="135" data-category="sweets"
+      data-ingredients="Greek yogurt, กราโนลา, เบอร์รีสด, เมล็ดฟักทอง"
+      onclick="openCafeDetailByName('Yogurt Granola Bowl','recommended')">
+      <button class="fuel-card-heart" type="button" aria-label="favorite" onclick="toggleMenuFavorite(event, this)">♡</button>
+      <div class="fuel-drink bowl"><span>🥣</span><em>RECOVER</em></div>
+      <b>Yogurt Granola<br>Bowl</b>
+      <span>Balanced bite · 240 kcal</span>
+    </div>
+  </div>
+
+  <button class="fuel-order-btn" type="button" onclick="openCafeMenu()">
+    <span>Order from SAYO Café</span><b>→</b>
+  </button>
+</section>
+<section class="profile-card">
         <div class="package-top">
           <div>
             <h3>Your Package</h3>
@@ -1686,6 +3293,8 @@
         </button>
       </section>
     </section>
+
+    
 
     <!-- GROUP -->
     <section class="screen" id="groupScreen">
@@ -1792,100 +3401,73 @@
 
     <!-- REWARD -->
     <section class="screen" id="rewardScreen">
-      <header class="reward-top">
-        <div class="reward-title-row">
+<section class="reward-status-card">
+        <div class="reward-status-top">
           <div>
-            <div class="eyebrow">SAYO REWARDS</div>
-            <h1>สิทธิพิเศษ</h1>
-            <p class="subtitle">ระบบสะสมคะแนนที่ใช้ง่าย เข้าใจง่าย และพร้อมให้แลกสิทธิ์ได้ตั้งแต่ครั้งแรกที่ใช้งาน</p>
+            <div class="reward-status-kicker">CURRENT LEVEL</div>
+            <h3>Gold Member</h3>
+            <p>ตอนนี้คุณอยู่ระดับ <strong>Gold</strong></p>
           </div>
-          <button class="reward-search" onclick="showToast('Search rewards')">⌕</button>
-        </div>
-      </header>
-
-      <section class="reward-summary-card">
-        <div class="reward-summary-head">
-          <div class="reward-summary-avatar">👤</div>
-          <div class="reward-summary-copy">
-            <small>CURRENT PACKAGE</small>
-            <strong>Signature Core</strong>
-            <span>Active member · SAYO Campus</span>
-          </div>
-          <div class="reward-summary-arrow">›</div>
+          <div class="reward-current-badge">GOLD</div>
         </div>
 
-        <div class="credit-hero">
-          <div>
-            <small>WELLNESS CREDITS</small>
-            <div class="value">544</div>
-            <div class="sub">39 credits expire in 30 days</div>
-          </div>
-          <div class="credit-hero-icon">✦</div>
-        </div>
-      </section>
-
-      <section class="tier-section">
-        <div class="tier-row">
-          <button class="tier-pill">Classic</button>
-          <button class="tier-pill">Silver</button>
-          <button class="tier-pill active">Gold</button>
-          <button class="tier-pill">Platinum</button>
+        <div class="reward-level-row compact-levels">
+          <span class="reward-level-pill">Classic</span>
+          <span class="reward-level-pill">Silver</span>
+          <span class="reward-level-pill active">Gold</span>
+          <span class="reward-level-pill">Platinum</span>
         </div>
 
-        <div class="level-progress-card">
-          <div class="level-progress-top">
+        <div class="reward-progress-card">
+          <div class="reward-progress-meta">
             <div>
-              <small>CURRENT REWARD LEVEL</small>
-              <strong>Gold</strong>
-              <span>สะสมต่อเพื่อปลดล็อกสิทธิประโยชน์ที่มากขึ้น</span>
+              <small>คะแนนเพื่อเลื่อนไประดับถัดไป</small>
+              <strong>120<span>/200</span></strong>
             </div>
-            <div class="next-tier-badge">Next tier · Platinum</div>
           </div>
+          <div class="reward-progress-track">
+            <span style="width:60%"></span>
+          </div>
+          <div class="reward-progress-footer">
+            <span>Gold</span>
+            <span>60% complete</span>
+            <span>Platinum</span>
+          </div>
+        </div>
 
-          <div class="level-grid">
-            <div class="level-box">
-              <small>Check-ins to keep level</small>
-              <strong>39<span>/50</span></strong>
-              <div class="mini-progress"><span style="width:78%"></span></div>
-            </div>
-            <div class="level-box">
-              <small>Credits to next tier</small>
-              <strong>15,630<span>/30,000</span></strong>
-              <div class="mini-progress"><span style="width:52%"></span></div>
-            </div>
+        <div class="reward-expire-box">
+          <div>
+            <small>คะแนนใกล้หมดอายุ</small>
+            <strong>12 แต้ม</strong>
+            <span>หมดอายุวันที่ 30 ก.ย. 2026</span>
           </div>
+          <div class="expire-tag">Use soon</div>
         </div>
       </section>
 
-      <div class="reward-points-row">
-        <button class="points-stat" onclick="showToast('My coupons opened')">
+      <div class="reward-points-row reward-shortcut-row">
+        <button class="points-stat reward-shortcut" onclick="openSheet('myCouponsOverlay')">
           <div class="left">
             <div class="ico">🎟️</div>
-            <div>
-              <strong>คูปองของฉัน</strong>
-              <small>ดูโค้ดที่เก็บไว้</small>
-            </div>
+            <div><strong>คูปองของฉัน</strong></div>
           </div>
           <span>›</span>
         </button>
-        <button class="points-stat" onclick="showToast('Point history opened')">
+        <button class="points-stat reward-shortcut" onclick="openSheet('pointsHistoryOverlay')">
           <div class="left">
             <div class="ico">✦</div>
-            <div>
-              <strong>โอน/ดูคะแนน</strong>
-              <small>ประวัติคะแนนล่าสุด</small>
-            </div>
+            <div><strong>ประวัติคะแนน</strong></div>
           </div>
           <span>›</span>
         </button>
       </div>
 
-      <div class="reward-section-head">
+      <div class="reward-section-head reward-head-compact">
         <h2>เลือก activity</h2>
         <button onclick="showToast('Swipe to view more activities')">เลื่อนซ้ายขวา ›</button>
       </div>
 
-      <section class="activity-scroll">
+      <section class="activity-scroll reward-activity-scroll-clean">
         <button class="reward-activity-square active"><span class="emoji">☕</span><span class="label">Café</span></button>
         <button class="reward-activity-square"><span class="emoji">♨️</span><span class="label">Onsen</span></button>
         <button class="reward-activity-square"><span class="emoji">💆</span><span class="label">Massage</span></button>
@@ -1894,113 +3476,146 @@
         <button class="reward-activity-square"><span class="emoji">🏓</span><span class="label">Pickleball</span></button>
         <button class="reward-activity-square"><span class="emoji">👥</span><span class="label">Classes</span></button>
       </section>
-
-      <section class="campaign-banner">
-        <small>CAFÉ HIGHLIGHT</small>
-        <h3>ดีลเครื่องดื่ม และ snack deal สำหรับสายคาเฟ่</h3>
-        <p>ให้ผู้ใช้เข้าใจง่ายว่าใช้เครดิตตรงไหนได้บ้าง โดยเริ่มจาก reward ที่แลกง่ายและคุ้นเคยที่สุดอย่างโซนคาเฟ่</p>
-        <button onclick="showToast('Café campaign opened')">ดูเพิ่มเติม</button>
-      </section>
-
-      <div class="reward-section-head">
-        <h2>โค้ดพิเศษสำหรับคุณ</h2>
-        <button onclick="showToast('All coupons opened')">ดูทั้งหมด ›</button>
-      </div>
-
-      <section class="coupon-list">
-        <article class="coupon-card">
-          <div class="coupon-left cafe">
-            <div class="tier-tag">Gold</div>
-            <div class="icon">☕</div>
-            <div class="brand">SAYO Café</div>
-          </div>
-          <div class="coupon-body">
-            <div>
-              <h4>ฟรีเครื่องดื่ม Wellness Drink 1 แก้ว</h4>
-              <div class="merchant">Café Reward</div>
-              <p class="desc">แลกเครื่องดื่มเมนูที่ร่วมรายการ หลังออกกำลังกายหรือหลังเรียนได้เลย</p>
-              <div class="coupon-meta">
-                <span>80 credits</span>
-                <span>Best seller</span>
-              </div>
-            </div>
-            <div class="coupon-bottom">
-              <div class="expire">ใช้ได้ถึง 30.09.2026</div>
-              <button class="collect-btn" onclick="redeemReward('Free Wellness Drink',80)">เก็บโค้ด</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="coupon-card">
-          <div class="coupon-left cafe">
-            <div class="tier-tag">Gold</div>
-            <div class="icon">🥐</div>
-            <div class="brand">SAYO Café</div>
-          </div>
-          <div class="coupon-body">
-            <div>
-              <h4>ส่วนลด 20% เครื่องดื่ม + เบเกอรี่</h4>
-              <div class="merchant">Café & Co-working</div>
-              <p class="desc">ใช้ได้กับเมนูคาเฟ่และของว่าง เมื่อใช้พื้นที่ co-working ภายในวันเดียวกัน</p>
-              <div class="coupon-meta">
-                <span>60 credits</span>
-                <span>Super Save</span>
-              </div>
-            </div>
-            <div class="coupon-bottom">
-              <div class="expire">ใช้ได้ถึง 30.09.2026</div>
-              <button class="collect-btn" onclick="redeemReward('Café Combo Discount',60)">เก็บโค้ด</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="coupon-card">
-          <div class="coupon-left onsen">
-            <div class="tier-tag">Silver+</div>
-            <div class="icon">♨️</div>
-            <div class="brand">Onsen</div>
-          </div>
-          <div class="coupon-body">
-            <div>
-              <h4>Onsen 1 session ลด 15%</h4>
-              <div class="merchant">Recovery Reward</div>
-              <p class="desc">เหมาะสำหรับสัปดาห์ที่ recovery ต่ำ ระบบแนะนำให้แลกเพื่อบาลานซ์ routine</p>
-              <div class="coupon-meta">
-                <span>120 credits</span>
-                <span>Recovery pick</span>
-              </div>
-            </div>
-            <div class="coupon-bottom">
-              <div class="expire">ใช้ได้ถึง 30.09.2026</div>
-              <button class="collect-btn" onclick="redeemReward('Onsen Discount',120)">เก็บโค้ด</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="coupon-card">
-          <div class="coupon-left massage">
-            <div class="tier-tag">Gold</div>
-            <div class="icon">💆</div>
-            <div class="brand">Massage</div>
-          </div>
-          <div class="coupon-body">
-            <div>
-              <h4>Sports Massage ลด 10%</h4>
-              <div class="merchant">Recovery Reward</div>
-              <p class="desc">คูปองสำหรับคลายกล้ามเนื้อหลังออกกำลังกาย เหมาะกับสาย performance</p>
-              <div class="coupon-meta">
-                <span>150 credits</span>
-                <span>Popular</span>
-              </div>
-            </div>
-            <div class="coupon-bottom">
-              <div class="expire">ใช้ได้ถึง 30.09.2026</div>
-              <button class="collect-btn" onclick="redeemReward('Sports Massage Discount',150)">เก็บโค้ด</button>
-            </div>
-          </div>
-        </article>
-      </section>
     </section>
+
+
+
+    <!-- MY COUPONS -->
+    <div class="overlay" id="myCouponsOverlay">
+      <div class="sheet reward-sheet coupons-sheet">
+        <div class="handle"></div>
+        <div class="sheet-head">
+          <div>
+            <h2>คูปองของฉัน</h2>
+            <div style="font-size:11px;color:var(--muted);margin-top:3px">คูปองที่คุณเก็บไว้ พร้อมวันหมดอายุ</div>
+          </div>
+          <button class="close" onclick="closeSheet('myCouponsOverlay')">×</button>
+        </div>
+
+        <div class="saved-coupon-list">
+          <article class="saved-coupon-card">
+            <span class="days-left">3 DAYS LEFT</span>
+            <div class="saved-coupon-icon cafe">☕</div>
+            <div class="saved-coupon-body">
+              <strong>ฟรีเครื่องดื่ม Wellness Drink 1 แก้ว</strong>
+              <p>ใช้ได้กับเมนูเครื่องดื่มที่ร่วมรายการที่ SAYO Café</p>
+              <div class="saved-coupon-meta"><span>Code: SAYO-DRINK-01</span><span>80 credits</span></div>
+            </div>
+          </article>
+
+          <article class="saved-coupon-card">
+            <span class="days-left">5 DAYS LEFT</span>
+            <div class="saved-coupon-icon snack">🥐</div>
+            <div class="saved-coupon-body">
+              <strong>ลด 20% เครื่องดื่ม + เบเกอรี่</strong>
+              <p>สำหรับการซื้อ combo คาเฟ่ในวันเดียวกัน</p>
+              <div class="saved-coupon-meta"><span>Code: SAYO-COMBO-20</span><span>Café deal</span></div>
+            </div>
+          </article>
+
+          <article class="saved-coupon-card">
+            <span class="days-left">9 DAYS LEFT</span>
+            <div class="saved-coupon-icon recovery">♨️</div>
+            <div class="saved-coupon-body">
+              <strong>Onsen 1 session ลด 15%</strong>
+              <p>เหมาะกับวัน recovery ต่ำ ใช้สิทธิ์ได้ที่โซน Onsen</p>
+              <div class="saved-coupon-meta"><span>Code: SAYO-ONSEN-15</span><span>120 credits</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- POINT HISTORY -->
+    <div class="overlay" id="pointsHistoryOverlay">
+      <div class="sheet reward-sheet history-sheet-wrap">
+        <div class="handle"></div>
+        <div class="sheet-head">
+          <div>
+            <h2>ประวัติคะแนน</h2>
+            <div style="font-size:11px;color:var(--muted);margin-top:3px">ดูว่าคะแนนเพิ่มจากอะไร และใช้ไปกับสิทธิ์ไหนบ้าง</div>
+          </div>
+          <button class="close" onclick="closeSheet('pointsHistoryOverlay')">×</button>
+        </div>
+
+        <div class="history-summary-card">
+          <div>
+            <small>คะแนนใช้งานได้</small>
+            <strong>120</strong>
+            <span>12 คะแนนหมดอายุ 30 ก.ย. 2026</span>
+          </div>
+          <button class="history-cta" onclick="showToast('Missions coming soon')">รับแต้มเพิ่ม</button>
+        </div>
+
+        <div class="history-tabs">
+          <button class="history-tab active" data-filter="all">ประวัติทั้งหมด</button>
+          <button class="history-tab" data-filter="earned">ที่ได้รับ</button>
+          <button class="history-tab" data-filter="used">ที่ถูกใช้</button>
+        </div>
+
+        <div class="history-list">
+          <div class="history-item" data-type="earned">
+            <div class="history-icon">✦</div>
+            <div class="history-copy">
+              <strong>การเช็กอินเข้าใช้ SAYO</strong>
+              <span>คุณได้รับ Wellness Credits</span>
+              <small>08-09-2026 11:19</small>
+            </div>
+            <div class="history-value plus">+20</div>
+          </div>
+
+          <div class="history-item" data-type="earned">
+            <div class="history-icon">🔥</div>
+            <div class="history-copy">
+              <strong>ทำ 3-day streak สำเร็จ</strong>
+              <span>โบนัสต่อเนื่องจากการใช้งาน 3 วันติด</span>
+              <small>07-09-2026 19:40</small>
+            </div>
+            <div class="history-value plus">+50</div>
+          </div>
+
+          <div class="history-item" data-type="earned">
+            <div class="history-icon">☕</div>
+            <div class="history-copy">
+              <strong>ซื้อเมนูสุขภาพที่ SAYO Café</strong>
+              <span>รับแต้มจากยอดใช้จ่ายในคาเฟ่</span>
+              <small>06-09-2026 15:25</small>
+            </div>
+            <div class="history-value plus">+15</div>
+          </div>
+
+          <div class="history-item" data-type="used">
+            <div class="history-icon">🎟️</div>
+            <div class="history-copy">
+              <strong>แลกคูปอง Wellness Drink</strong>
+              <span>ใช้คะแนนแลกรับเครื่องดื่มฟรี 1 แก้ว</span>
+              <small>05-09-2026 20:12</small>
+            </div>
+            <div class="history-value minus">-80</div>
+          </div>
+
+          <div class="history-item" data-type="used">
+            <div class="history-icon">♨️</div>
+            <div class="history-copy">
+              <strong>แลกสิทธิ์ Onsen 15% Off</strong>
+              <span>ใช้คะแนนแลกรับส่วนลดบริการ Onsen</span>
+              <small>04-09-2026 17:05</small>
+            </div>
+            <div class="history-value minus">-120</div>
+          </div>
+
+          <div class="history-item" data-type="earned">
+            <div class="history-icon">🏋️</div>
+            <div class="history-copy">
+              <strong>เช็กอินคลาส Performance Fitness</strong>
+              <span>ได้รับแต้มจากการเข้าร่วมกิจกรรม</span>
+              <small>03-09-2026 18:00</small>
+            </div>
+            <div class="history-value plus">+30</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <!-- NAV -->
@@ -2189,7 +3804,329 @@
       </div>
     </div>
 
-    <div class="toast" id="toast"></div>
+    
+<div class="overlay" id="cafeFuelOverlay">
+  <div class="sheet cafe-flow-sheet">
+    <div class="handle"></div>
+
+    <!-- DETAIL VIEW -->
+    <div class="cafe-view" id="cafeCustomizeView">
+      <div class="sheet-head">
+        <button class="back-circle" type="button" onclick="backFromCafeDetail()">←</button>
+        <div class="grow-head"><h2 id="detailHeaderTitle">Menu detail</h2><div class="cafe-view-sub">ดูรายละเอียดเมนูและสั่งได้ทันที</div></div>
+        <button class="close" type="button" onclick="closeCafeFlow()">×</button>
+      </div>
+
+      <div class="cafe-hero cafe-detail-hero">
+        <div class="cafe-order-emoji" id="cafeOrderEmoji">🥤</div>
+        <div class="cafe-order-copy">
+          <small id="cafeDetailCategory">DRINKS</small>
+          <h3 id="cafeOrderName">Berry Protein Smoothie</h3>
+          <p id="cafeOrderDesc">สดชื่น โปรตีนแน่น เหมาะหลังคาร์ดิโอ</p>
+          <div class="detail-metrics">
+            <span class="detail-chip"><b id="cafeNutrition">180 kcal</b></span>
+            <span class="detail-chip price-chip"><b id="cafeDetailPrice">฿145</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-info-card">
+        <div class="detail-info-title">ส่วนประกอบ</div>
+        <div class="detail-info-text" id="cafeIngredients">สตรอว์เบอร์รี, กล้วย, Greek yogurt, เวย์โปรตีน, นมอัลมอนด์</div>
+      </div>
+
+      <div class="timing-card">
+        <span class="timing-spark">✨</span>
+        <div><b>เหมาะกับกิจกรรมวันนี้</b><span id="cafeTimingText">จบคาร์ดิโอแล้วเติมโปรตีนเบา ๆ ได้เลย เราเตรียมให้พร้อมรับประมาณ <strong>19:10</strong></span></div>
+      </div>
+
+      <div class="cafe-custom-title">Choose size</div>
+      <div class="cafe-choice-row choice-group" data-choice="size">
+        <button class="cafe-choice active" type="button" data-price="0">Regular</button>
+        <button class="cafe-choice" type="button" data-price="20">Large +฿20</button>
+      </div>
+
+      <div class="cafe-custom-title">Customize</div>
+      <div class="cafe-choice-row choice-group" data-choice="sweetness">
+        <button class="cafe-choice active" type="button">Normal</button>
+        <button class="cafe-choice" type="button">Less sweet</button>
+        <button class="cafe-choice" type="button">No sugar</button>
+      </div>
+      <div class="cafe-choice-row choice-group extra-row" data-choice="milk">
+        <button class="cafe-choice active" type="button">Original</button>
+        <button class="cafe-choice" type="button">Oat milk +฿15</button>
+      </div>
+
+      <div class="cafe-custom-title">How would you like to receive it?</div>
+      <div class="fulfilment-grid">
+        <button class="fulfilment-card active" type="button" data-mode="counter" onclick="selectFulfilment(this)">
+          <span class="fulfilment-icon">🛍️</span>
+          <b>Pick up at Café</b>
+          <small>SAYO Café · Campus Lobby</small>
+          <em>For everyone</em>
+        </button>
+        <button class="fulfilment-card" type="button" data-mode="table" onclick="selectFulfilment(this)">
+          <span class="fulfilment-icon">🪑</span>
+          <b>Serve to my table</b>
+          <small>Co-working Zone</small>
+          <em>Co-working access</em>
+        </button>
+      </div>
+
+      <div class="table-selector" id="tableSelector">
+        <div><small>YOUR CO-WORKING SEAT</small><b>Table C-12 · Quiet Zone</b></div>
+        <button type="button" onclick="cycleTable()">Change</button>
+      </div>
+
+      <div class="pickup-time-row">
+        <div><small>READY / SERVE TIME</small><b id="receiveTimeLabel">Pick up at 19:10</b></div>
+        <button type="button" onclick="cycleReceiveTime()">Change</button>
+      </div>
+
+      <button class="save cafe-primary" type="button" onclick="addCurrentToCart()">Add to order · <span id="addPrice">฿145</span></button>
+      <button class="browse-menu-btn" type="button" onclick="showCafeView('cafeMenuView')">Browse full café menu</button>
+    </div>
+
+    <!-- FULL MENU -->
+    <div class="cafe-view active" id="cafeMenuView">
+      <div class="sheet-head">
+        <button class="back-circle" type="button" onclick="closeCafeFlow()">←</button>
+        <div class="grow-head"><h2>In-store Pickup</h2><div class="cafe-view-sub">เลือกเมนูสุขภาพ เมนูคาเฟ่ และของหวานได้เลย</div></div>
+        <button class="mini-cart" type="button" onclick="openCart()">🛍️ <span id="menuCartCount">0</span></button>
+      </div>
+
+      <div class="menu-tabs menu-tabs-updated">
+        <button class="menu-tab active" type="button" data-cat="all">ทั้งหมด</button>
+        <button class="menu-tab" type="button" data-cat="drinks">เครื่องดื่ม</button>
+        <button class="menu-tab" type="button" data-cat="savory">อาหารคาว</button>
+        <button class="menu-tab" type="button" data-cat="sweets">อาหารหวาน</button>
+      </div>
+
+      <div class="full-menu-grid" id="fullMenuGrid">
+        <button class="full-menu-item" data-cat="drinks" data-name="Berry Protein Smoothie" data-price="145" data-kcal="180" data-emoji="🥤" data-desc="สดชื่น โปรตีนแน่น เหมาะหลังคาร์ดิโอ" data-ingredients="สตรอว์เบอร์รี, กล้วย, Greek yogurt, เวย์โปรตีน, นมอัลมอนด์" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic berry-bg">🥤<span>TOP MATCH</span></div><b>Berry Protein Smoothie</b><small>180 kcal · Protein boost</small><strong>฿145</strong>
+        </button>
+        <button class="full-menu-item" data-cat="drinks" data-name="Iced Matcha Oat" data-price="125" data-kcal="120" data-emoji="🍵" data-desc="พลังงานเบา ๆ ดื่มง่าย ไม่หนักท้อง" data-ingredients="มัทฉะ, นมโอ๊ต, น้ำผึ้งเล็กน้อย, เมล็ดเจีย" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic matcha-bg">🍵<span>LIGHT</span></div><b>Iced Matcha Oat</b><small>120 kcal · Gentle energy</small><strong>฿125</strong>
+        </button>
+        <button class="full-menu-item" data-cat="drinks" data-name="Yuzu Sparkling Tea" data-price="95" data-kcal="70" data-emoji="🍋" data-desc="สดชื่น ซ่าเบา ๆ เหมาะวันอยากรีเฟรช" data-ingredients="ชายุซุ, โซดา, น้ำผึ้ง, เลมอนฝาน" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic yuzu-bg">🍋<span>FRESH</span></div><b>Yuzu Sparkling Tea</b><small>70 kcal · สดชื่นดื่มง่าย</small><strong>฿95</strong>
+        </button>
+        <button class="full-menu-item" data-cat="drinks" data-name="Cold Brew Orange" data-price="110" data-kcal="85" data-emoji="☕" data-desc="กาแฟนุ่ม ๆ ตัดรสส้ม หอมสดชื่น" data-ingredients="Cold brew coffee, น้ำส้ม, syrup เล็กน้อย, ส้มสด" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic meal-bg">☕<span>TRENDING</span></div><b>Cold Brew Orange</b><small>85 kcal · Bright & smooth</small><strong>฿110</strong>
+        </button>
+        <button class="full-menu-item" data-cat="savory" data-name="Chicken Protein Wrap" data-price="165" data-kcal="390" data-emoji="🌯" data-desc="โปรตีนแน่น อิ่มกำลังดี พกง่าย" data-ingredients="แป้งโฮลวีต, อกไก่ย่าง, ผักสลัด, ไข่, ซอสโยเกิร์ต" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic wrap-bg">🌯<span>HIGH PROTEIN</span></div><b>Chicken Protein Wrap</b><small>390 kcal · Protein 28g</small><strong>฿165</strong>
+        </button>
+        <button class="full-menu-item" data-cat="savory" data-name="Avocado Egg Sando" data-price="135" data-kcal="320" data-emoji="🥪" data-desc="แซนด์วิชนุ่ม ๆ ไข่และอะโวคาโดเต็มคำ" data-ingredients="ขนมปังโฮลวีต, ไข่ต้ม, อะโวคาโด, กรีกโยเกิร์ตซอส" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic bowl-bg">🥪<span>BEST SELLER</span></div><b>Avocado Egg Sando</b><small>320 kcal · Balanced meal</small><strong>฿135</strong>
+        </button>
+        <button class="full-menu-item" data-cat="savory" data-name="Teriyaki Salmon Onigiri" data-price="89" data-kcal="280" data-emoji="🍙" data-desc="หยิบง่าย อิ่มง่าย เหมาะก่อนหรือหลังคลาส" data-ingredients="ข้าวญี่ปุ่น, แซลมอนเทอริยากิ, สาหร่าย, งาขาว" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic matcha-bg">🍙</div><b>Teriyaki Salmon Onigiri</b><small>280 kcal · Grab & go</small><strong>฿89</strong>
+        </button>
+        <button class="full-menu-item" data-cat="savory" data-name="Pesto Chicken Pasta" data-price="175" data-kcal="420" data-emoji="🍝" data-desc="เมนูอิ่มท้องสำหรับวันแอคทีฟจัด" data-ingredients="เส้นพาสตา, อกไก่, ซอสเพสโต, มะเขือเทศเชอร์รี" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic berry-bg">🍝</div><b>Pesto Chicken Pasta</b><small>420 kcal · Comfort bowl</small><strong>฿175</strong>
+        </button>
+        <button class="full-menu-item" data-cat="sweets" data-name="Yogurt Granola Bowl" data-price="135" data-kcal="240" data-emoji="🥣" data-desc="ของว่างเบา ๆ ช่วยรีคัฟเวอรีระหว่างวัน" data-ingredients="Greek yogurt, กราโนลา, เบอร์รีสด, เมล็ดฟักทอง" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic bowl-bg">🥣<span>RECOVER</span></div><b>Yogurt Granola Bowl</b><small>240 kcal · Balanced bite</small><strong>฿135</strong>
+        </button>
+        <button class="full-menu-item" data-cat="sweets" data-name="Banana Oat Muffin" data-price="75" data-kcal="210" data-emoji="🧁" data-desc="หวานน้อย หอมกล้วย เหมาะคู่กาแฟ" data-ingredients="กล้วยหอม, ข้าวโอ๊ต, อัลมอนด์, น้ำผึ้ง" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic yuzu-bg">🧁</div><b>Banana Oat Muffin</b><small>210 kcal · Low sugar</small><strong>฿75</strong>
+        </button>
+        <button class="full-menu-item" data-cat="sweets" data-name="Matcha Chia Pudding" data-price="95" data-kcal="160" data-emoji="🍮" data-desc="นุ่มละมุน อิ่มสบายท้อง" data-ingredients="เมล็ดเจีย, มัทฉะ, นมอัลมอนด์, น้ำผึ้ง" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic matcha-bg">🍮</div><b>Matcha Chia Pudding</b><small>160 kcal · Soft & light</small><strong>฿95</strong>
+        </button>
+        <button class="full-menu-item" data-cat="sweets" data-name="Dark Choco Energy Ball" data-price="65" data-kcal="95" data-emoji="🍫" data-desc="ของหวานพลังงานพอดีคำ" data-ingredients="อินทผลัม, ข้าวโอ๊ต, ดาร์กช็อกโกแลต, เมล็ดแฟลกซ์" onclick="openCafeDetailFromButton(this)">
+          <div class="menu-pic wrap-bg">🍫</div><b>Dark Choco Energy Ball</b><small>95 kcal · Bite-sized energy</small><strong>฿65</strong>
+        </button>
+      </div>
+    </div>
+
+    <!-- CART -->
+    <div class="cafe-view" id="cafeCartView">
+      <div class="sheet-head">
+        <button class="back-circle" type="button" onclick="showCafeView('cafeMenuView')">←</button>
+        <div class="grow-head"><h2>Your Order</h2><div class="cafe-view-sub">Review before payment</div></div>
+        <button class="close" type="button" onclick="closeCafeFlow()">×</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <button class="add-more-row" type="button" onclick="showCafeView('cafeMenuView')"><span>＋</span><div><b>Add more items</b><small>Browse SAYO Café menu</small></div><strong>→</strong></button>
+
+      <div class="cart-fulfilment">
+        <div class="cart-section-label">RECEIVE YOUR ORDER</div>
+        <button class="cart-method active" id="cartCounter" type="button" onclick="setCartFulfilment('counter')"><span>🛍️</span><div><b>Pick up at Café</b><small>Campus Lobby · <span class="cart-time">19:10</span></small></div><i>✓</i></button>
+        <button class="cart-method" id="cartTable" type="button" onclick="setCartFulfilment('table')"><span>🪑</span><div><b>Serve to my table</b><small id="cartTableText">Table C-12 · 19:10</small></div><i>✓</i></button>
+      </div>
+
+      <div class="order-summary">
+        <div><span>Subtotal</span><b id="cartSubtotal">฿0</b></div>
+        <div><span>Service</span><b>฿0</b></div>
+        <div class="total-line"><span>Total</span><b id="cartTotal">฿0</b></div>
+      </div>
+      <div class="points-preview">🌱 Earn <b id="pointsEarn">+0 SAYO Points</b> from this order</div>
+      <button class="save cafe-primary" type="button" onclick="openCafePayment()">Continue to payment →</button>
+    </div>
+
+    <!-- PAYMENT -->
+    <div class="cafe-view" id="cafePaymentView">
+      <div class="sheet-head">
+        <button class="back-circle" type="button" onclick="showCafeView('cafeCartView')">←</button>
+        <div class="grow-head"><h2>Payment</h2><div class="cafe-view-sub">Secure checkout</div></div>
+      </div>
+      <div class="payment-total-card">
+        <small>TOTAL</small><strong id="paymentTotal">฿0</strong>
+        <span id="paymentReceive">Pick up · SAYO Café Campus Lobby · 19:10</span>
+      </div>
+      <div class="cart-section-label payment-label">PAY WITH</div>
+      <button class="payment-method active" type="button" onclick="choosePay(this,'PromptPay')"><span class="pay-icon">▦</span><div><b>PromptPay QR</b><small>Scan with your banking app</small></div><i>✓</i></button>
+      <button class="payment-method" type="button" onclick="choosePay(this,'Visa •••• 4242')"><span class="pay-icon">💳</span><div><b>Visa •••• 4242</b><small>Saved card</small></div><i>✓</i></button>
+      <div class="points-preview payment-points">✨ You’ll receive <b id="paymentPoints">+0 SAYO Points</b> after payment</div>
+      <button class="save cafe-primary" type="button" onclick="payCafeOrder()">Pay <span id="payButtonTotal">฿0</span></button>
+    </div>
+
+    <!-- SUCCESS / TRACKING -->
+    <div class="cafe-view" id="cafeTrackingView">
+      <div class="tracking-top">
+        <div class="success-check">✓</div>
+        <small>ORDER CONFIRMED</small>
+        <h2>We're making it now ✨</h2>
+        <p id="trackingReceive">Ready for pick-up at 19:10</p>
+        <span class="order-number">Order #SAYO1842</span>
+      </div>
+
+      <div class="tracking-progress">
+        <div class="track-step done"><i>✓</i><div><b>Order confirmed</b><small>Payment received</small></div></div>
+        <div class="track-line active"></div>
+        <div class="track-step current" id="preparingStep"><i>2</i><div><b>Preparing</b><small>Your order is being made</small></div></div>
+        <div class="track-line" id="readyLine"></div>
+        <div class="track-step" id="readyStep"><i>3</i><div><b id="readyStepTitle">Ready for pickup</b><small id="readyStepSub">Estimated 19:10</small></div></div>
+      </div>
+
+      <div class="tracking-eta">
+        <small>ESTIMATED READY</small><strong>19:10</strong><span id="etaPlace">SAYO Café · Campus Lobby</span>
+      </div>
+
+      <div class="earned-card">🌱 <div><small>WELLNESS REWARD</small><b id="earnedPoints">+25 SAYO Points earned</b></div></div>
+      <button class="save cafe-primary" id="simulateReadyBtn" type="button" onclick="markCafeReady()">Preview “Ready” status</button>
+      <button class="browse-menu-btn" type="button" onclick="closeCafeFlow()">Back to SAYO</button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="overlay" id="parkingSystemOverlay">
+  <div class="sheet parking-sheet" id="parkingSheet">
+    <div class="handle"></div>
+    <div class="sheet-head">
+      <div>
+        <small class="parking-kicker">SAYO CAMPUS</small>
+        <h2>Parking</h2>
+      </div>
+      <button class="close" onclick="closeParkingSystem()">×</button>
+    </div>
+
+    <div class="parking-availability-card" id="parkingAvailabilityCard">
+      <div class="parking-availability-head">
+        <div>
+          <small>แนะนำตอนนี้</small>
+          <strong>จอดที่ชั้น 3</strong>
+          <span>ว่าง 24 ช่อง · ใกล้ลิฟต์ B</span>
+        </div>
+        <div class="parking-mini-badge">🅿️</div>
+      </div>
+
+      <div class="parking-floor-compact-list">
+        <div class="parking-floor-compact full">
+          <b>ชั้น 1</b>
+          <span>2 ช่อง · เกือบเต็ม</span>
+        </div>
+        <div class="parking-floor-compact busy">
+          <b>ชั้น 2</b>
+          <span>8 ช่อง · ค่อนข้างแน่น</span>
+        </div>
+        <div class="parking-floor-compact recommended">
+          <b>ชั้น 3</b>
+          <span>24 ช่อง · แนะนำ</span>
+        </div>
+        <div class="parking-floor-compact open">
+          <b>ชั้น 4</b>
+          <span>16 ช่อง · ยังว่าง</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="parking-flow-state" id="parkingEmptyState">
+      <div class="parking-empty-card">
+        <div class="parking-empty-icon">🎟️</div>
+        <h3>ยังไม่มีใบจอดรถในระบบ</h3>
+        <p>สแกนใบจอดรถก่อน เพื่อดูเวลาจอดฟรีคงเหลือและสิทธิ์จอดฟรีเพิ่มจากยอดซื้อที่ SAYO Café</p>
+        <div class="parking-empty-actions">
+          <button class="parking-btn secondary" onclick="showToast('My car demo')">ดูรถของฉัน</button>
+          <button class="parking-btn primary" onclick="scanParkingTicket()">สแกนใบจอดรถ</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="parking-flow-state hidden" id="parkingScannedState">
+      <div class="parking-ticket-card">
+        <div class="parking-ticket-top">
+          <div>
+            <small>SCANNED TICKET</small>
+            <strong>จอดฟรีได้ถึง 19:54</strong>
+            <span>เริ่มนับตั้งแต่ 17:54 วันนี้</span>
+          </div>
+          <div class="parking-time-left">
+            <small>เหลือเวลา</small>
+            <strong>1 ชม. 19 นาที</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="parking-benefit-card">
+        <div class="parking-benefit-head">
+          <div>
+            <small>EARN EXTRA HOURS</small>
+            <strong>ซื้อเพิ่มอีกนิด ได้จอดฟรีเพิ่ม</strong>
+            <span>นับยอดเฉพาะร้าน SAYO Café</span>
+          </div>
+          <div class="parking-spend-pill">ใช้ไป ฿120</div>
+        </div>
+
+        <div class="parking-tier-row">
+          <div class="parking-tier-card done">
+            <small>FREE</small>
+            <strong>1 ชม.</strong>
+          </div>
+          <div class="parking-tier-card done">
+            <small>฿100</small>
+            <strong>2 ชม.</strong>
+          </div>
+          <div class="parking-tier-card current">
+            <small>฿150</small>
+            <strong>3 ชม.</strong>
+          </div>
+          <div class="parking-tier-card">
+            <small>฿200</small>
+            <strong>4 ชม.</strong>
+          </div>
+        </div>
+
+        <div class="parking-next-unlock">
+          <div>
+            <small>NEXT UNLOCK</small>
+            <strong>ซื้อเพิ่มอีก ฿30</strong>
+            <span>ปลดล็อกจอดฟรีรวม 3 ชั่วโมง</span>
+          </div>
+          <button class="parking-upload-btn" onclick="showToast('Upload receipt demo')">Upload receipt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="toast" id="toast"></div>
   </div>
 
 <script>
@@ -2306,6 +4243,22 @@
       document.querySelectorAll('.reward-activity-square').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       showToast(btn.querySelector('.label').textContent + ' rewards selected');
+    });
+  });
+
+
+
+
+  // reward history tabs
+  document.querySelectorAll('.history-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const parent = tab.parentElement;
+      parent.querySelectorAll('.history-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      document.querySelectorAll('#pointsHistoryOverlay .history-item').forEach(item => {
+        item.style.display = (filter === 'all' || item.dataset.type === filter) ? 'flex' : 'none';
+      });
     });
   });
 
@@ -2689,18 +4642,107 @@
 
   async function shareWrap(){
     try{
-      if(navigator.share){
+      const canvas = document.createElement('canvas');
+      canvas.width = 1080;
+      canvas.height = 1920;
+      const ctx = canvas.getContext('2d');
+
+      // Background
+      const bg = ctx.createLinearGradient(0,0,1080,1920);
+      bg.addColorStop(0,'#F4EFD2');
+      bg.addColorStop(.48,'#DDEED8');
+      bg.addColorStop(1,'#BFE2C6');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0,0,1080,1920);
+
+      // Decorative soft circles
+      ctx.globalAlpha = .22;
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath(); ctx.arc(850,250,210,0,Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(220,1450,250,0,Math.PI*2); ctx.fill();
+      ctx.globalAlpha = 1;
+
+      // Brand
+      ctx.fillStyle = '#143F38';
+      ctx.font = '700 42px Arial';
+      ctx.fillText('SAYO · WEEKLY WRAP', 90, 180);
+
+      // Headline
+      ctx.font = '900 94px Arial';
+      ctx.fillText('A healthier,', 90, 360);
+      ctx.fillText('happier you.', 90, 470);
+
+      // Stats cards
+      const cards = [
+        {x:90,  y:650, label:'activities', value:'5'},
+        {x:390, y:650, label:'kcal burned', value:'2,340'},
+        {x:690, y:650, label:'wellness score', value:'+18%'}
+      ];
+
+      cards.forEach(c=>{
+        ctx.fillStyle = 'rgba(255,255,255,.72)';
+        roundRect(ctx,c.x,c.y,250,230,34);
+        ctx.fill();
+        ctx.fillStyle = '#143F38';
+        ctx.font = '900 66px Arial';
+        ctx.fillText(c.value,c.x+28,c.y+90);
+        ctx.font = '500 30px Arial';
+        ctx.fillStyle = '#60766E';
+        ctx.fillText(c.label,c.x+28,c.y+145);
+      });
+
+      // Footer
+      ctx.fillStyle = '#143F38';
+      ctx.font = '700 44px Arial';
+      ctx.fillText('Keep showing up for yourself ✨',90,1540);
+      ctx.font = '500 32px Arial';
+      ctx.fillStyle = '#60766E';
+      ctx.fillText('Shared from SAYO',90,1600);
+
+      // Logo-like wordmark
+      ctx.font = '900 118px Arial';
+      ctx.fillStyle = '#143F38';
+      ctx.fillText('SAYO',90,1770);
+
+      const blob = await new Promise(resolve => canvas.toBlob(resolve,'image/png',1));
+      const file = new File([blob],'sayo-wellness-wrap.png',{type:'image/png'});
+
+      if(navigator.canShare && navigator.canShare({files:[file]})){
         await navigator.share({
           title:'My SAYO Wellness Wrap',
-          text:'5 activities · 2,340 kcal · +18% wellness score ✨ #SAYOWellness'
+          text:'My SAYO Wellness Wrap ✨',
+          files:[file]
+        });
+        showToast('เลือก Instagram / Stories จากหน้าต่าง Share ได้เลย');
+      }else if(navigator.share){
+        await navigator.share({
+          title:'My SAYO Wellness Wrap',
+          text:'My SAYO Wellness Wrap ✨ #SAYOWellness'
         });
       }else{
-        await navigator.clipboard.writeText('My SAYO Wellness Wrap: 5 activities · 2,340 kcal · +18% wellness score ✨ #SAYOWellness');
-        showToast('Share text copied');
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'sayo-wellness-wrap.png';
+        a.click();
+        setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+        showToast('บันทึก Story image แล้ว — เปิด Instagram เพื่อโพสต์ได้เลย');
       }
     }catch(e){
-      if(e.name !== 'AbortError') showToast('Sharing is not supported in this browser');
+      if(e.name !== 'AbortError'){
+        showToast('อุปกรณ์นี้ยังไม่รองรับการแชร์ไฟล์โดยตรง');
+      }
     }
+  }
+
+  function roundRect(ctx,x,y,w,h,r){
+    const rr = Math.min(r,w/2,h/2);
+    ctx.beginPath();
+    ctx.moveTo(x+rr,y);
+    ctx.arcTo(x+w,y,x+w,y+h,rr);
+    ctx.arcTo(x+w,y+h,x,y+h,rr);
+    ctx.arcTo(x,y+h,x,y,rr);
+    ctx.arcTo(x,y,x+w,y,rr);
+    ctx.closePath();
   }
 
 
@@ -2724,5 +4766,275 @@
     toastTimer = setTimeout(() => t.classList.remove('show'), 2000);
   }
 </script>
+
+<script id="fuel-cafe-js">
+let cafeCart=[];
+let cafeFulfilment='counter';
+let cafeTable='C-12';
+let cafeReceiveTime='19:10';
+let selectedPayment='PromptPay';
+let cafeDetailBackTarget='cafeMenuView';
+let cafeCurrentItem={};
+
+const cafeMenuData={
+  "Berry Protein Smoothie":{name:"Berry Protein Smoothie",category:"drinks",emoji:"🥤",kcal:180,price:145,desc:"สดชื่น โปรตีนแน่น เหมาะหลังคาร์ดิโอ",ingredients:"สตรอว์เบอร์รี, กล้วย, Greek yogurt, เวย์โปรตีน, นมอัลมอนด์",timing:"หลังคาร์ดิโอ เติมโปรตีนได้แบบไม่หนักท้อง พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Iced Matcha Oat":{name:"Iced Matcha Oat",category:"drinks",emoji:"🍵",kcal:120,price:125,desc:"พลังงานเบา ๆ ดื่มง่าย ไม่หนักท้อง",ingredients:"มัทฉะ, นมโอ๊ต, น้ำผึ้งเล็กน้อย, เมล็ดเจีย",timing:"เหมาะเป็นพลังงานเบา ๆ ก่อนคลาสหรือช่วงบ่าย พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Yogurt Granola Bowl":{name:"Yogurt Granola Bowl",category:"sweets",emoji:"🥣",kcal:240,price:135,desc:"ของว่างเบา ๆ ช่วยรีคัฟเวอรีระหว่างวัน",ingredients:"Greek yogurt, กราโนลา, เบอร์รีสด, เมล็ดฟักทอง",timing:"เหมาะเป็น recovery snack หลังออกกำลังกาย พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Yuzu Sparkling Tea":{name:"Yuzu Sparkling Tea",category:"drinks",emoji:"🍋",kcal:70,price:95,desc:"สดชื่น ซ่าเบา ๆ เหมาะวันอยากรีเฟรช",ingredients:"ชายุซุ, โซดา, น้ำผึ้ง, เลมอนฝาน",timing:"เหมาะกับวันอยากสดชื่นสบาย ๆ พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Cold Brew Orange":{name:"Cold Brew Orange",category:"drinks",emoji:"☕",kcal:85,price:110,desc:"กาแฟนุ่ม ๆ ตัดรสส้ม หอมสดชื่น",ingredients:"Cold brew coffee, น้ำส้ม, syrup เล็กน้อย, ส้มสด",timing:"เหมาะเป็นคาเฟอีนเบา ๆ สำหรับรีเฟรชระหว่างวัน พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Chicken Protein Wrap":{name:"Chicken Protein Wrap",category:"savory",emoji:"🌯",kcal:390,price:165,desc:"โปรตีนแน่น อิ่มกำลังดี พกง่าย",ingredients:"แป้งโฮลวีต, อกไก่ย่าง, ผักสลัด, ไข่, ซอสโยเกิร์ต",timing:"เหมาะหลัง workout หรือเป็นมื้อเย็นเบา ๆ พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Avocado Egg Sando":{name:"Avocado Egg Sando",category:"savory",emoji:"🥪",kcal:320,price:135,desc:"แซนด์วิชนุ่ม ๆ ไข่และอะโวคาโดเต็มคำ",ingredients:"ขนมปังโฮลวีต, ไข่ต้ม, อะโวคาโด, กรีกโยเกิร์ตซอส",timing:"อิ่มกำลังดีสำหรับมื้อเร็ว ๆ หรือก่อนเข้าคลาส พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Teriyaki Salmon Onigiri":{name:"Teriyaki Salmon Onigiri",category:"savory",emoji:"🍙",kcal:280,price:89,desc:"หยิบง่าย อิ่มง่าย เหมาะก่อนหรือหลังคลาส",ingredients:"ข้าวญี่ปุ่น, แซลมอนเทอริยากิ, สาหร่าย, งาขาว",timing:"เหมาะกับวันที่เร่งรีบ อยากได้มื้อสั้น ๆ แต่ยังอยู่ท้อง พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Pesto Chicken Pasta":{name:"Pesto Chicken Pasta",category:"savory",emoji:"🍝",kcal:420,price:175,desc:"เมนูอิ่มท้องสำหรับวันแอคทีฟจัด",ingredients:"เส้นพาสตา, อกไก่, ซอสเพสโต, มะเขือเทศเชอร์รี",timing:"เหมาะสำหรับเติมพลังหลังวันกิจกรรมแน่น ๆ พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Banana Oat Muffin":{name:"Banana Oat Muffin",category:"sweets",emoji:"🧁",kcal:210,price:75,desc:"หวานน้อย หอมกล้วย เหมาะคู่กาแฟ",ingredients:"กล้วยหอม, ข้าวโอ๊ต, อัลมอนด์, น้ำผึ้ง",timing:"เหมาะเป็นของว่างช่วงบ่ายหรือกินคู่กาแฟ พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Matcha Chia Pudding":{name:"Matcha Chia Pudding",category:"sweets",emoji:"🍮",kcal:160,price:95,desc:"นุ่มละมุน อิ่มสบายท้อง",ingredients:"เมล็ดเจีย, มัทฉะ, นมอัลมอนด์, น้ำผึ้ง",timing:"หวานเบา ๆ สำหรับวันอยาก treat ตัวเองแบบเฮลท์ตี้ พร้อมรับประมาณ <strong>19:10</strong>."},
+  "Dark Choco Energy Ball":{name:"Dark Choco Energy Ball",category:"sweets",emoji:"🍫",kcal:95,price:65,desc:"ของหวานพลังงานพอดีคำ",ingredients:"อินทผลัม, ข้าวโอ๊ต, ดาร์กช็อกโกแลต, เมล็ดแฟลกซ์",timing:"เหมาะเป็น pre-workout snack หรือเติมแรงระหว่างวัน พร้อมรับประมาณ <strong>19:10</strong>."}
+};
+const categoryLabel={all:'ทั้งหมด',drinks:'DRINKS',savory:'SAVORY',sweets:'SWEETS'};
+
+(function(){
+  const root=document.getElementById('fuelYourDay');
+  if(!root)return;
+
+  document.querySelectorAll('#cafeFuelOverlay .choice-group').forEach(group=>{
+    group.querySelectorAll('.cafe-choice').forEach(btn=>btn.addEventListener('click',()=>{
+      group.querySelectorAll('.cafe-choice').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+      updateAddPrice();
+    }));
+  });
+
+  document.querySelectorAll('.menu-tab').forEach(tab=>tab.addEventListener('click',()=>{
+    document.querySelectorAll('.menu-tab').forEach(x=>x.classList.remove('active'));
+    tab.classList.add('active');
+    const cat=tab.dataset.cat;
+    document.querySelectorAll('.full-menu-item').forEach(item=>{
+      item.style.display=(cat==='all'||item.dataset.cat===cat)?'block':'none';
+    });
+  }));
+})();
+
+function toggleMenuFavorite(event, btn){
+  if(event) event.stopPropagation();
+  btn.classList.toggle('liked');
+  btn.textContent=btn.classList.contains('liked')?'♥':'♡';
+}
+
+function openCafeMenu(){
+  showCafeView('cafeMenuView');
+  openSheet('cafeFuelOverlay');
+}
+function openCafeFuel(){ openCafeMenu(); }
+function closeCafeFlow(){ closeSheet('cafeFuelOverlay'); }
+
+function openCafeDetailByName(name, source='menu'){
+  const item=cafeMenuData[name];
+  if(!item) return;
+  cafeCurrentItem=item;
+  cafeDetailBackTarget = source==='recommended' ? 'close' : 'cafeMenuView';
+  document.getElementById('detailHeaderTitle').textContent = item.name;
+  document.getElementById('cafeOrderEmoji').textContent=item.emoji;
+  document.getElementById('cafeOrderName').textContent=item.name;
+  document.getElementById('cafeOrderDesc').textContent=item.desc;
+  document.getElementById('cafeNutrition').textContent=item.kcal+' kcal';
+  document.getElementById('cafeDetailPrice').textContent='฿'+item.price;
+  document.getElementById('cafeIngredients').textContent=item.ingredients;
+  document.getElementById('cafeDetailCategory').textContent=categoryLabel[item.category]||'MENU';
+  document.getElementById('cafeTimingText').innerHTML=item.timing;
+  updateAddPrice();
+  showCafeView('cafeCustomizeView');
+  openSheet('cafeFuelOverlay');
+}
+function openCafeDetailFromButton(btn){ openCafeDetailByName(btn.dataset.name,'menu'); }
+function backFromCafeDetail(){
+  if(cafeDetailBackTarget==='close') closeCafeFlow();
+  else showCafeView('cafeMenuView');
+}
+function showCafeView(id){
+  document.querySelectorAll('#cafeFuelOverlay .cafe-view').forEach(v=>v.classList.remove('active'));
+  const target=document.getElementById(id); if(target) target.classList.add('active');
+  document.querySelector('#cafeFuelOverlay .cafe-flow-sheet').scrollTop=0;
+}
+function updateAddPrice(){
+  let price=Number(cafeCurrentItem.price||145);
+  const size=document.querySelector('[data-choice="size"] .cafe-choice.active');
+  if(size) price+=Number(size.dataset.price||0);
+  const milk=document.querySelector('[data-choice="milk"] .cafe-choice.active');
+  if(milk && milk.textContent.includes('+฿15')) price+=15;
+  const el=document.getElementById('addPrice'); if(el) el.textContent='฿'+price;
+}
+function selectFulfilment(btn){
+  document.querySelectorAll('.fulfilment-card').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  cafeFulfilment=btn.dataset.mode;
+  document.getElementById('tableSelector').classList.toggle('show',cafeFulfilment==='table');
+  document.getElementById('receiveTimeLabel').textContent=(cafeFulfilment==='table'?'Serve at ':'Pick up at ')+cafeReceiveTime;
+}
+function cycleTable(){
+  const tables=['C-12','B-07','A-04']; cafeTable=tables[(tables.indexOf(cafeTable)+1)%tables.length];
+  document.querySelector('#tableSelector b').textContent='Table '+cafeTable+' · Quiet Zone';
+}
+function cycleReceiveTime(){
+  const times=['19:10','19:20','19:30']; cafeReceiveTime=times[(times.indexOf(cafeReceiveTime)+1)%times.length];
+  document.getElementById('receiveTimeLabel').textContent=(cafeFulfilment==='table'?'Serve at ':'Pick up at ')+cafeReceiveTime;
+}
+function addCurrentToCart(){
+  const name=document.getElementById('cafeOrderName').textContent;
+  const item=cafeMenuData[name]||cafeCurrentItem;
+  const emoji=item.emoji||'🥤';
+  const kcal=(item.kcal||0)+' kcal';
+  const size=document.querySelector('[data-choice="size"] .cafe-choice.active')?.textContent.trim()||'Regular';
+  const sweet=document.querySelector('[data-choice="sweetness"] .cafe-choice.active')?.textContent.trim()||'Normal';
+  const milk=document.querySelector('[data-choice="milk"] .cafe-choice.active')?.textContent.trim()||'Original';
+  let price=Number(item.price||145);
+  if(size.includes('+฿20')) price+=20;
+  if(milk.includes('+฿15')) price+=15;
+  cafeCart.push({name,emoji,kcal,price,detail:[size,sweet,milk].join(' · ')});
+  renderCart(); showCafeView('cafeCartView');
+}
+function quickAddMenu(btn){ openCafeDetailFromButton(btn); }
+function openCart(){ renderCart(); showCafeView('cafeCartView'); openSheet('cafeFuelOverlay'); }
+function removeCartItem(i){ cafeCart.splice(i,1); renderCart(); }
+function renderCart(){
+  const wrap=document.getElementById('cartItems');
+  if(!cafeCart.length){
+    wrap.innerHTML='<div style="padding:22px;text-align:center;color:#82918b;font-size:10px">Your café order is empty.</div>';
+  } else {
+    wrap.innerHTML=cafeCart.map((x,i)=>`<div class="cart-item"><div class="cart-item-emoji">${x.emoji}</div><div><b>${x.name}</b><small>${x.detail} · ${x.kcal}</small><button class="cart-remove" onclick="removeCartItem(${i})">Remove</button></div><strong>฿${x.price}</strong></div>`).join('');
+  }
+  document.getElementById('menuCartCount').textContent=cafeCart.length;
+  const total=cafeCart.reduce((s,x)=>s+x.price,0);
+  document.getElementById('cartSubtotal').textContent='฿'+total;
+  document.getElementById('cartTotal').textContent='฿'+total;
+  const pts=Math.max(0,Math.round(total/6));
+  document.getElementById('pointsEarn').textContent='+'+pts+' SAYO Points';
+  syncCartFulfilment();
+}
+function setCartFulfilment(mode){cafeFulfilment=mode;syncCartFulfilment();}
+function syncCartFulfilment(){
+  document.getElementById('cartCounter').classList.toggle('active',cafeFulfilment==='counter');
+  document.getElementById('cartTable').classList.toggle('active',cafeFulfilment==='table');
+  document.getElementById('cartTableText').textContent='Table '+cafeTable+' · '+cafeReceiveTime;
+  document.querySelectorAll('.cart-time').forEach(x=>x.textContent=cafeReceiveTime);
+}
+function openCafePayment(){
+  if(!cafeCart.length){showToast('Please add an item first');return;}
+  const total=cafeCart.reduce((s,x)=>s+x.price,0), pts=Math.round(total/6);
+  document.getElementById('paymentTotal').textContent='฿'+total;
+  document.getElementById('payButtonTotal').textContent='฿'+total;
+  document.getElementById('paymentPoints').textContent='+'+pts+' SAYO Points';
+  document.getElementById('paymentReceive').textContent=cafeFulfilment==='table'
+    ?'Serve to Table '+cafeTable+' · '+cafeReceiveTime
+    :'Pick up · SAYO Café Campus Lobby · '+cafeReceiveTime;
+  showCafeView('cafePaymentView');
+}
+function choosePay(btn,name){
+  document.querySelectorAll('.payment-method').forEach(x=>x.classList.remove('active'));btn.classList.add('active');selectedPayment=name;
+}
+function payCafeOrder(){
+  const total=cafeCart.reduce((s,x)=>s+x.price,0), pts=Math.round(total/6);
+  document.getElementById('earnedPoints').textContent='+'+pts+' SAYO Points earned';
+  document.getElementById('trackingReceive').textContent=cafeFulfilment==='table'
+    ?'We’ll serve it to Table '+cafeTable+' at '+cafeReceiveTime
+    :'Ready for pick-up at '+cafeReceiveTime;
+  document.getElementById('etaPlace').textContent=cafeFulfilment==='table'
+    ?'Co-working · Table '+cafeTable
+    :'SAYO Café · Campus Lobby';
+  document.getElementById('readyStepTitle').textContent=cafeFulfilment==='table'?'Serving to your table':'Ready for pickup';
+  document.getElementById('readyStepSub').textContent='Estimated '+cafeReceiveTime;
+  showCafeView('cafeTrackingView');
+}
+function markCafeReady(){
+  document.getElementById('preparingStep').classList.remove('current');
+  document.getElementById('preparingStep').classList.add('done');
+  document.querySelector('#preparingStep i').textContent='✓';
+  document.getElementById('readyLine').classList.add('active');
+  document.getElementById('readyStep').classList.add('current');
+  document.querySelector('#readyStep i').textContent='✓';
+  document.querySelector('.tracking-top h2').textContent=cafeFulfilment==='table'?'On the way to your table ✨':'Your order is ready! ✨';
+  document.getElementById('simulateReadyBtn').textContent=cafeFulfilment==='table'?'Serving now · Table '+cafeTable:'Show pickup code · #1842';
+}
+</script>
+
+<script id="parking-system-js">
+function openParkingSystem(){
+  const overlay = document.getElementById('parkingSystemOverlay');
+  const emptyState = document.getElementById('parkingEmptyState');
+  const scannedState = document.getElementById('parkingScannedState');
+  const availability = document.getElementById('parkingAvailabilityCard');
+  if (emptyState) emptyState.classList.remove('hidden');
+  if (scannedState) scannedState.classList.add('hidden');
+  if (availability) availability.classList.remove('hidden');
+  if (overlay) overlay.classList.add('show');
+}
+function closeParkingSystem(){
+  const overlay = document.getElementById('parkingSystemOverlay');
+  if (overlay) overlay.classList.remove('show');
+}
+function scanParkingTicket(){
+  const emptyState = document.getElementById('parkingEmptyState');
+  const scannedState = document.getElementById('parkingScannedState');
+  const availability = document.getElementById('parkingAvailabilityCard');
+  if (emptyState) emptyState.classList.add('hidden');
+  if (scannedState) scannedState.classList.remove('hidden');
+  if (availability) availability.classList.add('hidden');
+  showToast('Parking ticket scanned');
+}
+</script>
+
+
+<style id="cafe-refresh-styles">
+.fuel-selected{display:none !important}
+.fuel-menu-scroll-updated{padding-bottom:2px}
+.fuel-menu-updated{position:relative;padding-top:18px;cursor:pointer}
+.fuel-card-heart{position:absolute;top:10px;right:10px;width:24px;height:24px;border:none;border-radius:50%;background:#F7FAF7;color:#7F918B;font-size:14px;display:grid;place-items:center;box-shadow:0 4px 10px rgba(33,78,60,.08)}
+.fuel-card-heart.liked{color:#2F8A63;background:#E8F5EC}
+.fuel-menu-updated .fuel-drink{margin-top:2px}
+.cafe-detail-hero{align-items:flex-start}
+.detail-metrics{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.detail-chip{display:inline-flex;align-items:center;padding:6px 11px;border-radius:999px;background:#EFF6F0;color:#294E43;font-size:10px;font-weight:800}
+.detail-chip.price-chip{background:#FFF3D9;color:#9A6C0F}
+.detail-info-card{border:1px solid #E5ECE3;background:#F9FCF9;border-radius:18px;padding:14px 15px;margin-top:12px}
+.detail-info-title{font-size:10px;font-weight:900;letter-spacing:.6px;color:#6B8079;text-transform:uppercase;margin-bottom:7px}
+.detail-info-text{font-size:10px;line-height:1.6;color:#35534A}
+.menu-tabs-updated .menu-tab{font-size:9px;padding:9px 13px}
+.full-menu-item{cursor:pointer}
+.full-menu-item .menu-pic{position:relative}
+.full-menu-item .menu-pic span{font-size:7px}
+.fuel-order-btn{margin-top:10px}
+</style>
+
+
+<style id="fuel-heart-zfix">
+#fuelYourDay .fuel-menu-updated{
+  position:relative !important;
+  overflow:visible !important;
+}
+#fuelYourDay .fuel-card-heart{
+  position:absolute !important;
+  top:10px !important;
+  right:10px !important;
+  z-index:20 !important;
+  width:28px !important;
+  height:28px !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:rgba(255,255,255,.95) !important;
+  color:#6D8B80 !important;
+  box-shadow:0 4px 12px rgba(28,70,55,.14) !important;
+  display:grid !important;
+  place-items:center !important;
+  pointer-events:auto !important;
+}
+#fuelYourDay .fuel-card-heart.liked{
+  color:#2F8A63 !important;
+  background:#EAF6EE !important;
+}
+#fuelYourDay .fuel-drink{
+  position:relative !important;
+  z-index:1 !important;
+}
+</style>
+
 </body>
 </html>
